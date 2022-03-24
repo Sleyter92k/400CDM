@@ -1,20 +1,16 @@
 <?php
-
-$log = "mysql:host=$host:$port;dbname=$database";
+// variable de connexion
+$host = 'localhost';// le chemin vers le serveur de données
+$database = '400cdm';// le nom de la BDD
+$user = 'root';// le nom d'utilisateur pour se connecter
+$psw = '';// mdp PC XAMPP
 
 // Retourne une instance de PDO. La signature de la fonction getInstancePDO implique que l'objet doit être nécessairement de type PDO
 // Sinon une erreur sera levée
-function getInstancePDO(string $log, string $user, string $password): PDO
-{
-    try {
-        $pdo = new PDO($log, $user, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
+$pdoLOG = new PDO('mysql:host='.$host.';dbname='.$database,$user,$psw,
+array(
+  PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,// pour afficher les warnings SQL dans le navigateur
+  PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',// pour définir le charset des échanges avec la BDD
+));
 
-        return $pdo;
-    } catch (PDOException $e) {
-        echo "Problème de connection à la BDD: " . $e->getMessage();
-        // On arrête le script (car la connection bdd ne s'est pas faite) avec un die() pour ne pas que le script puisse exécuter les lignes de code suivants dans le fichier d'appel (07_exo_pdo.php)
-        die();
-    }
-}
+// var_dump(get_class_methods($pdoLOG));
