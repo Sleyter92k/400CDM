@@ -10,15 +10,13 @@
                         <li class="nav-item"><a class="nav-link" href="annonce.php">Déposer une annonce</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     </ul>
-                        
-                        <button class="btn btn-outline-dark" type="submit">
-                            Connexion
-                        </button>
+                        <div class="col-md-2">
+                            <div class="row">
+                        <button class="btn btn-outline-dark" type="submit"><a href="connexion.php">Connexion</a></button>
 
-                        <button class="btn btn-outline-dark" type="submit">
-                            Inscription
-                        </button>
-
+                        <button class="btn btn-outline-dark" type="submit"><a href="inscription.php">Inscription</a></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
