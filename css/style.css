@@ -1,0 +1,24 @@
+:root {
+    --bleu-azur : #41c1ba;
+    --blanc : #F7F7F7;
+    --bleu-marine : #365b6d;
+    --bleu-kaki: #6C9286;
+    --ocre: #F2F1EC;
+    --bleu-ciel: #289DD2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-color: var(--bleu-azur);
+}
+
+footer {
+    background-color: var(--bleu-marine);
+}
+
+.log {
+    background-color: var(--bleu-ciel);
+}
