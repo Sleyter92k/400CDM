@@ -1,3 +1,4 @@
+<?php  require_once 'inc/log_bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>

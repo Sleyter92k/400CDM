@@ -13,14 +13,13 @@ body {
 }
 
 header {
-    background-color: var(--bleu-ciel);
+    background-color: var(--bleu-marine);
     border-radius: 5px;
-    border-bottom: 50px;
 }
 
 .nav-item {
-    padding: 30px;
-    margin-right: 50px;
+    /* padding: 30px; */
+    /* margin-right: 50px; */
     border-radius: 5px;
 }
 
