@@ -15,10 +15,14 @@ header {
     background-color: var(--bleu-azur);
 }
 
+#navcontent {
+    color: var(--bleu-marine);
+}
+
+
 footer {
     background-color: var(--bleu-marine);
 }
 
-.log {
-    background-color: var(--bleu-ciel);
-}
+
+

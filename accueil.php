@@ -19,11 +19,11 @@
         <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
-        <?php require_once 'inc/navbar.php'; ?>
+    <?php require_once 'inc/navbar.php'; ?>
         
-        <header class="py-5">
-
-        </header>
+         <header class="py-5">
+         <?php require_once 'inc/navbar.php'; ?>
+        </header> 
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
