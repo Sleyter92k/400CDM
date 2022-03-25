@@ -21,6 +21,7 @@ header {
 .nav-item {
     padding: 30px;
     margin-right: 50px;
+    border-radius: 5px;
 }
 
 #navbar {

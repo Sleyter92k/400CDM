@@ -35,23 +35,14 @@
             <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
         </div>
         <div class="mb-3">
-            <label class="form-label d-block">New Field 22</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="services" type="checkbox" name="newField22" data-sb-validations="" />
-                <label class="form-check-label" for="services">Services</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="biens" type="checkbox" name="newField22" data-sb-validations="" />
-                <label class="form-check-label" for="biens">Biens</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="prets" type="checkbox" name="newField22" data-sb-validations="" />
-                <label class="form-check-label" for="prets">Prêts</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="dons" type="checkbox" name="newField22" data-sb-validations="" />
-                <label class="form-check-label" for="dons">Dons</label>
-            </div>
+            <label class="form-label" for=""></label>
+            <select class="form-select" id="" aria-label="">
+                <option value="Services">Services</option>
+                <option value="Biens">Biens</option>
+                <option value="Prêts">Prêts</option>
+                <option value="Dons">Dons</option>
+            </select>
+        </div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="titre">Titre</label>
