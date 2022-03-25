@@ -19,10 +19,82 @@
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         
-        <header class="py-5">
 
-        </header>
-        <!-- Section-->
+        <div class="container px-5 my-5">
+    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <div class="mb-3">
+            <label class="form-label d-block">Type de coup de main</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="offre" type="radio" name="typeDeCoupDeMain" data-sb-validations="required" />
+                <label class="form-check-label" for="offre">Offre</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="demande" type="radio" name="typeDeCoupDeMain" data-sb-validations="required" />
+                <label class="form-check-label" for="demande">Demande</label>
+            </div>
+            <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label d-block">New Field 22</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="services" type="checkbox" name="newField22" data-sb-validations="" />
+                <label class="form-check-label" for="services">Services</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="biens" type="checkbox" name="newField22" data-sb-validations="" />
+                <label class="form-check-label" for="biens">Biens</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="prets" type="checkbox" name="newField22" data-sb-validations="" />
+                <label class="form-check-label" for="prets">Prêts</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="dons" type="checkbox" name="newField22" data-sb-validations="" />
+                <label class="form-check-label" for="dons">Dons</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="titre">Titre</label>
+            <input class="form-control" id="titre" type="text" placeholder="Titre" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="titre:required">Titre is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" id="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
+            <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="codePostal">Code Postal</label>
+            <input class="form-control" id="codePostal" type="text" placeholder="Code Postal" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="codePostal:required">Code Postal is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="ville">Ville</label>
+            <input class="form-control" id="ville" type="text" placeholder="Ville" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="ville:required">Ville is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="adresse">Adresse</label>
+            <input class="form-control" id="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="adresse:required">Adresse is required.</div>
+        </div>
+        <div class="d-none" id="submitSuccessMessage">
+            <div class="text-center mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+                <p>To activate this form, sign up at</p>
+                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+            </div>
+        </div>
+        <div class="d-none" id="submitErrorMessage">
+            <div class="text-center text-danger mb-3">Error sending message!</div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
 
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
