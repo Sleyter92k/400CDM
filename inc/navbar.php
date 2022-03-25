@@ -11,6 +11,8 @@
                         <li class="nav-item"><a class="nav-link" href="annonce.php">Déposer une annonce</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     </ul>
+
+                    
                         <div class="col-md-2 col-sm-2">
                             <div class="row">
                         <button  class="btn btn-outline-info" type="submit"><a href="connexion.php">Connexion</a></button>

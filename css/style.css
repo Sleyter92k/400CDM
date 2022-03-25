@@ -9,14 +9,23 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: var(--blanc);
 }
 
 header {
-    background-color: var(--bleu-azur);
+    background-color: var(--bleu-ciel);
+    border-radius: 5px;
+    border-bottom: 50px;
+}
+
+.nav-item {
+    padding: 30px;
+    margin-right: 50px;
 }
 
 #navbar {
     background-color: var(--ocre);
+    border-radius: 1px;
 }
 
 a {
@@ -27,6 +36,8 @@ a {
 footer {
     background-color: var(--bleu-marine);
 }
+
+
 
 
 
