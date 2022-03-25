@@ -1,5 +1,6 @@
 
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+<header class="py-4">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#">Logo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -10,16 +11,14 @@
                         <li class="nav-item"><a class="nav-link" href="annonce.php">Déposer une annonce</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     </ul>
-                        
-                        <button class="btn btn-outline-dark" type="submit">
-                            Connexion
-                        </button>
-
-                        <button class="btn btn-outline-dark" type="submit">
-                            Inscription
-                        </button>
-
+                        <div class="col-md-2 col-sm-2">
+                            <div class="row">
+                        <button  class="btn btn-outline-info" type="submit"><a href="connexion.php">Connexion</a></button>
+                        <button  class="btn btn-outline-info" type="submit"><a href="inscription.php">Inscription</a></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+</header>

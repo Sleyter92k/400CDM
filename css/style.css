@@ -15,8 +15,12 @@ header {
     background-color: var(--bleu-azur);
 }
 
-#navcontent {
-    color: var(--bleu-marine);
+#navbar {
+    background-color: var(--ocre);
+}
+
+a {
+    text-decoration: none;
 }
 
 
