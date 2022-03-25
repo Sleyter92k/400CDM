@@ -15,8 +15,8 @@
                     
                         <div class="col-md-2 col-sm-2">
                             <div class="row">
-                        <button  class="btn btn-outline-info" type="submit"><a href="connexion.php">Connexion</a></button>
-                        <button  class="btn btn-outline-info" type="submit"><a href="inscription.php">Inscription</a></button>
+                        <button  class="btn btn-outline-info" ><a href="connexion.php">Connexion</a></button>
+                        <button  class="btn btn-outline-info" ><a href="inscription.php">Inscription</a></button>
                             </div>
                         </div>
                     </div>

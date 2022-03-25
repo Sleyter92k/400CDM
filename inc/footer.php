@@ -1,6 +1,7 @@
 <!-- Footer-->
 <footer class="py-5 text-white">
     <div class="container">
+
       <div class="row">
            <div class="col-6 col-lg-2 mb-3">
                 <h5> A PROPOS </h5>
