@@ -37,33 +37,34 @@
         <div class="mb-3">
             <label class="form-label" for="nom">Nom</label>
             <input class="form-control" id="nom" type="text" placeholder="Nom" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="nom:required">Nom is required.</div>
+            <div class="invalid-feedback" data-sb-feedback="nom:required">Le nom est obligatoire</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="prenom">Prénom</label>
             <input class="form-control" id="prenom" type="text" placeholder="Prénom" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="prenom:required">Prénom is required.</div>
+            <div class="invalid-feedback" data-sb-feedback="prenom:required">Le prénom est obligatoire</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="pseudo">Pseudo</label>
+            <input class="form-control" id="prenom" type="text" placeholder="Pseudo" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="pseudo:required">Le pseudo est obligatoire</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="adresseMail">Adresse Mail</label>
             <input class="form-control" id="adresseMail" type="email" placeholder="Adresse Mail" data-sb-validations="required,email" />
-            <div class="invalid-feedback" data-sb-feedback="adresseMail:required">Adresse Mail is required.</div>
-            <div class="invalid-feedback" data-sb-feedback="adresseMail:email">Adresse Mail Email is not valid.</div>
+            <div class="invalid-feedback" data-sb-feedback="adresseMail:required">L'adresse mail est obligatoire</div>
+            <div class="invalid-feedback" data-sb-feedback="adresseMail:email">Votre adresse mail est invalide</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="motDePasse">Mot de Passe</label>
             <input class="form-control" id="motDePasse" type="password" placeholder="Mot de Passe" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="motDePasse:required">Mot de Passe is required.</div>
+            <div class="invalid-feedback" data-sb-feedback="motDePasse:required">Mot de passe obligatoire</div>
         </div>
         <div class="d-none" id="submitSuccessMessage">
             <div class="text-center mb-3">
                 <div class="fw-bolder">Form submission successful!</div>
                 <p>To activate this form, sign up at</p>
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
             </div>
-        </div>
-        <div class="d-none" id="submitErrorMessage">
-            <div class="text-center text-danger mb-3">Error sending message!</div>
         </div>
         <div class="d-grid">
             <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Validez</button>
