@@ -1,6 +1,7 @@
 <?php 
 // connexion au fichier init 
 require_once 'inc/log_bdd.php';
+require_once 'inc/fonction.php';
 
 // debug($_SESSION);
 // debug(strlen(' ma grand mère fait du vélo plus vite que moi '));
@@ -8,7 +9,7 @@ require_once 'inc/log_bdd.php';
 if ( !empty($_POST) ) {
   debug($_POST);
 
-  if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'm' && $_POST['civilite'] != 'f' ) { // && ET
+  if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'Mr' && $_POST['civilite'] != 'Mme' ) { // && ET
       $contenu .='<div class="alert alert-danger">La civilité n\'est pas valable !</div>';
   }
   if ( !isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20) {
@@ -19,7 +20,7 @@ if ( !empty($_POST) ) {
       $contenu .='<div class="alert alert-danger">Votre nom de famille doit faire entre 2 et 20 caractères</div>';
   }
 
-  if ( !isset($_POST['email']) || strlen($_POST['email']) > 50 || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+  if ( !isset($_POST['mail']) || strlen($_POST['mail']) > 50 || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
       // filter_var filtre une variable, et dans ce filtre on passe la constante prédéfinie (EN MAJUSCULE) qui vérifie que c'est bien au format email
       $contenu .='<div class="alert alert-danger">Votre email n\'est pas conforme !</div>';
   }
@@ -42,27 +43,27 @@ if ( !empty($_POST) ) {
       $contenu .='<div class="alert alert-danger">Votre ville doit faire entre 1 et 50 caractères</div>';
   }
 
-//   if (empty($contenu)) {// si la variable est vide c'est qu'il n'y a aucune erreur dans $_POST
-//       $membre = executeRequete( " SELECT * FROM membres WHERE pseudo = :pseudo ", 
-//                                       array(':pseudo' => $_POST['pseudo']));
+  if (empty($contenu)) {// si la variable est vide c'est qu'il n'y a aucune erreur dans $_POST
+      $membre = executeRequete( " SELECT * FROM membres WHERE pseudo = :pseudo ", 
+                                      array(':pseudo' => $_POST['pseudo']));
 
-    //   if ($membre->rowCount() > 0) {
-    //       $contenu .='<div class="alert alert-danger">Le pseudo est indisponible veuillez en choisir un autre !</div>';
-    //   } else {
-    //       $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
-    //       debug($mdp);
-    //       $succes = executeRequete( " INSERT INTO membres (civilite, prenom, nom, email, pseudo, mdp, adresse, code_postal, ville, statut) VALUES (:civilite, :prenom, :nom, :email, :pseudo, :mdp, :adresse, :code_postal, :ville, 0) ",
-    //       array(
-    //           ':civilite' => $_POST['civilite'],
-    //           ':prenom' => $_POST['prenom'],
-    //           ':nom' => $_POST['nom'],
-    //           ':email' => $_POST['email'],
-    //           ':pseudo' => $_POST['pseudo'],
-    //           ':mdp' => $mdp,
-    //           ':adresse' => $_POST['adresse'],
-    //           ':code_postal' => $_POST['code_postal'],
-    //           ':ville' => $_POST['ville'],
-    //       ));
+      if ($membre->rowCount() > 0) {
+          $contenu .='<div class="alert alert-danger">Le pseudo est indisponible veuillez en choisir un autre !</div>';
+      } else {
+          $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
+          debug($mdp);
+          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mdp) ",
+          array(
+              ':prenom' => $_POST['prenom'],
+              ':nom' => $_POST['nom'],
+              ':civilite' => $_POST['civilite'],
+              ':pseudo' => $_POST['pseudo'],
+              ':mail' => $_POST['mail'],
+              ':adresse' => $_POST['adresse'],
+              ':code_postal' => $_POST['code_postal'],
+              ':ville' => $_POST['ville'],
+              ':mdp' => $mdp,
+          ));
     
 
           if ($succes) {
@@ -71,8 +72,8 @@ if ( !empty($_POST) ) {
               $contenu .='<div class="alert alert-danger">Erreur lors de l\'inscription !</div>';
           }
       }
-  
-
+  }
+}
 
 ?> 
 <!DOCTYPE html>
@@ -86,45 +87,20 @@ if ( !empty($_POST) ) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
 
 <!-- =================================== -->
 <!-- navbar -->
 <!-- =================================== -->
-<nav class="navbar sticky-top navbar-light bg-light">
-<div class="container-fluid">
-
-    <ul class="nav justify-content-center">
-
-  <li class="nav-item">
-    <a class="nav-link active" href="inscription.php" >Inscris-toi  !</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="panier.php">Mon panier</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="connexion.php">Me connecter</a>
-  </li>
-
-</ul>
-  </div>
-  
-</nav>
+<?php require_once 'inc/navbar.php'; ?>
 
 
     <!-- =================================== -->
     <!-- en-tête -->
     <!-- =================================== -->
-
-    <header class="container-fluid p-4 alert alert-primary">
-        <div class="col-12 text-center">
-            <h1 class="display-4">Ma boutique / Inscription </h1>
-         
-        </div>
-
-    </header>
-
     <!-- fin container header -->
     <div class="container mb-4 bg-white">
 
@@ -132,15 +108,15 @@ if ( !empty($_POST) ) {
 
 </div>
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
-    <?php   echo $contenu;  ?>
+    <!-- <?php   echo $contenu;  ?> -->
     <form action="" method="POST" class="row g-3">
 
     <div class="mb-3">
         
                 <label for="civilite" class="form-label">Civilité </label><br>
-                <input type="radio" name="civilite" value="m" id="civilite"> Mr 
+                <input type="radio" name="civilite" value="Mr" id="civilite"> Mr 
 
-                <input type="radio" name="civilite" value="f" id="civilite"> Mme
+                <input type="radio" name="civilite" value="Mme" id="civilite"> Mme
             </div>
  <div class="col-md-6">
 
@@ -155,8 +131,8 @@ if ( !empty($_POST) ) {
   </div>
 
   <div class="col-12">
-  <label for="email" class="form-label">Email*</label>
-    <input type="email" name="email" class="form-control" id="email" placeholder="nom@email.com" >
+  <label for="mail" class="form-label">Email*</label>
+    <input type="mail" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
 
   </div>
 
@@ -196,7 +172,7 @@ if ( !empty($_POST) ) {
 
 
   <div class="col-12">
-  <button type="submit" class="btn btn-success">S'inscrire</button>
+  <button type="submit" class="btn btn-info">S'inscrire</button>
 
   </div>
 
@@ -207,6 +183,8 @@ if ( !empty($_POST) ) {
       
     </div>
     <!-- fin div container -->
+
+    <?php require_once 'inc/footer.php' ?>
 
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->

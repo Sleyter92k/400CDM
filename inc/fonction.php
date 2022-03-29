@@ -11,9 +11,9 @@ function debug($mavar) {// la fonction avec son paramètre, une variable
 function executeRequete($requete, $parametres = array()) {  // utilse pour toutes les requêtes 1 la requête 2 
     foreach ($parametres as $indice => $valeur) { // boucle foreach
         $parametres[$indice] = htmlspecialchars($valeur); // pour éviter les injections SQL
-        global $pdoMAB; // * global  "nous permet d'acceder à la variable $pdoMAB dans l'espace global du fichier init.inc.php"
+        global $pdoLOG; // * global  "nous permet d'acceder à la variable $pdoMAB dans l'espace global du fichier init.inc.php"
 
-        $resultat = $pdoMAB->prepare($requete); //prepare la requete
+        $resultat = $pdoLOG->prepare($requete); //prepare la requete
         $succes = $resultat->execute($parametres); //et execute
 
         if ($succes === false ) { 

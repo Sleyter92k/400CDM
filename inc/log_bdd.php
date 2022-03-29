@@ -14,3 +14,7 @@ array(
 ));
 
 // var_dump(get_class_methods($pdoLOG));
+
+
+//4- UNE VARIABLE POUR LES MESSAGES
+$contenu = '';

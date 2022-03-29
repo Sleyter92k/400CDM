@@ -1,4 +1,68 @@
-<?php  require_once 'inc/log_bdd.php'; ?>
+<?php  require_once 'inc/log_bdd.php'; 
+
+       require_once 'inc/fonction.php';
+
+$message = '';
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si il existe action qui contient 'deconnexion' dans l'url
+    unset($_SESSION['membre']); // on supprime le membre de la session (le contenu du tableau indice membre)
+    $message = '<div class="alert alert-success">Vous êtes Déconnecté</div>';// message de déconnexion cf echo plus bas
+    debug($_SESSION);
+}
+
+//3 redirection vers la page profil
+
+if (estConnecte()) {
+  header('location:profil.php');
+  exit();
+}
+
+//1 traitement du formulaire de connexion
+
+
+// debug($_POST);
+
+if(!empty($_POST)) {
+    if (empty($_POST['pseudo'])) { //si c'est vide - 0 ou null c'est FALSE
+        $contenu .='<div class="alert alert-danger">Le pseudo est requis !</div>';
+    }
+    if (empty($_POST['mdp'])) {
+        $contenu .='<div class="alert alert-danger">Le mot de passe est manquant !</div>';
+    }
+    if (empty($contenu)) {
+        $resultat = executeRequete("SELECT * FROM membres WHERE pseudo =:pseudo ",
+        array (
+            ':pseudo' => $_POST['pseudo'],
+            // ':mdp' => $_POST['mdp'],
+        ));
+    
+        if ($resultat->rowCount() == 1) {
+            $membre = $resultat->fetch(PDO ::FETCH_ASSOC);
+            // debug($membre);
+
+
+            if (password_verify($_POST['mdp'], $membre['mdp'])) {
+                // echo 'coucou';
+                $_SESSION['membre'] = $membre;
+
+                // debug($_SESSION);
+                header('location:profil.php');//VOIR
+                exit();
+            }else {
+              $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';
+            }
+          
+
+        }else {
+          $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';
+        }
+    }
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -18,44 +82,76 @@
         <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
-        <?php require_once 'inc/navbar.php'; ?>
-        
 
-        <div class="container px-5 my-5">
-    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-        <div class="mb-3">
-            <label class="form-label" for="adresseMail">Adresse Mail</label>
-            <input class="form-control" id="adresseMail" type="email" placeholder="Adresse Mail" data-sb-validations="required,email" />
-            <div class="invalid-feedback" data-sb-feedback="adresseMail:required">Adresse Mail is required.</div>
-            <div class="invalid-feedback" data-sb-feedback="adresseMail:email">Adresse Mail Email is not valid.</div>
+<!-- =================================== -->
+<!-- navbar -->
+<!-- =================================== -->
+<?php require_once 'inc/navbar.php'; ?>
+
+
+    <!-- =================================== -->
+    <!-- en-tête -->
+    <!-- =================================== -->
+
+    <!-- <header class="container-fluid p-4 alert alert-primary">
+        <div class="col-12 text-center">
+            <h1 class="display-4">Connecte-toi à ton profil </h1>
+         
         </div>
-        <div class="mb-3">
-            <label class="form-label" for="motDePasse">Mot de Passe</label>
-            <input class="form-control" id="motDePasse" type="password" placeholder="Mot de Passe" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="motDePasse:required">Mot de Passe is required.</div>
-        </div>
-        <div class="d-none" id="submitSuccessMessage">
-            <div class="text-center mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-                <p>To activate this form, sign up at</p>
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-            </div>
-        </div>
-        <div class="d-none" id="submitErrorMessage">
-            <div class="text-center text-danger mb-3">Error sending message!</div>
-        </div>
-        <div class="d-grid">
-            <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Connexion</button>
-        </div>
-    </form>
+
+    </header> -->
+
+    <!-- fin container header -->
+    <div class="container mb-4 bg-white">
+
+<section class="row">
+
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
+     
+    <?php echo $contenu; ?>
+
+
+
+    <form action="" method="POST"> 
+    <?php
+    echo $contenu;
+    echo $message;
+
+    ?>
+  <div class="mb-3">
+    <label for="pseudo"  class="form-label" >Pseudo</label>
+    <input type="text" class="form-control" name="pseudo" id="pseudo">
+  </div>
+  <div class="mb-3">
+    <label for="mdp" class="form-label">Mot de passe</label>
+    <input type="password" name="mdp" class="form-control" id="mdp">
+  </div>
+
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+   Rester connecté </label>
 </div>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <button type="submit" class="btn btn-secondary">Se connecter</button>
 
 
-        <?php require_once 'inc/footer.php'; ?>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/script.js"></script>
-    </body>
+
+</form>
+<div class="alert alert-success">Pas encore membre ? 
+   <br>   <a href="inscription.php">Cliquez ici pour vous inscrire!</a></div> 
+    </div>
+
+</section>
+      
+    </div>
+    <!-- fin div container -->
+
+    <?php require_once 'inc/footer.php'; ?>
+
+    <!-- Optional JavaScript -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
 </html>
