@@ -109,7 +109,7 @@ if (!empty($_POST)) {
         </div>
 
 
-            
+        <button type="submit" class="btn btn-secondary">Validez</button>
 
     </form>
 </div>
