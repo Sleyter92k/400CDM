@@ -1,4 +1,32 @@
-<?php  require_once 'inc/log_bdd.php'; ?>
+<?php  require_once 'inc/log_bdd.php'; 
+
+
+if (!empty($_POST)) {
+    // var_dump($_POST);
+    $_POST['type_de_cdm'] = htmlspecialchars($_POST['type_de_cdm']);
+    $_POST['type_annonce'] = htmlspecialchars($_POST['type_annonce']);
+    $_POST['titre'] = htmlspecialchars($_POST['titre']);
+    $_POST['description'] = htmlspecialchars($_POST['description']);
+    $_POST['code_postal'] = htmlspecialchars($_POST['code_postal']);
+    $_POST['ville'] = htmlspecialchars($_POST['ville']);
+    $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
+
+
+    $insertion = $pdoLOG->prepare(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse) VALUES (:type_de_cdm, :type_annonce, :titre, :description, :code_postal, :ville, :adresse) ");
+
+    $insertion->execute(array(
+        ':type_de_cdm' => $_POST['type_de_cdm'],
+        ':type_annonce' => $_POST['type_annonce'],
+        ':titre' => $_POST['titre'],
+        ':description' => $_POST['description'],
+        ':code_postal' => $_POST['code_postal'],
+        ':ville' => $_POST['ville'],
+        ':adresse' => $_POST['adresse'],
+    ));
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -22,22 +50,22 @@
         
 
         <div class="container px-5 my-5">
-    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <form action="" method="POST" class="row g-3">
         <div class="mb-3">
             <label class="form-label d-block">Type de coup de main</label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" id="offre" type="radio" name="typeDeCoupDeMain" data-sb-validations="required" />
+                <input class="form-check-input" id="offre" type="radio" value="Offre" name="type_de_cdm" data-sb-validations="required" />
                 <label class="form-check-label" for="offre">Offre</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" id="demande" type="radio" name="typeDeCoupDeMain" data-sb-validations="required" />
+                <input class="form-check-input" id="demande" type="radio" name="type_de_cdm" value="Demande" data-sb-validations="required" />
                 <label class="form-check-label" for="demande">Demande</label>
             </div>
             <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
         </div>
         <div class="mb-3">
-            <label class="form-label" for=""></label>
-            <select class="form-select" id="" aria-label="">
+            <label class="form-label" for="type_annonce"></label>
+            <select class="form-select" id="type_annonce" name="type_annonce" aria-label="">
                 <option value="Services">Services</option>
                 <option value="Biens">Biens</option>
                 <option value="Prêts">Prêts</option>
@@ -47,42 +75,42 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="titre">Titre</label>
-            <input class="form-control" id="titre" type="text" placeholder="Titre" data-sb-validations="required" />
+            <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="titre:required">Titre is required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
-            <textarea class="form-control" id="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
+            <textarea class="form-control" id="description" name="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
             <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="codePostal">Code Postal</label>
-            <input class="form-control" id="codePostal" type="text" placeholder="Code Postal" data-sb-validations="required" />
+            <input class="form-control" id="code_postal" type="text" name="code_postal" placeholder="Code Postal" data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="codePostal:required">Code Postal is required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="ville">Ville</label>
-            <input class="form-control" id="ville" type="text" placeholder="Ville" data-sb-validations="required" />
+            <input class="form-control" id="ville" name="ville" type="text" placeholder="Ville" data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="ville:required">Ville is required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label" for="adresse">Adresse</label>
-            <input class="form-control" id="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
+            <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="adresse:required">Adresse is required.</div>
         </div>
+        
         <div class="d-none" id="submitSuccessMessage">
             <div class="text-center mb-3">
                 <div class="fw-bolder">Form submission successful!</div>
-                <p>To activate this form, sign up at</p>
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
             </div>
         </div>
         <div class="d-none" id="submitErrorMessage">
             <div class="text-center text-danger mb-3">Error sending message!</div>
         </div>
-        <div class="d-grid">
-            <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
-        </div>
+
+
+        <button type="submit" class="btn btn-secondary">Validez</button>
+
     </form>
 </div>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
