@@ -1,3 +1,11 @@
+<?php
+require_once 'inc/log_bdd.php';
+require_once 'inc/fonction.php'; 
+
+// if (!estConnecte()) { // accès à la page autorisé quand on est connecté
+//   header('location:connexion.php');
+// }
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -21,7 +29,7 @@
 <?php require_once 'inc/navbar.php'; ?>
 <div class="container">
     <div class="main-body">
-    
+    <!-- <?php echo $_SESSION['membre']['prenom']; ?> -->
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
