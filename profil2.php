@@ -107,7 +107,7 @@ require_once 'inc/fonction.php';
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                    <?php echo $_SESSION['membre']['tel'];  ?>
                     </div>
                   </div>
                   <hr>

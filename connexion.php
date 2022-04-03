@@ -45,7 +45,7 @@ if(!empty($_POST)) {
                 $_SESSION['membre'] = $membre;
 
                 // debug($_SESSION);
-                header('location:profil.php');//VOIR
+                header('location:profil2.php');//VOIR
                 exit();
             }else {
               $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';

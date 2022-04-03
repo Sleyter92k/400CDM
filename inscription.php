@@ -52,7 +52,7 @@ if ( !empty($_POST) ) {
       } else {
           $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
           debug($mdp);
-          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mdp) ",
+          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, tel, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :tel, :mdp) ",
           array(
               ':prenom' => $_POST['prenom'],
               ':nom' => $_POST['nom'],
@@ -62,6 +62,7 @@ if ( !empty($_POST) ) {
               ':adresse' => $_POST['adresse'],
               ':code_postal' => $_POST['code_postal'],
               ':ville' => $_POST['ville'],
+              ':tel' => $_POST['tel'],
               ':mdp' => $mdp,
           ));
     
@@ -137,7 +138,7 @@ if ( !empty($_POST) ) {
 
   <div class="col-12">
   <label for="mail" class="form-label">Email*</label>
-    <input type="mail" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
+    <input type="email" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
 
   </div>
 
@@ -149,7 +150,7 @@ if ( !empty($_POST) ) {
 
   <div class="col-12">
   <label for="mdp" class="form-label">Mot de passe *</label>
-    <input type="mdp" name="mdp" class="form-control" id="mdp"  >
+    <input type="password" name="mdp" class="form-control" id="mdp"  >
 
   </div>
 
@@ -158,8 +159,8 @@ if ( !empty($_POST) ) {
     <input type="text" name="adresse" class="form-control" id="adresse" placeholder="votre adresse" >
 
   </div>
- 
 
+ 
   <div class="col-md-6">
   <label for="code_postal" class="form-label">Code postal</label>
     <input type="text" name="code_postal" class="form-control" id="code_postal" placeholder="code postal"
@@ -173,7 +174,11 @@ if ( !empty($_POST) ) {
     <input type="text" name="ville" class="form-control" id="ville" placeholder="Ville" >
   </div>
 
+  <div class="col-4">
+  <label for="tel" class="form-label">Mobile</label>
+    <input type="tel" name="tel" class="form-control" id="tel" placeholder="00.00.00.00.00" >
 
+  </div>
 
 
   <div class="col-12">
