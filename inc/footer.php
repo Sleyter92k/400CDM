@@ -1,8 +1,8 @@
 <!-- Footer-->
-<footer class="py-5 text-white">
-    <div class="container">
+<footer class="py-4">
+    <div class="container px-4 px-lg-5">
 
-      <div class="row">
+      <div class="row justify-content-center m-50">
            <div class="col-6 col-lg-2 mb-3">
                 <h5> A PROPOS </h5>
                 <ul class="list-unstyled ">
@@ -14,8 +14,8 @@
            </div>
            <div class="col-6 col-lg-2 mb-3 ">
                 <h5> AIDE </h5>
-                <ul class="list-unstyled text-white"> 
-                    <li><a class="text-white" href="contact.php">Nous contacter</a></li>
+                <ul class="list-unstyled "> 
+                    <li><a class="" href="contact.php">Nous contacter</a></li>
                     <li>FAQ</li>
                 </ul>
            </div>
@@ -26,6 +26,6 @@
       </div>
     </div>
     
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; 400 Coups de Main 2022</p></div>
+    <div class="container"><p class="m-0 text-center ">Copyright &copy; 400 Coups de Main 2022</p></div>
         
 </footer>

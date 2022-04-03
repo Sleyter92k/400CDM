@@ -1,7 +1,7 @@
 
-<header class="py-4">
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
-            <div class="container px-4 px-lg-5">
+<!-- <header class="py-4"> -->
+<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">
+            <div class="container-fluid px-4 px-lg-5 bg-body">
             <div class="">
             <img src="img/logo.png" alt="Logo" width="200">
             </div>
@@ -9,10 +9,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item m-1"><a class="nav-link border border-info" href="accueil.php">Accueil</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-primary" href="recherche.php">Recherche</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-secondary" href="annonce.php">Déposer une annonce</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-light  " href="contact.php">Contact</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-info btn btn-outline-light" href="accueil.php">Accueil</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="recherche.php">Recherche</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="annonce.php">Déposer une annonce</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="contact.php">Contact</a></li>
                     </ul>
 
                     
@@ -26,4 +26,4 @@
                 </div>
             </div>
         </nav>
-</header>
+<!-- </header> -->

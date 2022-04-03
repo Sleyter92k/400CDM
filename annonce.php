@@ -47,73 +47,75 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
-        
-
         <div class="container px-5 my-5">
-        <form action="" method="POST" class="row g-3">
-        <div class="mb-3">
-            <label class="form-label d-block">Type de coup de main</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="offre" type="radio" value="Offre" name="type_de_cdm" data-sb-validations="required" />
-                <label class="form-check-label" for="offre">Offre</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="demande" type="radio" name="type_de_cdm" value="Demande" data-sb-validations="required" />
-                <label class="form-check-label" for="demande">Demande</label>
-            </div>
-            <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="type_annonce"></label>
-            <select class="form-select" id="type_annonce" name="type_annonce" aria-label="">
-                <option value="Services">Services</option>
-                <option value="Biens">Biens</option>
-                <option value="Prêts">Prêts</option>
-                <option value="Dons">Dons</option>
-            </select>
-        </div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="titre">Titre</label>
-            <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="titre:required">Titre is required.</div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
-            <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="codePostal">Code Postal</label>
-            <input class="form-control" id="code_postal" type="text" name="code_postal" placeholder="Code Postal" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="codePostal:required">Code Postal is required.</div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="ville">Ville</label>
-            <input class="form-control" id="ville" name="ville" type="text" placeholder="Ville" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="ville:required">Ville is required.</div>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="adresse">Adresse</label>
-            <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="adresse:required">Adresse is required.</div>
-        </div>
-        
-        <div class="d-none" id="submitSuccessMessage">
-            <div class="text-center mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-            </div>
-        </div>
-        <div class="d-none" id="submitErrorMessage">
-            <div class="text-center text-danger mb-3">Error sending message!</div>
-        </div>
+            <section class="row justify-content-center">
+                <form action="" method="POST" class=" g-3">
+                    
+                    <div class="mb-3">
+                        <label class="form-label d-block">Type de coup de main</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="offre" type="radio" value="Offre" name="type_de_cdm" data-sb-validations="required" />
+                            <label class="form-check-label" for="offre">Offre</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="demande" type="radio" name="type_de_cdm" value="Demande" data-sb-validations="required" />
+                            <label class="form-check-label" for="demande">Demande</label>
+                        </div>
+                        <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="type_annonce"></label>
+                        <select class="form-select" id="type_annonce" name="type_annonce" aria-label="">
+                            <option value="Services">Services</option>
+                            <option value="Biens">Biens</option>
+                            <option value="Prêts">Prêts</option>
+                            <option value="Dons">Dons</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="titre">Titre</label>
+                        <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="titre:required">Titre is required.</div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
+                        <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="codePostal">Code Postal</label>
+                        <input class="form-control" id="code_postal" type="text" name="code_postal" placeholder="Code Postal" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="codePostal:required">Code Postal is required.</div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="ville">Ville</label>
+                        <input class="form-control" id="ville" name="ville" type="text" placeholder="Ville" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="ville:required">Ville is required.</div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="adresse">Adresse</label>
+                        <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="adresse:required">Adresse is required.</div>
+                    </div>
+                    
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                        </div>
+                    </div>
+                    <div class="d-none" id="submitErrorMessage">
+                        <div class="text-center text-danger mb-3">Error sending message!</div>
+                    </div>
 
 
-        <button type="submit" class="btn btn-secondary">Validez</button>
+                    <button type="submit" class="btn btn-secondary">Validez</button>
 
-    </form>
-</div>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                </form>
+            </section>
+            
+        </div>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
         <?php require_once 'inc/footer.php'; ?>
