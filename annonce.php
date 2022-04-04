@@ -1,4 +1,5 @@
-<?php  require_once 'inc/log_bdd.php'; 
+<?php  require_once 'inc/log_bdd.php';
+       require_once 'inc/fonction.php';
 
 
 if (!empty($_POST)) {
@@ -11,10 +12,17 @@ if (!empty($_POST)) {
     $_POST['ville'] = htmlspecialchars($_POST['ville']);
     $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
 
+    $photo = '';
 
-    $insertion = $pdoLOG->prepare(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse) VALUES (:type_de_cdm, :type_annonce, :titre, :description, :code_postal, :ville, :adresse) ");
+    if(!empty($_FILES['photo']['name'])) {
+        $photo = 'photos/' .$_FILES['photo']['name'];
+        copy($_FILES['photo']['tmp_name'], '../' .$photo);
+        } // fin du traitement photo
 
-    $insertion->execute(array(
+
+    $insertion = executeRequete(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse, photo) VALUES (:type_de_cdm, :type_annonce, :titre, :description, :code_postal, :ville, :adresse, :photo) ",
+
+    array(
         ':type_de_cdm' => $_POST['type_de_cdm'],
         ':type_annonce' => $_POST['type_annonce'],
         ':titre' => $_POST['titre'],
@@ -22,6 +30,8 @@ if (!empty($_POST)) {
         ':code_postal' => $_POST['code_postal'],
         ':ville' => $_POST['ville'],
         ':adresse' => $_POST['adresse'],
+        ':photo' => $photo,
+        
     ));
 }
 
@@ -83,6 +93,8 @@ if (!empty($_POST)) {
                         <textarea class="form-control" id="description" name="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
                         <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
                     </div>
+                    <label for="photo" class="form-label">Photo</label>
+                    <input type="file" name="photo" id="photo" class="form-control">
                     <div class="mb-3 col-6">
                         <label class="form-label" for="codePostal">Code Postal</label>
                         <input class="form-control" id="code_postal" type="text" name="code_postal" placeholder="Code Postal" data-sb-validations="required" />

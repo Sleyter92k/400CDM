@@ -28,86 +28,33 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card"  >
-                            <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Titre de l'annonce</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque autem amet quae voluptate maxime asperiores ipsam velit dolorem ducimus beatae porro aliquam aut facere sunt architecto a, esse quos?</p>
-                                <a href="#" class="btn btn-primary">Voir</a>
-                            </div>
-                        </div>
-                    </div>
+                <?php
+
+$annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIMIT 8; ");
+
+while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
+  echo "<div class=\"col\">";
+              echo "<div class=\"card shadow-sm\">";
+              echo "<img src=\"$reserve[photo]\" class=\"img-fluid\" alt=\"photo d'annonce\">";
+
+              echo "<div class=\"card-body\">";
+                echo "<p class=\"card-title\">titre : ".$reserve['titre']. ", type_annonce : " .$reserve['type_de_cdm']."</p>";
+                echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
+                echo "<p class=\"card-text\">description : ".$reserve['description']. "</p>";
+                echo "<div class=\"d-flex justify-content-between align-items-center\">";
+                echo "<div class=\"btn-group\">";
+
+                  echo "<a href=\"fiche_annonce.php\" class=\"btn btn-success text-white btn-outline-secondary rounded mx-3\">Reserver</a>";
+
+                  echo "<button type=\"button\"  class=\"btn btn-danger text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
+                echo "</div>";
+                echo "</div>";
+              echo "</div>";
+            echo "</div>";
+          echo "</div>";
+        }
+      ?>
+                   
                 </div>
             </div>
         </section>
