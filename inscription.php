@@ -6,42 +6,42 @@ require_once 'inc/fonction.php';
 // debug($_SESSION);
 // debug(strlen(' ma grand mère fait du vélo plus vite que moi '));
 
-if ( !empty($_POST) ) {
-  debug($_POST);
+// if ( !empty($_POST) ) {
+// //   debug($_POST);
 
-  if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'Mr' && $_POST['civilite'] != 'Mme' ) { // && ET
-      $contenu .='<div class="alert alert-danger">La civilité n\'est pas valable !</div>';
-  }
-  if ( !isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20) {
-      // !isset n'est pas isset, .= concaténation puis affectation, || ou, strlen string length longueur chainbe de caractère
-      $contenu .='<div class="alert alert-danger">Votre prénom doit faire entre 2 et 20 caractères</div>';
-  }
-  if ( !isset($_POST['nom']) || strlen($_POST['nom']) < 2 || strlen($_POST['nom']) > 20) {
-      $contenu .='<div class="alert alert-danger">Votre nom de famille doit faire entre 2 et 20 caractères</div>';
-  }
+//   if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'Mr' && $_POST['civilite'] != 'Mme' ) { // && ET
+//       $contenu .='<div class="alert alert-danger">La civilité n\'est pas valable !</div>';
+//   }
+//   if ( !isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20) {
+//       // !isset n'est pas isset, .= concaténation puis affectation, || ou, strlen string length longueur chainbe de caractère
+//       $contenu .='<div class="alert alert-danger">Votre prénom doit faire entre 2 et 20 caractères</div>';
+//   }
+//   if ( !isset($_POST['nom']) || strlen($_POST['nom']) < 2 || strlen($_POST['nom']) > 20) {
+//       $contenu .='<div class="alert alert-danger">Votre nom de famille doit faire entre 2 et 20 caractères</div>';
+//   }
 
-  if ( !isset($_POST['mail']) || strlen($_POST['mail']) > 50 || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-      // filter_var filtre une variable, et dans ce filtre on passe la constante prédéfinie (EN MAJUSCULE) qui vérifie que c'est bien au format email
-      $contenu .='<div class="alert alert-danger">Votre email n\'est pas conforme !</div>';
-  }
+//   if ( !isset($_POST['mail']) || strlen($_POST['mail']) > 50 || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+//       // filter_var filtre une variable, et dans ce filtre on passe la constante prédéfinie (EN MAJUSCULE) qui vérifie que c'est bien au format email
+//       $contenu .='<div class="alert alert-danger">Votre email n\'est pas conforme !</div>';
+//   }
 
-  if ( !isset($_POST['pseudo']) || strlen($_POST['pseudo']) < 4 || strlen($_POST['pseudo']) > 20) {
-      $contenu .='<div class="alert alert-danger">Votre pseudo doit faire entre 4 et 20 caractères</div>';
-  }
+//   if ( !isset($_POST['pseudo']) || strlen($_POST['pseudo']) < 4 || strlen($_POST['pseudo']) > 20) {
+//       $contenu .='<div class="alert alert-danger">Votre pseudo doit faire entre 4 et 20 caractères</div>';
+//   }
 
-  if ( !isset($_POST['mdp']) || strlen($_POST['mdp']) < 4 || strlen($_POST['mdp']) > 20) {
-      $contenu .='<div class="alert alert-danger">Votre mot de passe doit faire entre 4 et 20 caractères</div>';
-  }
-  if ( !isset($_POST['adresse']) || strlen($_POST['adresse']) < 4 || strlen($_POST['adresse']) > 50) {
-      $contenu .='<div class="alert alert-danger">Votre adresse doit faire entre 4 et 50 caractères</div>';
-  }
-  if ( !isset($_POST['code_postal']) || !preg_match('#^[0-9]{5}$#', $_POST['code_postal']) ) {
-      // preg_match vérifie si la chaîne de caractère a le format autorisé
-      $contenu .='<div class="alert alert-danger">Le code postal n\'est pas valable !</div>';
-  }
-  if ( !isset($_POST['ville']) || strlen($_POST['ville']) < 1 || strlen($_POST['ville']) > 50) {
-      $contenu .='<div class="alert alert-danger">Votre ville doit faire entre 1 et 50 caractères</div>';
-  }
+//   if ( !isset($_POST['mdp']) || strlen($_POST['mdp']) < 4 || strlen($_POST['mdp']) > 20) {
+//       $contenu .='<div class="alert alert-danger">Votre mot de passe doit faire entre 4 et 20 caractères</div>';
+//   }
+//   if ( !isset($_POST['adresse']) || strlen($_POST['adresse']) < 4 || strlen($_POST['adresse']) > 50) {
+//       $contenu .='<div class="alert alert-danger">Votre adresse doit faire entre 4 et 50 caractères</div>';
+//   }
+//   if ( !isset($_POST['code_postal']) || !preg_match('#^[0-9]{5}$#', $_POST['code_postal']) ) {
+//       // preg_match vérifie si la chaîne de caractère a le format autorisé
+//       $contenu .='<div class="alert alert-danger">Le code postal n\'est pas valable !</div>';
+//   }
+//   if ( !isset($_POST['ville']) || strlen($_POST['ville']) < 1 || strlen($_POST['ville']) > 50) {
+//       $contenu .='<div class="alert alert-danger">Votre ville doit faire entre 1 et 50 caractères</div>';
+//   }
 
   if (empty($contenu)) {// si la variable est vide c'est qu'il n'y a aucune erreur dans $_POST
       $membre = executeRequete( " SELECT * FROM membres WHERE pseudo = :pseudo ", 
@@ -52,7 +52,7 @@ if ( !empty($_POST) ) {
       } else {
           $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
           debug($mdp);
-          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, tel, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :tel, :mdp) ",
+          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mobile, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mobile, :mdp) ",
           array(
               ':prenom' => $_POST['prenom'],
               ':nom' => $_POST['nom'],
@@ -62,7 +62,7 @@ if ( !empty($_POST) ) {
               ':adresse' => $_POST['adresse'],
               ':code_postal' => $_POST['code_postal'],
               ':ville' => $_POST['ville'],
-              ':tel' => $_POST['tel'],
+              ':mobile' => $_POST['mobile'],
               ':mdp' => $mdp,
           ));
     
@@ -74,7 +74,7 @@ if ( !empty($_POST) ) {
           }
       }
   }
-}
+
 
 ?> 
 <!DOCTYPE html>
@@ -175,8 +175,8 @@ if ( !empty($_POST) ) {
   </div>
 
   <div class="col-4">
-  <label for="tel" class="form-label">Mobile</label>
-    <input type="tel" name="tel" class="form-control" id="tel" placeholder="00.00.00.00.00" >
+  <label for="mobile" class="form-label">Mobile</label>
+    <input type="int" name="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" >
 
   </div>
 

@@ -2,6 +2,8 @@
 
        require_once 'inc/fonction.php';
 
+// debug($_GET);
+
 $message = '';
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si il existe action qui contient 'deconnexion' dans l'url
     unset($_SESSION['membre']); // on supprime le membre de la session (le contenu du tableau indice membre)
@@ -45,7 +47,7 @@ if(!empty($_POST)) {
                 $_SESSION['membre'] = $membre;
 
                 // debug($_SESSION);
-                header('location:profil2.php');//VOIR
+                header('location:profil.php');//VOIR
                 exit();
             }else {
               $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';
