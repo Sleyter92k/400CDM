@@ -16,7 +16,7 @@ if (!empty($_POST)) {
 
     if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
-        copy($_FILES['photo']['tmp_name'], '../' .$photo);
+        copy($_FILES['photo']['tmp_name'], '' .$photo);
         } // fin du traitement photo
 
 
@@ -59,7 +59,7 @@ if (!empty($_POST)) {
         <?php require_once 'inc/navbar.php'; ?>
         <div class="container px-5 my-5">
             <section class="row justify-content-center">
-                <form action="" method="POST" class=" g-3">
+                <form action="" method="POST" enctype="multipart/form-data" class="g-3">
                     
                     <div class="mb-3">
                         <label class="form-label d-block">Type de coup de main</label>

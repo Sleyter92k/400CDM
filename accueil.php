@@ -1,4 +1,5 @@
 <?php  require_once 'inc/log_bdd.php'; ?>
+<?php require_once 'inc/fonction.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,7 +23,6 @@
     <body>
     <?php require_once 'inc/navbar.php'; ?>
 
-         <?php require_once 'inc/navbar.php'; ?>
 
         <!-- Section-->
         <section class="py-5">
@@ -35,7 +35,7 @@ $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIM
 while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
   echo "<div class=\"col\">";
               echo "<div class=\"card shadow-sm\">";
-              echo "<img src=\"$reserve[photo]\" class=\"img-fluid\" alt=\"photo d'annonce\">";
+              echo "<img src=\"$reserve[photo]\" class=\" alt=\"photo d'annonce\">";
 
               echo "<div class=\"card-body\">";
                 echo "<p class=\"card-title\">titre : ".$reserve['titre']. ", type_annonce : " .$reserve['type_de_cdm']."</p>";
@@ -44,9 +44,8 @@ while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class=\"d-flex justify-content-between align-items-center\">";
                 echo "<div class=\"btn-group\">";
 
-                  echo "<a href=\"fiche_annonce.php\" class=\"btn btn-success text-white btn-outline-secondary rounded mx-3\">Reserver</a>";
 
-                  echo "<button type=\"button\"  class=\"btn btn-danger text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
+                  echo "<button type=\"button\"  class=\"btn btn-info text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
                 echo "</div>";
                 echo "</div>";
               echo "</div>";

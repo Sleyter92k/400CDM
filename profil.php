@@ -1,6 +1,8 @@
 <?php
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php'; 
+// session_start()
+
 
 // if (!estConnecte()) { // accès à la page autorisé quand on est connecté
 //   header('location:connexion.php');
@@ -29,16 +31,16 @@ require_once 'inc/fonction.php';
 <?php require_once 'inc/navbar.php'; ?>
 <div class="container">
     <div class="main-body">
-    <!-- <?php echo $_SESSION['membre']['prenom']; ?> -->
+    
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <div class="mt-3">
-                      <h4>John Doe</h4>
+                      <h4><?php echo $_SESSION['membre']['pseudo']; ?></h4>
                       <p class="text-secondary mb-1">Bienvenue sur votre compte</p>
-                      <button class="btn btn-danger">Déconnexion</button>
+          
                     </div>
                   </div>
                 </div>
@@ -76,25 +78,27 @@ require_once 'inc/fonction.php';
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                    <?php echo $_SESSION['membre']['prenom'];  ?>
+                    <?php echo $_SESSION['membre']['nom'];  ?>
+                     
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
+                      <h6 class="mb-0">mail</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                    <?php echo $_SESSION['membre']['mail']; ?>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
+                      <h6 class="mb-0">Pseudo</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                    <?php echo $_SESSION['membre']['pseudo'];  ?>
                     </div>
                   </div>
                   <hr>
@@ -103,22 +107,25 @@ require_once 'inc/fonction.php';
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                    <?php echo $_SESSION['membre']['tel'];  ?>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Address</h6>
+                      
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
+                    <?php echo $_SESSION['membre']['adresse'];  ?>    
+                    <?php echo $_SESSION['membre']['ville'];  ?>
+                    <?php echo $_SESSION['membre']['code_postal'];  ?>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                      <a class="btn btn-danger " target="__blank" href="edit.php">Modifier vos informations</a>
                     </div>
                   </div>
                 </div>
