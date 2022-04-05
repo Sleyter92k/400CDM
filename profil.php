@@ -56,7 +56,7 @@ require_once 'inc/fonction.php';
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                      <h6 class="mb-0">Prénom Nom</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $_SESSION['membre']['prenom'];  ?>
@@ -67,7 +67,7 @@ require_once 'inc/fonction.php';
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">mail</h6>
+                      <h6 class="mb-0">Mail</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $_SESSION['membre']['mail']; ?>
@@ -94,7 +94,7 @@ require_once 'inc/fonction.php';
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
+                      <h6 class="mb-0">Adresse</h6>
                       
                     </div>
                     <div class="col-sm-9 text-secondary">
