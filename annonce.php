@@ -16,7 +16,7 @@ if (!empty($_POST)) {
 
     if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
-        copy($_FILES['photo']['tmp_name'], '' .$photo);
+        copy($_FILES['/photo']['tmp_name'], '' .$photo);
         } // fin du traitement photo
 
 

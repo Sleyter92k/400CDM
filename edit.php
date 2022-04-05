@@ -1,6 +1,41 @@
 <?php 
 require_once 'inc/log_bdd.php';
-require_once 'inc/fonction.php'; ?>
+require_once 'inc/fonction.php';
+
+//4 TRAITEMENT DE MISE À JOUR D'UN PRODUIT
+if ( !empty($_POST) ) {//not empty
+    debug($_POST);
+  
+  $_POST['pseudo'] = htmlspecialchars($_POST['pseudo']);
+  $_POST['nom'] = htmlspecialchars($_POST['nom']);
+  $_POST['prenom'] = htmlspecialchars($_POST['prenom']);
+  $_POST['civilite'] = htmlspecialchars($_POST['civilite']);
+  $_POST['mail'] = htmlspecialchars($_POST['mail']);
+  $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
+  $_POST['code_postal'] = htmlspecialchars($_POST['code_postal']);
+  $_POST['ville'] = htmlspecialchars($_POST['ville']);
+  $_POST['mobile'] = htmlspecialchars($_POST['mobile']);
+  
+  $resultat = $pdoLOG->prepare( " UPDATE produits SET prenom = :prenom, nom = :nom, civilite = :civilite, pseudo = :pseudo, mail = :mail, adresse = :adresse, code_postal = :code_postal, ville = :ville, mobile = :mobile WHERE id_membre = :id_membre " );// requete préparée avec des marqueurs
+  
+  $resultat->execute( array(
+    ':pseudo' => $_POST['pseudo'],
+    ':nom' => $_POST['nom'],
+    ':prenom' => $_POST['prenom'],
+    ':civilite' => $_POST['civilite'],
+    ':pseudo' => $_POST['pseudo'],
+    ':mail' => $_POST['mail'],
+    ':adresse' => $_POST['code_postal'],
+    ':ville' => $_POST['ville'],
+    ':mobile' => $_POST['mobile'],
+    // ':id_membre' => $_GET['id_membre']
+  
+  ));
+  header('location:profil.php');
+  exit();
+  }
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -69,8 +104,8 @@ require_once 'inc/fonction.php'; ?>
               <div class="form-group mt-2">
                   <label for="civilite">Civilité *</label>
                   
-                  <input type="radio" name="civilite" value="m" checked> Homme
-                  <input type="radio" name="civilite" value="f"<?php if (isset($_SESSION['membre']['civilite']) && $_SESSION['membre']['civilite'] =='f') echo 'checked';?>> Femme            
+                  <input type="radio" name="civilite" value="Mr" checked> Homme
+                  <input type="radio" name="civilite" value="Mme"<?php if (isset($_SESSION['membre']['civilite']) && $_SESSION['membre']['civilite'] =='Mme') echo 'checked';?>> Femme            
               </div>
               <div class="col-4 form-group mt-2">
                   <label for="adresse">Adresse</label>
@@ -86,7 +121,7 @@ require_once 'inc/fonction.php'; ?>
               </div>
             </div>
             <div class="form-group mt-2">
-                <input type="submit" value="Mise à jour" class="btn btn-md btn-outline-success"> 
+                <input type="submit" class="btn btn-md btn-outline-success"> 
             </div>
     </form>
         </div>

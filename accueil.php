@@ -38,9 +38,9 @@ while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
               echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
 
               echo "<div class=\"card-body\">";
-                echo "<p class=\"card-title\">titre : ".$reserve['titre']. ", type_annonce : " .$reserve['type_de_cdm']."</p>";
+                echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
+                echo "<p class=\"card-text\">Type d'annonce : " .$reserve['type_de_cdm']. "</p>";
                 echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
-                echo "<p class=\"card-text\">description : ".$reserve['description']. "</p>";
                 echo "<div class=\"d-flex justify-content-between align-items-center\">";
                 echo "<div class=\"btn-group\">";
 
