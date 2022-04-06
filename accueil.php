@@ -45,7 +45,7 @@ while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class=\"btn-group\">";
 
 
-                  echo "<button type=\"button\"  class=\"btn btn-info text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
+                  echo "<a href=\"fiche_annonce.php\" class=\"btn btn-info my-2\">Détails</a>";
                 echo "</div>";
                 echo "</div>";
               echo "</div>";
