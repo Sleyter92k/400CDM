@@ -57,7 +57,7 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
-        <div class="container px-5 my-5">
+        <div class="container">
             <section class="row justify-content-center">
                 <form action="" method="POST" enctype="multipart/form-data" class="g-3">
                     
@@ -124,7 +124,6 @@ if (!empty($_POST)) {
                     <button type="submit" class="btn btn-secondary">Validez</button>
 
                 </form>
-            </section>
             
         </div>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

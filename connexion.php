@@ -130,11 +130,6 @@ if(!empty($_POST)) {
     <input type="password" name="mdp" class="form-control" id="mdp">
   </div>
 
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-   Rester connecté </label>
-</div>
 
   <button type="submit" class="btn btn-secondary">Se connecter</button>
 
