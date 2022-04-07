@@ -45,7 +45,7 @@
                          
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3\">";
-                    echo "<div class=\"card shadow-sm\">";
+                    echo "<div class=\"card shadow-sm border border-primary\">";
                     echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
 
                     echo "<div class=\"card-body\">";
@@ -56,7 +56,7 @@
                     echo "<div class=\"btn-group\">";
 
 
-                    echo "<a href=\"fiche_produit.php?id_annonce=" .$reserve['id_annonce']. "\"  class=\"btn btn-info text-white btn-outline-secondary rounded text-center\">Voir l'annonce</a>";
+                    echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

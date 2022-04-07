@@ -1,6 +1,26 @@
-<?php  require_once 'inc/log_bdd.php'; ?>
-<?php require_once 'inc/fonction.php'; ?>
-
+<?php  require_once 'inc/log_bdd.php'; 
+// 1 RÉCEPTION DES INFORMATIONS D'UN PRODUIT AVEC $_GET
+// debug($_GET);
+if ( isset($_GET['id_annonce']) ) {
+  // debug($_GET);
+  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces WHERE   id_annonce = :id_annonce " );
+  $annonce->execute(array(
+    ':id_annonce' => $_GET['id_annonce']
+  ));
+  // debug($annonce->rowCount());
+    if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas de produit
+        header('location:accueil.php');// redirection vers la page de départ
+        exit();// arrêt du script
+    }  
+    $reserve = $annonce->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
+    // debug($reserve);// ferme if isset accolade suivante
+    // var_dump($reserve);
+    } else {
+    header('location:accueil.php');// si j'arrive sur la page sans rien dans l'url
+    exit();// arrête du script
+}
+?>
+ 
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -26,19 +46,28 @@
 
         <!-- Section-->
   <section class="container">
-  <div class="card text-center">
+  <section class="row m-4 justify-content-center">
+       <div class="card text-center border border-info">
   <div class="card-header">
     Featured
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h1 class="card-title"><?php echo $reserve['titre']; ?></h1>
+    <img src="<?php echo $reserve['photo']; ?>" class="card-img-top " alt="...">
+    <p class="card-text"><?php echo $reserve['type_de_cdm']; ?> de <?php echo $reserve['type_annonce']; ?> </p>
+    <p class="card-text"><?php echo $reserve['description']; ?></p>
+    <p class="card-text">Localisation : <?php echo $reserve['code_postal']; ?> <?php echo $reserve['ville']; ?></p>
+
+    <a href="#" class="btn btn-primary">Réservez</a>
   </div>
   <div class="card-footer text-muted">
-    2 days ago
+     
   </div>
-</div>
+</div>      
+                 
+  </section>
+  
+  
   </section>
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
