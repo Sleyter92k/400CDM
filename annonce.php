@@ -58,16 +58,10 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
-<<<<<<< Updated upstream
-        <div class="container">
-            <section class="row justify-content-center">
-                <form action="" method="POST" enctype="multipart/form-data" class="g-3">
-=======
         <div class="container"><?php echo $contenu; ?>
             <section class="row m-4 justify-content-center">
              
                 <div class="col-md-6 p-2 bg-light border border-primary">
->>>>>>> Stashed changes
                     
                     <form action="" method="POST">
                         <label for="type">Type de coup de main*</label>
@@ -106,18 +100,6 @@ if (!empty($_POST)) {
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>
-<<<<<<< Updated upstream
-                    </div>
-                    <div class="d-none" id="submitErrorMessage">
-                        <div class="text-center text-danger mb-3">Error sending message!</div>
-                    </div>
-
-
-                    <button type="submit" class="btn btn-secondary">Validez</button>
-
-                </form>
-            
-=======
                            
                         <div class="form-group mt-2">
                             <label for="description">Description *</label>
@@ -149,7 +131,6 @@ if (!empty($_POST)) {
                 <!-- fin col -->
             </section>
             <!-- fin row -->
->>>>>>> Stashed changes
         </div>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
