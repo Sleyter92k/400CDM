@@ -20,87 +20,46 @@
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         
-        <div class="container px-5 my-5">
-    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-        <div class="form-floating mb-3">
-            <select class="form-select" id="offreEtDemandes" aria-label="Offre et Demandes">
-                <option value="1">1</option>
-                <option value="2">2</option>
-            </select>
-            <label for="offreEtDemandes">Offre et Demandes</label>
-        </div>
-        <div class="form-floating mb-3">
-            <select class="form-select" id="donsPretsServicesBiens" aria-label="Dons / Prêts / Services / Biens">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value=""></option>
-            </select>
-            <label for="donsPretsServicesBiens">Dons / Prêts / Services / Biens</label>
-        </div>
-        <div class="form-floating mb-3">
-            <select class="form-select" id="toutesLesCategories" aria-label="Toutes les catégories">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="toutesLesCategories">Toutes les catégories</label>
-        </div>
-        <div class="form-floating mb-3">
-            <select class="form-select" id="touteLaFrance" aria-label="Toute la France">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="touteLaFrance">Toute la France</label>
-        </div>
-        <div class="form-floating mb-3">
-            <select class="form-select" id="tousLesDepartements" aria-label="Tous les départements">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="tousLesDepartements">Tous les départements</label>
-        </div>
-        <div class="d-none" id="submitSuccessMessage">
-            <div class="text-center mb-3">
-                <div class="fw-bolder">Form submission successful!</div>
-                <p>To activate this form, sign up at</p>
-                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <?php
+
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Bricolage'; ");
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Informatique/Multimédia'; ");
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Maison'; ");
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
+                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
+                    $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIMIT 8; ");
+                    
+                         
+                    while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<div class=\"col mb-3\">";
+                    echo "<div class=\"card shadow-sm\">";
+                    echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
+
+                    echo "<div class=\"card-body\">";
+                    echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
+                    echo "<p class=\"card-text\">Type d'annonce : " .$reserve['type_de_cdm']. "</p>";
+                    echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
+                    echo "<div class=\"d-flex justify-content-between align-items-center\">";
+                    echo "<div class=\"btn-group\">";
+
+
+                    echo "<button type=\"button\"  class=\"btn btn-info text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    }
+                    ?>
+                   
+                </div>
             </div>
-        </div>
-        <div class="d-none" id="submitErrorMessage">
-            <div class="text-center text-danger mb-3">Error sending message!</div>
-        </div>
-        <div class="d-grid">
-            <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
-        </div>
-    </form>
-</div>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        </section>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
         <?php require_once 'inc/footer.php'; ?>

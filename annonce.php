@@ -16,16 +16,17 @@ if (!empty($_POST)) {
 
     if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
-        copy($_FILES['/photo']['tmp_name'], '' .$photo);
+        copy($_FILES['photo']['tmp_name'], '../' .$photo);
         } // fin du traitement photo
 
 
-    $insertion = executeRequete(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse, photo) VALUES (:type_de_cdm, :type_annonce, :titre, :description, :code_postal, :ville, :adresse, :photo) ",
+    $insertion = executeRequete(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, categorie, description, code_postal, ville, adresse, photo) VALUES (:type_de_cdm, :type_annonce, :titre, :categorie, :description, :code_postal, :ville, :adresse, :photo) ",
 
     array(
         ':type_de_cdm' => $_POST['type_de_cdm'],
         ':type_annonce' => $_POST['type_annonce'],
         ':titre' => $_POST['titre'],
+        ':categorie' => $_POST['categorie'],
         ':description' => $_POST['description'],
         ':code_postal' => $_POST['code_postal'],
         ':ville' => $_POST['ville'],
@@ -57,64 +58,55 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
+<<<<<<< Updated upstream
         <div class="container">
             <section class="row justify-content-center">
                 <form action="" method="POST" enctype="multipart/form-data" class="g-3">
+=======
+        <div class="container"><?php echo $contenu; ?>
+            <section class="row m-4 justify-content-center">
+             
+                <div class="col-md-6 p-2 bg-light border border-primary">
+>>>>>>> Stashed changes
                     
-                    <div class="mb-3">
-                        <label class="form-label d-block">Type de coup de main</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" id="offre" type="radio" value="Offre" name="type_de_cdm" data-sb-validations="required" />
-                            <label class="form-check-label" for="offre">Offre</label>
+                    <form action="" method="POST">
+                        <label for="type">Type de coup de main*</label>
+                        <div class="row">
+                            <div class=" col form-group mt-2">
+                                <input type="radio" id="offre"  name="type_de_cdm" value="Offre"  > Offre
+                                <input type="radio" id="demande" name="type_de_cdm" value="Demande"> Demande            
+                            </div>
+                            <div class="col form-group mt-2">
+                                <select id="type_annonce" name="type_annonce" >
+                                    <option value="">---</option>
+                                    <option value="Services">Services</option>
+                                    <option value="Biens">Biens</option>
+                                    <option value="Prêts">Prêts</option>
+                                    <option value="Dons">Dons</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" id="demande" type="radio" name="type_de_cdm" value="Demande" data-sb-validations="required" />
-                            <label class="form-check-label" for="demande">Demande</label>
+                          
+                        <div class="row">
+                            <div class="col-12 form-group mt-2">
+                                <label for="nom">Titre *</label>
+                                <input type="text" name="titre" id="titre" value="" class="form-control" required>
+                            </div>
                         </div>
-                        <div class="invalid-feedback" data-sb-feedback="typeDeCoupDeMain:required">One option is required.</div>
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="type_annonce"></label>
-                        <select class="form-select" id="type_annonce" name="type_annonce" aria-label="">
-                            <option value="Services">Services</option>
-                            <option value="Biens">Biens</option>
-                            <option value="Prêts">Prêts</option>
-                            <option value="Dons">Dons</option>
-                        </select>
-                    </div>
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="titre">Titre</label>
-                        <input class="form-control" id="titre" type="text" name="titre" placeholder="Titre" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="titre:required">Titre is required.</div>
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
-                        <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
-                    </div>
-                    <label for="photo" class="form-label">Photo</label>
-                    <input type="file" name="photo" id="photo" class="form-control">
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="codePostal">Code Postal</label>
-                        <input class="form-control" id="code_postal" type="text" name="code_postal" placeholder="Code Postal" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="codePostal:required">Code Postal is required.</div>
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="ville">Ville</label>
-                        <input class="form-control" id="ville" name="ville" type="text" placeholder="Ville" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="ville:required">Ville is required.</div>
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label class="form-label" for="adresse">Adresse</label>
-                        <input class="form-control" id="adresse" name="adresse" type="text" placeholder="Adresse" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="adresse:required">Adresse is required.</div>
-                    </div>
-                    
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
+                        <div class="col- form-group mt-2">
+                            <select id="categorie" name="categorie" >
+                                <option value="">Choisir une catégorie</option>
+                                <option value="Coup de main">Coup de main</option>
+                                <option value="Informatique">Informatique/Multimédia</option>
+                                <option value="Bricolage">Bricolage</option>
+                                <option value="Maison">Maison</option>
+                                <option value="Sport">Sport</option>
+                                <option value="Mécanique">Mécanique</option>
+                                <option value="Mobilité">Mobilité/Véhicule</option>
+                                <option value="Autre">Autre</option>
+                            </select>
                         </div>
+<<<<<<< Updated upstream
                     </div>
                     <div class="d-none" id="submitErrorMessage">
                         <div class="text-center text-danger mb-3">Error sending message!</div>
@@ -125,6 +117,39 @@ if (!empty($_POST)) {
 
                 </form>
             
+=======
+                           
+                        <div class="form-group mt-2">
+                            <label for="description">Description *</label>
+                            <textarea name="description" id="description" class="form-control"></textarea>
+                        </div>
+                         <div class="col-6 form-group mt-2">
+                                <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
+                        </div>
+                        <div class="row">
+                            <div class="col form-group mt-2">
+                                <label for="code_postal">Code postal*</label>
+                                <input type="text" name="code_postal" id="code_postal" value="" class="form-control"> 
+                            </div>
+                            <div class="col form-group mt-2">        
+                                <label for="ville">Ville*</label>
+                                <input type="text" name="ville" id="ville" value="" class="form-control"> 
+                            </div>
+                            
+                        </div>
+                        <div class="col form-group mt-2">        
+                            <label for="adresse">Adresse*</label>
+                            <input type="text" name="adresse" id="adresse" value="" class="form-control"> 
+                        </div>
+                        <div class="form-group mt-2 text-center">
+                            <input type="submit" value="Validez" class="btn btn-sm btn-success"> 
+                        </div>
+                    </form>
+                </div>
+                <!-- fin col -->
+            </section>
+            <!-- fin row -->
+>>>>>>> Stashed changes
         </div>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 

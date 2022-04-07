@@ -33,7 +33,7 @@
 $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIMIT 8; ");
 
 while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
-  echo "<div class=\"col\">";
+  echo "<div class=\"col mb-5\">";
               echo "<div class=\"card shadow-sm\">";
               echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
 

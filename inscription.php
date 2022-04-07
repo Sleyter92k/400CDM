@@ -7,7 +7,7 @@ require_once 'inc/fonction.php';
 // debug(strlen(' ma grand mère fait du vélo plus vite que moi '));
 
 if ( !empty($_POST) ) {
-//   debug($_POST);
+  debug($_POST);
 
   if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'Mr' && $_POST['civilite'] != 'Mme' ) { // && ET
       $contenu .='<div class="alert alert-danger">La civilité n\'est pas valable !</div>';
@@ -52,7 +52,7 @@ if ( !empty($_POST) ) {
       } else {
           $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
           debug($mdp);
-          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mobile, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mobile, :mdp) ",
+          $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, tel, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :tel, :mdp) ",
           array(
               ':prenom' => $_POST['prenom'],
               ':nom' => $_POST['nom'],
@@ -62,7 +62,7 @@ if ( !empty($_POST) ) {
               ':adresse' => $_POST['adresse'],
               ':code_postal' => $_POST['code_postal'],
               ':ville' => $_POST['ville'],
-              ':mobile' => $_POST['mobile'],
+              ':tel' => $_POST['tel'],
               ':mdp' => $mdp,
           ));
     
@@ -175,8 +175,8 @@ if ( !empty($_POST) ) {
   </div>
 
   <div class="col-4">
-  <label for="mobile" class="form-label">Mobile</label>
-    <input type="int" name="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" >
+  <label for="tel" class="form-label">Mobile</label>
+    <input type="tel" name="tel" class="form-control" id="tel" placeholder="00.00.00.00.00" >
 
   </div>
 
