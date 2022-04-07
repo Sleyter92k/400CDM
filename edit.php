@@ -13,10 +13,10 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
           header('location:profil.php');// redirection vers la page de départ
           exit();// arrêtedu script
       }  
-      $fiche = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
-      // debug($fiche);// ferme if isset accolade suivante
+      $maj = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
+      // debug($maj);// ferme if isset accolade suivante
       } else {
-      header('location:edit.php');// si j'arrive sur la page sans rien dans l'url
+      header('location:profil.php');// si j'arrive sur la page sans rien dans l'url
       exit();// arrête du script
   }
 
@@ -94,7 +94,7 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
             <div class="row">
               <div class="col-4 form-group mt-2">
                   <label for="pseudo">Votre pseudo *</label>
-                  <input type="text" name="pseudo" id="pseudo" value="<?php echo $_SESSION['membre']['pseudo']; ?>" class="form-control"> 
+                  <input type="text" name="pseudo" id="pseudo" value="<?php echo $maj['membre']['pseudo']; ?>" class="form-control"> 
               </div>
             </div>
             <!-- <div class="form-group mt-2">
@@ -105,15 +105,15 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
             <div class="row">
               <div class="col-4 form-group mt-2">
                   <label for="nom">Nom *</label>
-                  <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['membre']['nom']; ?>" class="form-control">
+                  <input type="text" name="nom" id="nom" value="<?php echo $maj['nom']; ?>" class="form-control">
               </div>
               <div class="col-4 form-group mt-2">
                   <label for="prenom">Prénom *</label>
-                  <input type="text" name="prenom" id="prenom" value="<?php echo $_SESSION['membre']['prenom']; ?>" class="form-control"> 
+                  <input type="text" name="prenom" id="prenom" value="<?php echo $maj['prenom']; ?>" class="form-control"> 
               </div>
             <div class="col-4 form-group mt-2">
                 <label for="email">Email *</label>
-                <input type="email" name="email" id="email" value="<?php echo $_SESSION['membre']['mail']; ?>" class="form-control">
+                <input type="email" name="email" id="email" value="<?php echo $maj['mail']; ?>" class="form-control">
             </div>
             </div>
             <!-- fin row  -->
@@ -122,19 +122,19 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
                   <label for="civilite">Civilité *</label>
                   
                   <input type="radio" name="civilite" value="Mr" checked> Homme
-                  <input type="radio" name="civilite" value="Mme"<?php if (isset($_SESSION['membre']['civilite']) && $_SESSION['membre']['civilite'] =='Mme') echo 'checked';?>> Femme            
+                  <input type="radio" name="civilite" value="Mme"<?php if (isset($maj['civilite']) && $maj['civilite'] =='Mme') echo 'checked';?>> Femme            
               </div>
               <div class="col-4 form-group mt-2">
                   <label for="adresse">Adresse</label>
-                  <textarea name="adresse" id="adresse" class="form-control"><?php echo $_SESSION['membre']['adresse']; ?></textarea>
+                  <textarea name="adresse" id="adresse" class="form-control"><?php echo $maj['adresse']; ?></textarea>
               </div>
               <div class="col-4 form-group mt-2">
                   <label for="code_postal">Code postal</label>
-                  <input type="text" name="code_postal" id="code_postal" value="<?php echo $_SESSION['membre']['code_postal']; ?>" class="form-control"> 
+                  <input type="text" name="code_postal" id="code_postal" value="<?php echo $maj['code_postal']; ?>" class="form-control"> 
               </div>
               <div class="col-4 form-group mt-2">        
                   <label for="ville">Ville</label>
-                  <input type="text" name="ville" id="ville" value="<?php echo $_SESSION['membre']['ville']; ?>" class="form-control"> 
+                  <input type="text" name="ville" id="ville" value="<?php echo $maj['ville']; ?>" class="form-control"> 
               </div>
             </div>
             <div class="form-group mt-2">
@@ -142,7 +142,7 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
             </div>
     </form>
         </div>
-    <a href="profil.php"></a>
+    <!-- <a href="profil.php"></a> -->
     </section>
     </div>
 </div>
