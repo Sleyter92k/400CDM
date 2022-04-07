@@ -10,9 +10,9 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item m-1"><a class="nav-link border border-info btn btn-outline-light" href="accueil.php">Accueil</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="recherche.php">Recherche</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="annonce.php">Déposer une annonce</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="contact.php">Contact</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="recherche.php">Modération</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="annonce.php">Gestion des Membres</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="contact.php">Formulaire de Contact</a></li>
                     </ul>
 
                     
