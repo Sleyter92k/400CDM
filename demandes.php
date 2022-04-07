@@ -56,7 +56,7 @@
                     echo "<div class=\"btn-group\">";
 
 
-                    echo "<button type=\"button\"  class=\"btn btn-info text-white btn-outline-secondary rounded text-center\">Voir l'annonce</button>";
+                    echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

@@ -34,7 +34,7 @@ $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIM
 
 while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
   echo "<div class=\"col mb-5\">";
-              echo "<div class=\"card shadow-sm\">";
+              echo "<div class=\"card shadow-sm border border-info\">";
               echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
 
               echo "<div class=\"card-body\">";
@@ -45,7 +45,7 @@ while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class=\"btn-group\">";
 
 
-                  echo "<a href=\"fiche_annonce.php\" class=\"btn btn-info\">Détails</a>";
+                  echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
                 echo "</div>";
                 echo "</div>";
               echo "</div>";
