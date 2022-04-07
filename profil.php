@@ -1,12 +1,6 @@
 <?php
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php'; 
-
-if(estAdmin()) {
-  echo '<p>Vous êtes administrateur</p>';
-  echo '<a class="btn btn-primary" href="admin/accueil.php">Espace admin</a>'; 
-  echo '<a class="btn btn-primary" href="accueil.php">Aller a la l\'Accueil</a>';
-} 
 if (estconnecte()){
   
 }
@@ -53,10 +47,9 @@ if (!estConnecte()) {
                       <?php
                       if (estConnecte()) {
                       //  echo 'coucou';
-                      echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a></li>';
+                      echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>';
                       if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
-                        echo '<li class="nav-item"><a class="btn btn-primary" href="' .RACINE_SITE. 'admin/accueil.php">Espace admin</a></li>';
-                        echo '<li class="nav-item"><a class="btn btn-success" href="' .RACINE_SITE. 'accueil.php">Aller à la boutique</a></li>';
+                        echo '<a class="btn btn-info" href="' .RACINE_SITE. 'admin/accueil.php">Espace admin</a>';
                         // echo 'coucou';
                     }
                   }   ?>
