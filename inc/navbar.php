@@ -1,6 +1,6 @@
 
 <!-- <header class="py-4"> -->
-<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid px-4 px-lg-5 bg-body">
             <div class="">
             <img src="img/logo.png" alt="Logo" width="200">
