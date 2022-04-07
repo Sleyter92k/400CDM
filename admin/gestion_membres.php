@@ -1,18 +1,7 @@
 <?php 
 // 1 FONCTIONS
-require_once '../inc/functions.php';  
-
-// 2 CONNEXION BDD
-$pdoENT = new PDO( 'mysql:host=localhost;dbname=entreprise',// hôte nom BDD
-              'root',// pseudo 
-              '',// mot de passe
-              // 'root',// mdp pour MAC avec MAMP
-              array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,// afficher les erreurs SQL dans le navigateur
-                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',// charset des échanges avec la BDD
-              ));
-              // debug($pdoENT);
-              // debug(get_class_methods($pdoENT));
+require_once '../inc/log_bdd.php';
+require_once '../inc/fonction.php';  
 
 // 3 tri des données du tableau              
 // a initialisation de la variable pour le select du tri des données
@@ -21,81 +10,57 @@ $order = '';
 // b des conditions multiple à partir de $_GET
 
 // c 
-              $requete = $pdoENT->query( " SELECT * FROM employes $order " );
+              $requete = $pdoLOG->query( " SELECT * FROM membres $order " );
               // debug($resultat);
-              $nbr_employes = $requete->rowCount();
+              $nbr_membre = $requete->rowCount();
               // debug($nbr_commentaires);
             ?>
-            <h5>Il y a <?php echo $nbr_employes; ?> employés </h5>
+            <h5>Il y a <?php echo $nbr_membre; ?> membres </h5>
             <?php echo $contenu;
 
-// 4 TRAITEMENT DU FORMULAIRE
-if ( !empty($_POST) ) {
-    // debug($_POST);
-  $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des failles et des injections SQL
-	$_POST['nom'] = htmlspecialchars($_POST['nom']);
-	$_POST['sexe'] = htmlspecialchars($_POST['sexe']);
-	$_POST['service'] = htmlspecialchars($_POST['service']);
-	$_POST['date_embauche'] = htmlspecialchars($_POST['date_embauche']);
-	$_POST['salaire'] = htmlspecialchars($_POST['salaire']);
-
-	$insertion = $pdoENT->prepare( " INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES (:prenom, :nom, :sexe, :service, :date_embauche, :salaire) ");// requete préparée avec des marqueurs
-
-	$insertion->execute( array(
-		':prenom' => $_POST['prenom'],
-		':nom' => $_POST['nom'],
-		':sexe' => $_POST['sexe'],
-		':service' => $_POST['service'],
-		':date_embauche' => $_POST['date_embauche'],
-		':salaire' => $_POST['salaire'],
-	));
-}
 // 5 INITIALISATION DE LA VARIABLE $contenu
 $contenu = "";
 
-// 6 SUPPRESSION D'UN EMPLOYE
+// 6 SUPPRESSION D'UN MEMBRE
 // debug($_GET);
-if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_employes'])) {
-  $resultat = $pdoENT->prepare( " DELETE FROM employes WHERE id_employes = :id_employes " );
+if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_membre'])) {
+  $resultat = $pdoLOG->prepare( " DELETE FROM membres WHERE id_membre = :id_membre " );
 
   $resultat->execute(array(
-    ':id_employes' => $_GET['id_employes']
+    ':id_membre' => $_GET['id_membre']
   ));
 
   if ($resultat->rowCount() == 0) {
     $contenu .= '<div class="alert alert-danger"> Erreur de suppression</div>';
   } else {
-    $contenu .= '<div class="alert alert-success"> Employé supprimé</div>';
+    $contenu .= '<div class="alert alert-success"> Membre supprimé</div>';
   }
 }
 
 ?>
 <!doctype html>
 <html lang="fr">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>CoursPHP - Chapitre 09 - 02 employés</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-
-    <!-- mes styles -->
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>400 Coups de Main - Administration</title>
+        <!-- Favicon-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/bootstrap.css" rel="stylesheet" />
+        <link href="../css/style.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </head>
   <body> 
-    <?php require_once '../inc/navbar.inc.php';// NAVBAR ?>
   <main>
-    <header class="container-fluid f-header p-2">
-      <h1 class="display-4 text-center">CoursPHP - Chapitre 09 - 02 employé</h1>
-      <p class="lead">les employés de l'entreprise</p>
+    <header class="container-fluid">
+    <?php require_once '../inc/navbar.php';// NAVBAR ?>
     </header> 
     <!-- fin container-fluid header  -->
       <div class="container bg-white mt-2 mb-2 m-auto p-2">
@@ -103,33 +68,41 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
         <section class="row">
   
           <div class="col-md-12">
-            <h2>les employés</h2>
+            <h2>Les Membres</h2>
 
             <table class="table table-striped">
              <thead>
                <tr>
                  <th>Id</th>
-                 <th>Nom</th>
                  <th>Prénom</th>
-                 <th>Service</th>
-                 <th>Salaire</th>
-                 <th>Date d'embauche</th>
-                 <th>Détail</th>
-                 <th>Suppression</th>
+                 <th>Nom</th>
+                 <th>Civilité</th>
+                 <th>Pseudo</th>
+                 <th>Mail</th>
+                 <th>adresse</th>
+                 <th>Code Postal</th>
+                 <th>Ville</th>
+                 <th>Mobile</th>
+                 <th>Statut</th>
                </tr>
              </thead>
              <tbody>
 				 <!-- ouverture de la boucle while -->
                <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
 			   <tr>
-				   <td><?php echo $ligne['id_employes']; ?></td>                   
-				   <td><?php echo $ligne['sexe']. ' ' .$ligne['nom']; ?></td>
-				   <td><?php echo $ligne['prenom']; ?></td>
-				   <td><?php echo $ligne['service']; ?></td>
-				   <td><?php echo $ligne['salaire']; ?></td>
-				   <td><?php echo $ligne['date_embauche']; ?></td>
-          <td><a href="03_fiche_employe.php?id_employes=<?php echo $ligne['id_employes']; ?>">maj</a></td>
-          <td><a href="?action=supprimer&id_employes=<?php echo $ligne['id_employes']; ?>" onclick="return(confirm('Voulez-vous supprimer cet employé ? '))">suppression</a></td>
+				   <td><?php echo $ligne['id_membre']; ?></td>                   
+				   <td><?php echo $ligne['prenom']. ' ' .$ligne['nom']; ?></td>
+				   <td><?php echo $ligne['nom']; ?></td>
+				   <td><?php echo $ligne['civilite']; ?></td>
+				   <td><?php echo $ligne['pseudo']; ?></td>
+				   <td><?php echo $ligne['mail']; ?></td>
+                   <td><?php echo $ligne['adresse']; ?></td>
+				   <td><?php echo $ligne['code_postal']; ?></td>
+				   <td><?php echo $ligne['ville']; ?></td>
+                   <td><?php echo $ligne['mobile']; ?></td>
+				   <td><?php echo $ligne['statut']; ?></td>
+          <td><a href="maj_membre.php?id_membre=<?php echo $ligne['id_membre']; ?>">maj</a></td>
+          <td><a href="?action=supprimer&id_membre=<?php echo $ligne['id_membre']; ?>" onclick="return(confirm('Voulez-vous supprimer ce membre ? '))">suppression</a></td>
 			   </tr>
 			   <!-- fermeture de la boucle -->
 			   <?php } ?>
@@ -138,65 +111,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
           </div>
           <!-- fin col -->
   
-          <div class="col-md-12">
-            <h2>Nouvel employé</h2>
-            <!-- action vide car nous envoyons les données avec cette même page et POST va envoyer dans la superglobale $_POST -->
-			<form action="" method="POST" class="border border-primary p-1">
-            <div class="mb-3">
-                <label for="prenom" class="form-label">Prénom</label>
-                <input type="text" name="prenom" id="prenom" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom de famille</label>
-                <input type="text" name="nom" id="nom" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-            <!-- https://getbootstrap.com/docs/5.1/forms/checks-radios/ -->
-                <label for="sexe" class="form-label">Sexe </label><br>
-                <input type="radio" name="sexe" value="m" id="sexe" checked> Homme <br>
-                <input type="radio" name="sexe" value="f" id="sexe"> Femme
-            </div>
-
-            <div class="mb-3">
-                <label for="service" class="form-label">Service</label>
-                <select name="service" id="service">
-                    <option value="">---</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="communication">Communication</option>
-                    <option value="comptabilite">Comptabilité</option>
-                    <option value="direction">Direction</option>
-                    <option value="informatique">Informatique</option>
-                    <option value="juridique">Juridique</option>
-                    <option value="production">Production</option>
-                    <option value="secretariat">Secrétariat</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="date_embauche" class="form-label">Date d'embauche</label>
-                <input type="date" name="date_embauche" id="date_embauche" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="salaire" class="form-label">Salaire mensuel</label>
-                <input type="text" name="salaire" id="salaire" class="form-control" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Ajouter un employé</button>
-
-            </form>
-
-          </div>
-          <!-- fin col -->
+          
           </section>
         <!-- fin row -->  
 
       </div>
       <!-- fin container  -->
     </main>
-      <?php require_once '../inc/footer.inc.php';// FOOTER ?>
+      <?php require_once '../inc/footer.php';// FOOTER ?>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

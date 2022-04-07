@@ -59,7 +59,7 @@ require_once '../inc/fonction.php';
         <h2>Gestion des Membres</h2>
         <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
         <a href="gestion_membres.php" class="btn btn-primary">
-          Primary button
+          Membres
         </a>
       </div>
     </div>
