@@ -1,9 +1,19 @@
 <?php
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php'; 
-// session_start()
 
+if(estAdmin()) {
+  echo '<p>Vous êtes administrateur</p>';
+  echo '<a class="btn btn-primary" href="admin/accueil.php">Espace admin</a>'; 
+  echo '<a class="btn btn-primary" href="accueil.php">Aller a la l\'Accueil</a>';
+} 
+if (estconnecte()){
+  
+}
 
+if (!estConnecte()) {
+  header('location:connexion.php');
+}
 // if (!estConnecte()) { // accès à la page autorisé quand on est connecté
 //   header('location:connexion.php');
 // }
@@ -44,6 +54,11 @@ require_once 'inc/fonction.php';
                       if (estConnecte()) {
                       //  echo 'coucou';
                       echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a></li>';
+                      if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
+                        echo '<li class="nav-item"><a class="btn btn-primary" href="' .RACINE_SITE. 'admin/accueil.php">Espace admin</a></li>';
+                        echo '<li class="nav-item"><a class="btn btn-success" href="' .RACINE_SITE. 'accueil.php">Aller à la boutique</a></li>';
+                        // echo 'coucou';
+                    }
                   }   ?>
           
                     </div>
@@ -106,7 +121,7 @@ require_once 'inc/fonction.php';
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-danger " target="__blank" href="edit.php">Modifier vos informations</a>
+                      <a class="btn btn-danger" href="edit.php">Modifier vos informations</a>
                     </div>
                   </div>
                 </div>

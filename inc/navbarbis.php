@@ -4,7 +4,7 @@
               if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
                   echo ' -- Vous êtes administrateur</p>';
               } else {
-                  echo ' -- Vous êtes connecté rendez-vous à la Boutique</p>';
+                  echo ' -- Vous êtes connecté rendez-vous à l\'Accueil</p>';
               }
               ?>
          
@@ -15,7 +15,7 @@
                       echo '<li class="nav-item"><a class="btn btn-success" href="' .RACINE_SITE. 'accueil.php">Aller à la boutique</a></li>';
                       // echo 'coucou';
                   } else {
-                      echo '<li class="nav-item"><a class="btn btn-success" href="accueil.php">Retour à la boutique</a></li>';
+                      echo '<li class="nav-item"><a class="btn btn-success" href="accueil.php">Retour à la l\'Accueil</a></li>';
                   }
                   if (estConnecte()) {
                       echo 'coucou';

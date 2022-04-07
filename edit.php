@@ -4,7 +4,7 @@ require_once 'inc/fonction.php';
 
 //4 TRAITEMENT DE MISE À JOUR D'UN PRODUIT
 if ( !empty($_POST) ) {//not empty
-    debug($_POST);
+    // debug($_POST);
   
   $_POST['pseudo'] = htmlspecialchars($_POST['pseudo']);
   $_POST['nom'] = htmlspecialchars($_POST['nom']);
@@ -16,7 +16,7 @@ if ( !empty($_POST) ) {//not empty
   $_POST['ville'] = htmlspecialchars($_POST['ville']);
   $_POST['mobile'] = htmlspecialchars($_POST['mobile']);
   
-  $resultat = $pdoLOG->prepare( " UPDATE produits SET prenom = :prenom, nom = :nom, civilite = :civilite, pseudo = :pseudo, mail = :mail, adresse = :adresse, code_postal = :code_postal, ville = :ville, mobile = :mobile WHERE id_membre = :id_membre " );// requete préparée avec des marqueurs
+  $resultat = $pdoLOG->prepare( " UPDATE membres SET prenom = :prenom, nom = :nom, civilite = :civilite, pseudo = :pseudo, mail = :mail, adresse = :adresse, code_postal = :code_postal, ville = :ville, mobile = :mobile WHERE id_membre = :id_membre " );// requete préparée avec des marqueurs
   
   $resultat->execute( array(
     ':pseudo' => $_POST['pseudo'],
@@ -25,10 +25,11 @@ if ( !empty($_POST) ) {//not empty
     ':civilite' => $_POST['civilite'],
     ':pseudo' => $_POST['pseudo'],
     ':mail' => $_POST['mail'],
-    ':adresse' => $_POST['code_postal'],
+    ':adresse' => $_POST['adresse'],
+    ':code_postal' => $_POST['code_postal'],
     ':ville' => $_POST['ville'],
     ':mobile' => $_POST['mobile'],
-    // ':id_membre' => $_GET['id_membre']
+    ':id_membre' => $_GET['id_membre']
   
   ));
   header('location:profil.php');
