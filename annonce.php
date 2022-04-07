@@ -6,17 +6,19 @@ if (!empty($_POST)) {
     // var_dump($_POST);
     $_POST['type_de_cdm'] = htmlspecialchars($_POST['type_de_cdm']);
     $_POST['type_annonce'] = htmlspecialchars($_POST['type_annonce']);
+    $_POST['categorie'] = htmlspecialchars($_POST['categorie']);
     $_POST['titre'] = htmlspecialchars($_POST['titre']);
     $_POST['description'] = htmlspecialchars($_POST['description']);
     $_POST['code_postal'] = htmlspecialchars($_POST['code_postal']);
     $_POST['ville'] = htmlspecialchars($_POST['ville']);
     $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
 
+    debug($_FILES);
     $photo = '';
 
     if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
-        copy($_FILES['photo']['tmp_name'], '../' .$photo);
+        copy($_FILES['photo']['tmp_name'], '' .$photo);
         } // fin du traitement photo
 
 
@@ -63,7 +65,7 @@ if (!empty($_POST)) {
              
                 <div class="col-md-6 p-2 bg-light border border-primary">
                     
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type">Type de coup de main*</label>
                         <div class="row">
                             <div class=" col form-group mt-2">
