@@ -15,8 +15,10 @@
                         <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="contact.php">Contact</a></li>
                     </ul>
 
-                    
                         <div class="col-md-2 col-sm-2">
+                      <?php  if (estConnecte()) {
+                    echo '<li class="nav-item"><a class="btn btn-secondary" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a></li>';
+                  } ?>
                             <div class="row">
                         <button  class="btn btn-outline-info" ><a href="connexion.php">Connexion</a></button>
                         <button  class="btn btn-outline-info mt-2" ><a href="inscription.php">Inscription</a></button>
