@@ -91,7 +91,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
                <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
 			   <tr>
 				   <td><?php echo $ligne['id_membre']; ?></td>                   
-				   <td><?php echo $ligne['prenom']. ' ' .$ligne['nom']; ?></td>
+				   <td><?php echo $ligne['prenom']; ?></td>
 				   <td><?php echo $ligne['nom']; ?></td>
 				   <td><?php echo $ligne['civilite']; ?></td>
 				   <td><?php echo $ligne['pseudo']; ?></td>
