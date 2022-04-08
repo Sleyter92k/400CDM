@@ -90,7 +90,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
             <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
             <tr>
             <td><?php echo $ligne['id_annonce']; ?></td>                   
-            <td><?php echo $ligne['id_annonce']; ?></td>
+            <td><?php echo $ligne['id_membre']; ?></td>
 				   <td><?php echo $ligne['type_annonce']; ?></td>
 				   <td><?php echo $ligne['type_de_cdm']; ?></td>
 				   <td><?php echo $ligne['titre']; ?></td>
@@ -100,7 +100,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
            <td><?php echo $ligne['adresse']; ?></td>
            <td><?php echo $ligne['categorie']; ?></td>
 				   <td><?php echo $ligne['photo']; ?></td>
-            <td><a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" onclick="return(confirm('Voulez-vous supprimer ce membre ? '))">suppression</a></td>
+            <td><a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" onclick="return(confirm('Voulez-vous supprimer cette annonce ? '))">suppression</a></td>
 			   </tr>
                 
             </div>

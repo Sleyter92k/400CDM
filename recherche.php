@@ -24,10 +24,10 @@
             <div class="container ">
                 <div class="row mb-5 justify-content-center">
                     <div class="col" >
-                            <a href="offres.php" class="btn btn-info">Voir les offres</a>
+                            <a href="offres.php" class="btn border border-info">Voir les offres</a>
                     </div>
                     <div class="col">
-                            <a href="demandes.php" class="btn btn-info">Voir les demandes</a>
+                            <a href="demandes.php" class="btn border border-info">Voir les demandes</a>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 row-cols-12 row-cols-md-3 row-cols-xl-4 justify-content-center">

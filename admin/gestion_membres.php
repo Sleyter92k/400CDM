@@ -88,7 +88,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
              </thead>
              <tbody>
 				 <!-- ouverture de la boucle while -->
-               <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
+          <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
 			   <tr>
 				   <td><?php echo $ligne['id_membre']; ?></td>                   
 				   <td><?php echo $ligne['prenom']; ?></td>
@@ -96,10 +96,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
 				   <td><?php echo $ligne['civilite']; ?></td>
 				   <td><?php echo $ligne['pseudo']; ?></td>
 				   <td><?php echo $ligne['mail']; ?></td>
-                   <td><?php echo $ligne['adresse']; ?></td>
+            <td><?php echo $ligne['adresse']; ?></td>
 				   <td><?php echo $ligne['code_postal']; ?></td>
 				   <td><?php echo $ligne['ville']; ?></td>
-                   <td><?php echo $ligne['mobile']; ?></td>
+            <td><?php echo $ligne['mobile']; ?></td>
 				   <td><?php echo $ligne['statut']; ?></td>
           <td><a href="maj_membre.php?id_membre=<?php echo $ligne['id_membre']; ?>">maj</a></td>
           <td><a href="?action=supprimer&id_membre=<?php echo $ligne['id_membre']; ?>" onclick="return(confirm('Voulez-vous supprimer ce membre ? '))">suppression</a></td>
