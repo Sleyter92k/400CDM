@@ -9,17 +9,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item m-1"><a class="nav-link border border-info btn btn-outline-light" href="accueil.php">Accueil</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="recherche.php">Modération</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="annonce.php">Gestion des Membres</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="contact.php">Formulaire de Contact</a></li>
+                    <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="accueil.php">Accueil Administration</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-info btn btn-outline-light" href="../accueil.php">Retour au site</a></li>
+                        <!-- <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="../annonce.php">Gestion des Membres</a></li>
+                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="../contact.php">Formulaire de Contact</a></li> -->
                     </ul>
 
                     
                         <div class="col-md-2 col-sm-2">
                             <div class="row">
-                        <button  class="btn btn-outline-info" ><a href="connexion.php">Connexion</a></button>
-                        <button  class="btn btn-outline-info mt-2" ><a href="inscription.php">Inscription</a></button>
+                        <button  class="btn btn-outline-info" ><a href="../connexion.php">Connexion</a></button>
+                        <button  class="btn btn-outline-info mt-2" ><a href="../inscription.php">Inscription</a></button>
                             </div>
                         </div>
                     </div>

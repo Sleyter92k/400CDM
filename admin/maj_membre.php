@@ -79,7 +79,7 @@ if ( !empty($_POST) ) {//not empty
   <body>  
   <main>
     <header class="container-fluid">
-    <?php require_once '../inc/navbar.php';// NAVBAR ?>
+    <?php require_once '../inc/navbar_admin.php'; ?>
     </header> 
     <!-- fin container-fluid header  -->
       <div class="container bg-white mt-2 mb-2 m-auto p-2">
