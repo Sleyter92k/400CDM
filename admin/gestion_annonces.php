@@ -69,28 +69,43 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
             <h2>Les annonces</h2>
           
             <h5>Il y a <?php echo $moderation_annonce; ?> Annonces </h5>
+            <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th>Id annonce</th>
+                 <th>Id membre</th>
+                 <th>Type d'annonce</th>
+                 <th>Type de cdm</th>
+                 <th>Titre</th>
+                 <th>Description</th>
+                 <th>adresse</th>
+                 <th>Code Postal</th>
+                 <th>Ville</th>
+                 <th>Catégorie</th>
+                 <th>Photo</th>
+               </tr>
+             </thead>
+             <tbody>
 
             <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
-
-            <div class="card " style="width: 18rem;">
-            <img class="card-img-top" src="<?php echo "" ?>" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Titre : <?php echo $ligne['titre']; ?></h5>
-                <p class="card-text">Type d'annonce : <?php echo $ligne['type_annonce']; ?></p>
-                <p class="card-text">Type de coup de main : <?php echo $ligne['type_de_cdm']; ?></p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Description : <?php echo $ligne['description']; ?></li>
-                <li class="list-group-item">Code Postal : <?php echo $ligne['code_postal']; ?></li>
-                <li class="list-group-item">Ville : <?php echo $ligne['ville']; ?></li>
-                <li class="list-group-item">Adresse : <?php echo $ligne['adresse']; ?></li>
-                <li class="list-group-item">Catégorie : <?php echo $ligne['categorie']; ?></li>
-            </ul>
-            <div class="card-body">
-            <a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" class="card-link" onclick="return(confirm('Voulez-vous supprimer cette annonce ? '))">Supprimer cette Annonce</a>
+            <tr>
+            <td><?php echo $ligne['id_annonce']; ?></td>                   
+            <td><?php echo $ligne['id_annonce']; ?></td>
+				   <td><?php echo $ligne['type_annonce']; ?></td>
+				   <td><?php echo $ligne['type_de_cdm']; ?></td>
+				   <td><?php echo $ligne['titre']; ?></td>
+				   <td><?php echo $ligne['description']; ?></td>
+				   <td><?php echo $ligne['code_postal']; ?></td>
+				   <td><?php echo $ligne['ville']; ?></td>
+           <td><?php echo $ligne['adresse']; ?></td>
+           <td><?php echo $ligne['categorie']; ?></td>
+				   <td><?php echo $ligne['photo']; ?></td>
+            <td><a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" onclick="return(confirm('Voulez-vous supprimer ce membre ? '))">suppression</a></td>
+			   </tr>
                 
             </div>
             <?php } ?>
+            </table>
             </div>
           </div>
           <!-- fin col -->
