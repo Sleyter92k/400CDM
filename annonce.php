@@ -1,6 +1,11 @@
 <?php  require_once 'inc/log_bdd.php';
        require_once 'inc/fonction.php';
 
+debug($_SESSION);   
+// $id_membre = '' ;
+$id_membre = $_SESSION['membre']['id_membre'];
+$prenom = $_SESSION['membre']['prenom'];
+
 
 if (!empty($_POST)) {
     // var_dump($_POST);
@@ -22,9 +27,10 @@ if (!empty($_POST)) {
         } // fin du traitement photo
 
 
-    $insertion = executeRequete(" INSERT INTO annonces (type_de_cdm, type_annonce, titre, categorie, description, code_postal, ville, adresse, photo) VALUES (:type_de_cdm, :type_annonce, :titre, :categorie, :description, :code_postal, :ville, :adresse, :photo) ",
+    $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, categorie, description, code_postal, ville, adresse, photo) VALUES (:id_membre, :type_de_cdm, :type_annonce, :titre, :categorie, :description, :code_postal, :ville, :adresse, :photo) ",
 
     array(
+        ':id_membre' => $id_membre,
         ':type_de_cdm' => $_POST['type_de_cdm'],
         ':type_annonce' => $_POST['type_annonce'],
         ':titre' => $_POST['titre'],
@@ -66,6 +72,7 @@ if (!empty($_POST)) {
                     
   <form action="" method="POST" enctype="multipart/form-data">
       <label for="type">Type de coup de main*</label>
+      <?php echo $prenom; ?>
       <div class="row">
           <div class=" col form-group mt-2">
               <input type="radio" id="offre"  name="type_de_cdm" value="Offre"  > Offre

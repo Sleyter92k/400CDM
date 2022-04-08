@@ -30,7 +30,7 @@
                             </li>
 
                             <li class="nav-item">
-                           <?php echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>'; ?>
+                           <?php echo '<a class="btn btn-danger" href="./' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>'; ?>
                             </li>
          
                         <?php } ?>
