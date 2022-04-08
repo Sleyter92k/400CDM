@@ -30,7 +30,7 @@ if (!empty($_POST)) {
     $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, categorie, description, code_postal, ville, adresse, photo) VALUES (:id_membre, :type_de_cdm, :type_annonce, :titre, :categorie, :description, :code_postal, :ville, :adresse, :photo) ",
 
     array(
-        ':id_membre' => $id_membre,
+        ':type_de_cdm' => $id_membre,
         ':type_de_cdm' => $_POST['type_de_cdm'],
         ':type_annonce' => $_POST['type_annonce'],
         ':titre' => $_POST['titre'],
