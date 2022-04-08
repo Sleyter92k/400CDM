@@ -22,7 +22,7 @@
         
         <section class="py-5">
             <div class="container ">
-                <div class="row mb-5">
+                <div class="row mb-5  ">
                     <div class="col" >
                          <a href="offres.php" class="btn btn-info">Voir les offres</a>
                     </div>
@@ -30,7 +30,7 @@
                          <a href="demandes.php" class="btn btn-info">Voir les demandes</a>
                     </div>
                 </div>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
                     
                     <?php
 
@@ -44,8 +44,8 @@
                     
                          
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class=\"col mb-3\">";
-                    echo "<div class=\"card shadow-sm\">";
+                    echo "<div class=\"col mb-3 \">";
+                    echo "<div class=\"card shadow-sm border border-info\">";
                     echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
 
                     echo "<div class=\"card-body\">";

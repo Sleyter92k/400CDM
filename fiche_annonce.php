@@ -1,5 +1,5 @@
 <?php  require_once 'inc/log_bdd.php'; 
-// 1 RÉCEPTION DES INFORMATIONS D'UN PRODUIT AVEC $_GET
+// 1 RÉCEPTION DES INFORMATIONS D'UNE ANNONCE AVEC $_GET
 // debug($_GET);
 if ( isset($_GET['id_annonce']) ) {
   // debug($_GET);
@@ -9,7 +9,7 @@ if ( isset($_GET['id_annonce']) ) {
   ));
   // debug($annonce->rowCount());
     if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas de produit
-        header('location:accueil.php');// redirection vers la page de départ
+        header('location:accueil.php'); // redirection vers la page de départ
         exit();// arrêt du script
     }  
     $reserve = $annonce->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
