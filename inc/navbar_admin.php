@@ -16,11 +16,24 @@
                     </ul>
 
                     
-                        <div class="col-md-2 col-sm-2">
-                            <div class="row">
-                        <button  class="btn btn-outline-info" ><a href="../connexion.php">Connexion</a></button>
-                        <button  class="btn btn-outline-info mt-2" ><a href="../inscription.php">Inscription</a></button>
-                            </div>
+                    <div class="col-md-2 col-sm-2">
+                        <?php if(!EstConnecte()) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../connexion.php">Connexion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../inscription.php">Inscription</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../profil.php">Profil</a>
+                            </li>
+
+                            <li class="nav-item">
+                           <?php echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>'; ?>
+                            </li>
+         
+                        <?php } ?>
                         </div>
                     </div>
                 </div>
