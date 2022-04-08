@@ -9,7 +9,7 @@ if ( isset($_GET['id_annonce']) ) {
   ));
   // debug($annonce->rowCount());
     if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas de produit
-        header('location:accueil.php'); // redirection vers la page de départ
+        header('location:accueil.php');// redirection vers la page de départ
         exit();// arrêt du script
     }  
     $reserve = $annonce->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
@@ -53,7 +53,7 @@ if ( isset($_GET['id_annonce']) ) {
   </div>
   <div class="card-body">
     <h1 class="card-title"><?php echo $reserve['titre']; ?></h1>
-    <img src="<?php echo $reserve['photo']; ?>" class="card-img-top " alt="...">
+    <img width="200" height="200" src="<?php echo $reserve['photo']; ?>" class=" border border-info image-responsive " alt="...">
     <p class="card-text"><?php echo $reserve['type_de_cdm']; ?> de <?php echo $reserve['type_annonce']; ?> </p>
     <p class="card-text"><?php echo $reserve['description']; ?></p>
     <p class="card-text">Localisation : <?php echo $reserve['code_postal']; ?> <?php echo $reserve['ville']; ?></p>

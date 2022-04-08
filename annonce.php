@@ -61,7 +61,7 @@ if (!empty($_POST)) {
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         <div class="container"><?php echo $contenu; ?>
-            <section class="row m-4 justify-content-center">
+            <section class="row m-4 row-cols-12 row-cols-md-3 row-cols-xl-4 ">
              
                 <div class="col-md-6 p-2 bg-light border border-primary">
                     

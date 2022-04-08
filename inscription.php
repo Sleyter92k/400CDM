@@ -96,109 +96,92 @@ if ( !empty($_POST) ) {
         <link href="css/style.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
-<body>
-
-<!-- =================================== -->
-<!-- navbar -->
-<!-- =================================== -->
-<?php require_once 'inc/navbar.php'; ?>
-
-
-    <!-- =================================== -->
-    <!-- en-tête -->
-    <!-- =================================== -->
-    <!-- fin container header -->
-    <div class="container mb-4 bg-white">
-
-<section class="row">
-
-</div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
-    <!-- <?php   echo $contenu;  ?> -->
-    <form action="" method="POST" class="row g-3">
-
-    <div class="mb-3">
-        
-                <label for="civilite" class="form-label">Civilité </label><br>
-                <input type="radio" name="civilite" value="Mr" id="civilite"> Mr 
-
-                <input type="radio" name="civilite" value="Mme" id="civilite"> Mme
-            </div>
- <div class="col-md-6">
-
-  <label for="prenom" class="form-label">Prénom*</label>
-
-  <input type="text"  name="prenom" class="form-control" placeholder="Prénom" aria-label="prenom" >
-  </div>
-
-  <div class="col-md-6">
-  <label for="nom" class="form-label">Nom*</label>
-  <input type="text" name="nom" class="form-control" placeholder="Nom" aria-label="Nom" >
-  </div>
-
-  <div class="col-12">
-  <label for="mail" class="form-label">Email*</label>
-    <input type="email" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
-
-  </div>
-
-  <div class="col-12">
-  <label for="pseudo" class="form-label">Choisissez un pseudo*</label>
-    <input type="pseudo" name="pseudo" class="form-control" id="pseudo" placeholder="choisissez un pseudo" maxlength="10" size="13" >
-
-  </div>
-
-  <div class="col-12">
-  <label for="mdp" class="form-label">Mot de passe *</label>
-    <input type="password" name="mdp" class="form-control" id="mdp"  >
-
-  </div>
-
-  <div class="col-12">
-  <label for="adresse" class="form-label">Adresse</label>
-    <input type="text" name="adresse" class="form-control" id="adresse" placeholder="votre adresse" >
-
-  </div>
-
- 
-  <div class="col-md-6">
-  <label for="code_postal" class="form-label">Code postal</label>
-    <input type="text" name="code_postal" class="form-control" id="code_postal" placeholder="code postal"
-      maxlength="5" size="10">
-  </div>
-
-
-
-  <div class="col-md-6">
-  <label for="ville" class="form-label">Ville</label>
-    <input type="text" name="ville" class="form-control" id="ville" placeholder="Ville" >
-  </div>
-
-  <div class="col-4">
-  <label for="mobile" class="form-label">Mobile</label>
-    <input type="int" name="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" >
-
-  </div>
-
-
-  <div class="col-12">
-  <button type="submit" class="btn btn-info">S'inscrire</button>
-
-  </div>
-
-</form>
-    </div>
+    <body>
+        <!-- =================================== -->
+        <!-- navbar -->
+        <!-- =================================== -->
+        <?php require_once 'inc/navbar.php'; ?>
     
+        <!-- =================================== -->
+        <!-- en-tête -->
+        <!-- =================================== -->
+        <!-- fin container header -->
+        <div class="container mb-4 bg-white">
 
-</section>
-      
-    </div>
-    <!-- fin div container -->
+            <section class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
+                    <!-- <?php   echo $contenu;  ?> -->
+                    <form action="" method="POST" class="row g-3">
+                        <div class="mb-3">
+                            <label for="civilite" class="form-label">Civilité </label><br>
+                            <input type="radio" name="civilite" value="Mr" id="civilite"> Mr 
+                            <input type="radio" name="civilite" value="Mme" id="civilite"> Mme
+                        </div>
+                        <div class="col-md-6">
+                            <label for="prenom" class="form-label">Prénom*</label>
+                            <input type="text"  name="prenom" class="form-control" placeholder="Prénom" aria-label="prenom" >
+                        </div>
 
-    <?php require_once 'inc/footer.php' ?>
+                        <div class="col-md-6">
+                            <label for="nom" class="form-label">Nom*</label>
+                            <input type="text" name="nom" class="form-control" placeholder="Nom" aria-label="Nom" >
+                        </div>
 
-    <!-- Optional JavaScript -->
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</body>
+                        <div class="col-12">
+                            <label for="mail" class="form-label">Email*</label>
+                            <input type="email" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
+                        </div>
+
+                        <div class="col-12">
+                            <label for="pseudo" class="form-label">Choisissez un pseudo*</label>
+                            <input type="pseudo" name="pseudo" class="form-control" id="pseudo" placeholder="choisissez un pseudo" maxlength="10" size="13" >
+                        </div>
+
+                        <div class="col-12">
+                            <label for="mdp" class="form-label">Mot de passe *</label>
+                            <input type="password" name="mdp" class="form-control" id="mdp"  >
+                        </div>
+
+                        <div class="col-12">
+                            <label for="adresse" class="form-label">Adresse</label>
+                            <input type="text" name="adresse" class="form-control" id="adresse" placeholder="votre adresse" >
+                        </div>
+
+                    
+                        <div class="col-md-6">
+                            <label for="code_postal" class="form-label">Code postal</label>
+                            <input type="text" name="code_postal" class="form-control" id="code_postal" placeholder="code postal"
+                            maxlength="5" size="10">
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <label for="ville" class="form-label">Ville</label>
+                            <input type="text" name="ville" class="form-control" id="ville" placeholder="Ville" >
+                        </div>
+
+                        <div class="col-4">
+                            <label for="mobile" class="form-label">Mobile</label>
+                            <input type="int" name="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" >
+                        </div>
+
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-info">S'inscrire</button>
+                        </div>
+
+                    </form>
+                </div>
+    
+            </section>
+        </div>
+        
+
+        <!-- fin div container -->
+
+        <?php require_once 'inc/footer.php' ?>
+
+        <!-- Optional JavaScript -->
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
 </html>
