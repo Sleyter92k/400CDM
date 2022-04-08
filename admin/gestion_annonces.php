@@ -65,14 +65,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
   
         <section class="row">
   
-          <div class="col-md-12">
+          <div class="col-sm-12 col-md-6 col-lg-4">
             <h2>Les annonces</h2>
           
             <h5>Il y a <?php echo $moderation_annonce; ?> Annonces </h5>
 
             <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card " style="width: 18rem;">
             <img class="card-img-top" src="<?php echo "" ?>" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Titre : <?php echo $ligne['titre']; ?></h5>
