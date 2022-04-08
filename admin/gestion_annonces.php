@@ -6,13 +6,12 @@ require_once '../inc/fonction.php';
 // 3 tri des données du tableau              
 // a initialisation de la variable pour le select du tri des données
 
-$order = '';
 // b des conditions multiple à partir de $_GET
 
 // c 
-              $requete = $pdoLOG->query( " SELECT * FROM membres $order " );
+              $requete = $pdoLOG->query( " SELECT * FROM annonces " );
               // debug($resultat);
-              $nbr_membre = $requete->rowCount();
+              $moderation_annonce = $requete->rowCount();
               // debug($nbr_commentaires);
             ?>
             <?php echo $contenu;
@@ -22,11 +21,11 @@ $contenu = "";
 
 // 6 SUPPRESSION D'UN MEMBRE
 // debug($_GET);
-if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_membre'])) {
-  $resultat = $pdoLOG->prepare( " DELETE FROM membres WHERE id_membre = :id_membre " );
+if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_annonce'])) {
+  $resultat = $pdoLOG->prepare( " DELETE FROM annonces WHERE id_annonce = :id_annonce " );
 
   $resultat->execute(array(
-    ':id_membre' => $_GET['id_membre']
+    ':id_annonce' => $_GET['id_annonce']
   ));
 
   if ($resultat->rowCount() == 0) {
@@ -44,7 +43,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Gestion des membres</title>
+        <title>Gestion des annonces</title>
         <!-- Favicon-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,47 +66,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
         <section class="row">
   
           <div class="col-md-12">
-            <h2>Les Membres</h2>
-            <h5>Il y a <?php echo $nbr_membre; ?> membres </h5>
+            <h2>Les annonces</h2>
+          
+            <h5>Il y a <?php echo $moderation_annonce; ?> Annonces </h5>
 
-            <table class="table table-striped">
-             <thead>
-               <tr>
-                 <th>Id</th>
-                 <th>Prénom</th>
-                 <th>Nom</th>
-                 <th>Civilité</th>
-                 <th>Pseudo</th>
-                 <th>Mail</th>
-                 <th>adresse</th>
-                 <th>Code Postal</th>
-                 <th>Ville</th>
-                 <th>Mobile</th>
-                 <th>Statut</th>
-               </tr>
-             </thead>
-             <tbody>
-				 <!-- ouverture de la boucle while -->
-               <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
-			   <tr>
-				   <td><?php echo $ligne['id_membre']; ?></td>                   
-				   <td><?php echo $ligne['prenom']. ' ' .$ligne['nom']; ?></td>
-				   <td><?php echo $ligne['nom']; ?></td>
-				   <td><?php echo $ligne['civilite']; ?></td>
-				   <td><?php echo $ligne['pseudo']; ?></td>
-				   <td><?php echo $ligne['mail']; ?></td>
-                   <td><?php echo $ligne['adresse']; ?></td>
-				   <td><?php echo $ligne['code_postal']; ?></td>
-				   <td><?php echo $ligne['ville']; ?></td>
-                   <td><?php echo $ligne['mobile']; ?></td>
-				   <td><?php echo $ligne['statut']; ?></td>
-          <td><a href="maj_membre.php?id_membre=<?php echo $ligne['id_membre']; ?>">maj</a></td>
-          <td><a href="?action=supprimer&id_membre=<?php echo $ligne['id_membre']; ?>" onclick="return(confirm('Voulez-vous supprimer ce membre ? '))">suppression</a></td>
-			   </tr>
-			   <!-- fermeture de la boucle -->
-			   <?php } ?>
-             </tbody>
-            </table>
+            <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
+
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo "" ?>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Titre : <?php echo $ligne['titre']; ?></h5>
+                <p class="card-text">Type d'annonce : <?php echo $ligne['type_annonce']; ?></p>
+                <p class="card-text">Type de coup de main : <?php echo $ligne['type_de_cdm']; ?></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Description : <?php echo $ligne['description']; ?></li>
+                <li class="list-group-item">Code Postal : <?php echo $ligne['code_postal']; ?></li>
+                <li class="list-group-item">Ville : <?php echo $ligne['ville']; ?></li>
+                <li class="list-group-item">Adresse : <?php echo $ligne['adresse']; ?></li>
+                <li class="list-group-item">Catégorie : <?php echo $ligne['categorie']; ?></li>
+            </ul>
+            <div class="card-body">
+            <a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" class="card-link" onclick="return(confirm('Voulez-vous supprimer cette annonce ? '))">Supprimer cette Annonce</a>
+                
+            </div>
+            <?php } ?>
+            </div>
           </div>
           <!-- fin col -->
   

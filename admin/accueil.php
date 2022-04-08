@@ -30,7 +30,7 @@ require_once '../inc/fonction.php';
   <!-- =================================== -->
 
   <header>
-    <?php require_once '../inc/navbar.php'; ?>
+    <?php require_once '../inc/navbar_admin.php'; ?>
 
   </header>
 
@@ -45,9 +45,8 @@ require_once '../inc/fonction.php';
       </div>
       <div>
         <h2>Gestion des Annonces</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="btn btn-primary">
-          Primary button
+        <a href="gestion_annonces.php" class="btn btn-primary">
+          Annonces
         </a>
       </div>
     </div>
@@ -57,7 +56,7 @@ require_once '../inc/fonction.php';
       </div>
       <div>
         <h2>Gestion des Membres</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        
         <a href="gestion_membres.php" class="btn btn-primary">
           Membres
         </a>
@@ -69,9 +68,8 @@ require_once '../inc/fonction.php';
       </div>
       <div>
         <h2>Demande de Contact</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="btn btn-primary">
-          Primary button
+        <a href="reponse.php" class="btn btn-primary">
+          Répondre
         </a>
       </div>
     </div>
