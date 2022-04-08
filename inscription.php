@@ -106,10 +106,10 @@ if ( !empty($_POST) ) {
         <!-- en-tête -->
         <!-- =================================== -->
         <!-- fin container header -->
-        <div class="container mb-4 bg-white">
+        <div class="container mb-4">
 
-            <section class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
+            <section class="row ">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto border border-info p-2 m-5">
                     <!-- <?php   echo $contenu;  ?> -->
                     <form action="" method="POST" class="row g-3">
                         <div class="mb-3">

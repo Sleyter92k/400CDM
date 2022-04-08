@@ -60,10 +60,10 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
-        <div class="container"><?php echo $contenu; ?>
-            <section class="row m-4 row-cols-12 row-cols-md-3 row-cols-xl-4 ">
+        <div class="container justify-content-center mt-5 mb-5"><?php echo $contenu; ?>
+            <section class="row">
              
-                <div class="col-md-6 p-2 bg-light border border-primary">
+                <div class="col-sm-12 col-md-6 col-lg-4 p-2 bg-light border border-info mx-auto">
                     
                     <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type">Type de coup de main*</label>

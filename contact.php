@@ -44,35 +44,39 @@ if (!empty($_POST)) {
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         
-        <div class="container px-5 my-5">
-    <form action="" method="POST" class="row g-3">
-        <div class="form-floating mb-3">
-            <select class="form-select" id="objet" name="objet" aria-label="Objet">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label for="objet">Objet</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input class="form-control" id="mail" type="mail" name="mail" placeholder="Votre Adresse Mail" data-sb-validations="required,email" />
-            <label for="mail">Votre Adresse Mail</label>
-            <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:required">Votre Adresse Mail is required.</div>
-            <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:email">Votre Adresse Mail Email is not valid.</div>
-        </div>
-        <div class="form-floating mb-3">
-            <textarea class="form-control" id="message" type="text" name="message" placeholder="Tapez votre Message" style="height: 10rem;" data-sb-validations="required"></textarea>
-            <label for="tapezVotreMessage">Tapez votre Message</label>
-            <div class="invalid-feedback" data-sb-feedback="tapezVotreMessage:required">Tapez votre Message is required.</div>
-        </div>
-        <button class="btn btn-primary" id="submit" type="submit">Envoyez</button>
-        </div>
+        <div class="container">
+            <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto border border-info p-2 m-5">
+                <form action="" method="POST" class="g-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="objet" name="objet" aria-label="Objet">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <label for="objet">Objet</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="mail" type="mail" name="mail" placeholder="Votre Adresse Mail" data-sb-validations="required,email" />
+                        <label for="mail">Votre Adresse Mail</label>
+                        <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:required">Votre Adresse Mail is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:email">Votre Adresse Mail Email is not valid.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" name="message" placeholder="Tapez votre Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+                        <label for="tapezVotreMessage">Tapez votre Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="tapezVotreMessage:required">Tapez votre Message is required.</div>
+                    </div>
+                    <button class="btn btn-primary" id="submit" type="submit">Envoyez</button>
+                    </div>
 
 
-    </form>
-</div>
+                </form>
+            </div>
+
+            
+        </div>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
         <!-- Section-->
