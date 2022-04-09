@@ -16,7 +16,7 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
       $maj = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
       // debug($maj);// ferme if isset accolade suivante
       } else {
-      header('location:profil.php');// si j'arrive sur la page sans rien dans l'url
+    //   header('location:profil.php');// si j'arrive sur la page sans rien dans l'url
       exit();// arrête du script
   }
 
@@ -48,7 +48,7 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
       ':id_membre' => $_GET['id_membre'],
 
   ));
-  header('location:profil.php');
+//   header('location:profil.php');
   exit();
   }
 

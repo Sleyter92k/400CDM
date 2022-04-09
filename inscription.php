@@ -1,13 +1,12 @@
 <?php 
-// connexion au fichier init 
+ 
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php';
 
 // debug($_SESSION);
-// debug(strlen(' ma grand mère fait du vélo plus vite que moi '));
 
 if ( !empty($_POST) ) {
-  debug($_POST);
+//   debug($_POST);
 
   if ( !isset($_POST['civilite']) || $_POST['civilite'] != 'Mr' && $_POST['civilite'] != 'Mme' ) { // && ET
       $contenu .='<div class="alert alert-danger">La civilité n\'est pas valable !</div>';
@@ -110,63 +109,68 @@ if ( !empty($_POST) ) {
 
             <section class="row ">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto border border-info p-2 m-5">
-                    <!-- <?php   echo $contenu;  ?> -->
-                    <form action="" method="POST" class="row g-3">
+                    <?php   echo $contenu;  ?> 
+                    <form action="" method="POST" id="formInscription" class="row g-3">
                         <div class="mb-3">
                             <label for="civilite" class="form-label">Civilité </label><br>
-                            <input type="radio" name="civilite" value="Mr" id="civilite"> Mr 
-                            <input type="radio" name="civilite" value="Mme" id="civilite"> Mme
+                            <input type="radio" name="civilite" value="Mr" id="civilite" required> Mr 
+                            <input type="radio" name="civilite" value="Mme" id="civilite" required> Mme
                         </div>
                         <div class="col-md-6">
                             <label for="prenom" class="form-label">Prénom*</label>
-                            <input type="text"  name="prenom" class="form-control" placeholder="Prénom" aria-label="prenom" >
+                            <input type="text"  name="prenom" id="prenom" class="form-control" placeholder="Prénom" aria-label="prenom" required>
                         </div>
 
                         <div class="col-md-6">
                             <label for="nom" class="form-label">Nom*</label>
-                            <input type="text" name="nom" class="form-control" placeholder="Nom" aria-label="Nom" >
+                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" aria-label="Nom" required>
                         </div>
 
                         <div class="col-12">
                             <label for="mail" class="form-label">Email*</label>
-                            <input type="email" name="mail" class="form-control" id="mail" placeholder="nom@email.com" >
+                            <input type="email" name="mail" id="mail" class="form-control" id="mail" placeholder="nom@email.com" required>
                         </div>
 
                         <div class="col-12">
                             <label for="pseudo" class="form-label">Choisissez un pseudo*</label>
-                            <input type="pseudo" name="pseudo" class="form-control" id="pseudo" placeholder="choisissez un pseudo" maxlength="10" size="13" >
+                            <input type="pseudo" name="pseudo" id="pseudo" class="form-control" id="pseudo" placeholder="choisissez un pseudo" maxlength="10" size="13" required>
                         </div>
 
                         <div class="col-12">
                             <label for="mdp" class="form-label">Mot de passe *</label>
-                            <input type="password" name="mdp" class="form-control" id="mdp"  >
+                            <input type="password" name="mdp" id="mdp" class="form-control" id="mdp"  required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="confmdp" class="form-label">Confirmez votre mot de passe *</label>
+                            <input type="password" id="confmdp" class="form-control" id="confmdp"  required>
                         </div>
 
                         <div class="col-12">
                             <label for="adresse" class="form-label">Adresse</label>
-                            <input type="text" name="adresse" class="form-control" id="adresse" placeholder="votre adresse" >
+                            <input type="text" name="adresse" id="adresse" class="form-control" id="adresse" placeholder="votre adresse" required>
                         </div>
 
                     
                         <div class="col-md-6">
                             <label for="code_postal" class="form-label">Code postal</label>
-                            <input type="text" name="code_postal" class="form-control" id="code_postal" placeholder="code postal"
-                            maxlength="5" size="10">
+                            <input type="text" name="code_postal" id="code_postal" class="form-control" id="code_postal" placeholder="code postal"
+                            maxlength="5" size="10" required>
                         </div>
                     
                         <div class="col-md-6">
                             <label for="ville" class="form-label">Ville</label>
-                            <input type="text" name="ville" class="form-control" id="ville" placeholder="Ville" >
+                            <input type="text" name="ville" id="ville" class="form-control" id="ville" placeholder="Ville" required>
                         </div>
 
                         <div class="col-4">
                             <label for="mobile" class="form-label">Mobile</label>
-                            <input type="int" name="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" >
+                            <input type="tel" name="mobile" id="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" required>
                         </div>
 
 
                         <div class="col-12">
-                            <button type="submit" class="btn btn-info">S'inscrire</button>
+                            <button type="submit" id="" class="btn btn-info">S'inscrire</button>
                         </div>
 
                     </form>
@@ -181,6 +185,7 @@ if ( !empty($_POST) ) {
         <?php require_once 'inc/footer.php' ?>
 
         <!-- Optional JavaScript -->
+        <script src="inscription.js"></script>
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>

@@ -7,7 +7,6 @@ $prenom = $_SESSION['membre']['prenom'];
 $nom = $_SESSION['membre']['nom'];
 $pseudo = $_SESSION['membre']['pseudo'];
 
-
 if (!empty($_POST)) {
     // var_dump($_POST);
     $_POST['type_annonce'] = htmlspecialchars($_POST['type_annonce']);
