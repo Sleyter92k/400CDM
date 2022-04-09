@@ -40,13 +40,13 @@
                     // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
                     // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
                     // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
-                    $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIMIT 8; ");
+                    $annonce = $pdoLOG->query ( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre; ");
                     
                             
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3\">";
                     echo "<div class=\"card shadow-sm border border-primary\">";
-                    echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
+                    echo "<img src=\"$reserve[photo]\" weight=\"200\"  height=\"200\" alt=\"photo d'annonce\">";
 
                     echo "<div class=\"card-body\">";
                     echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
@@ -56,7 +56,7 @@
                     echo "<div class=\"btn-group\">";
 
 
-                    echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
+                    echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\" class=\"btn btn-info\">Détails</a>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
