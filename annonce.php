@@ -2,7 +2,6 @@
        require_once 'inc/fonction.php';
 
 debug($_SESSION);   
-// Les informations du membres connecté passé en variable
 $id_membre = $_SESSION['membre']['id_membre'];
 $prenom = $_SESSION['membre']['prenom'];
 $nom = $_SESSION['membre']['nom'];
