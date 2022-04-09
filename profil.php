@@ -111,7 +111,7 @@ if (!estConnecte()) {
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a href="edit.php" class="btn btn-danger">Modifier vos informations</a>
+                      <a href="maj_profil.php" class="btn btn-danger">Modifier vos informations</a>
                     </div>
                   </div>
                 </div>

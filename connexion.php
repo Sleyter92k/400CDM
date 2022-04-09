@@ -107,15 +107,10 @@ if(!empty($_POST)) {
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
      
-    <?php echo $contenu; ?>
-
-
-
     <form action="" method="POST"> 
     <?php
-    echo $contenu;
     echo $message;
-
+    echo $contenu;
     ?>
   <div class="mb-3">
     <label for="pseudo"  class="form-label" >Pseudo</label>
