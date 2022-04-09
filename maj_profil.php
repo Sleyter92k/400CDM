@@ -2,6 +2,8 @@
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php';
 
+// 3 RÉCEPTION DES INFORMATIONS D'UN EMPLOYÉ AVEC $_GET
+// debug($_GET);
 if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
     // debug($_GET);
     $resultat = $pdoLOG->prepare( " SELECT * FROM membres WHERE id_membre = :id_membre " );
@@ -11,12 +13,12 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
     // debug($resultat->rowCount());
       if ($resultat->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas d'employé
           header('location:profil.php');// redirection vers la page de départ
-          exit();// arrêtedu script
+          exit();// arrête du script
       }  
-      $maj = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
-      // debug($maj);// ferme if isset accolade suivante
+      $fiche = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
+      // debug($fiche);// ferme if isset accolade suivante
       } else {
-    //   header('location:profil.php');// si j'arrive sur la page sans rien dans l'url
+      header('location:maj_profil.php');// si j'arrive sur la page sans rien dans l'url
       exit();// arrête du script
   }
 
@@ -48,10 +50,9 @@ $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des f
       ':id_membre' => $_GET['id_membre'],
 
   ));
-//   header('location:profil.php');
+  header('location:profil.php');
   exit();
-  }
-
+}
 ?>
 
 <!DOCTYPE html>

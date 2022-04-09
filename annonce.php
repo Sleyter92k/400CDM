@@ -68,7 +68,7 @@ if (!empty($_POST)) {
              <?php If(estConnecte()){ ?>
   <div class="col-sm-12 col-md-6 col-lg-4 p-2 bg-light border border-info mx-auto">
                     
-  <form action="" method="POST" enctype="multipart/form-data">
+  <form action="" method="POST" enctype="multipart/form-data" id="formAnnonce">
       <label for="type">Type de coup de main*</label>
       <?php echo $prenom; ?>
       <div class="row">
@@ -151,6 +151,6 @@ if (!empty($_POST)) {
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/script.js"></script>
+        <script src="js/annonce.js"></script>
     </body>
 </html>
