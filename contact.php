@@ -49,12 +49,10 @@ if (!empty($_POST)) {
                 <form action="" method="POST" class="g-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="objet" name="objet" aria-label="Objet">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                            <option value="AIde">Aide</option>
+                            <option value="Partenariat">Partenariat</option>Autre
+                            <option value="Autre">Autre</option>
+                         </select>
                         <label for="objet">Objet</label>
                     </div>
                     <div class="form-floating mb-3">

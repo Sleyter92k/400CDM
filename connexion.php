@@ -1,7 +1,6 @@
-<?php  require_once 'inc/log_bdd.php'; 
-
-       require_once 'inc/fonction.php';
-
+<?php  
+require_once 'inc/log_bdd.php'; 
+require_once 'inc/fonction.php';
 // debug($_GET);
 
 $message = '';
@@ -12,16 +11,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si il exist
 }
 
 //3 redirection vers la page profil
-
-if (estConnecte()) {
+ if (estConnecte()) {
   header('location:profil.php');
   exit();
 }
 
 //1 traitement du formulaire de connexion
-
-
-// debug($_POST);
+  // debug($_POST);
 
 if(!empty($_POST)) {
     if (empty($_POST['pseudo'])) { //si c'est vide - 0 ou null c'est FALSE

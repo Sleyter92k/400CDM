@@ -38,29 +38,26 @@ if (!estConnecte()) {
     
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-              <div class="card">
+              <div class="card border border-primary">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
+                    <img src="photos/toto.jpg" alt="" class="card-img">
                     <div class="mt-3">
                       <h4><?php echo $_SESSION['membre']['pseudo']; ?></h4>
                       <p class="text-secondary mb-1">Bienvenue sur votre compte</p>
                       <?php
-                      if (estConnecte()) {
-                      //  echo 'coucou';
-                      echo '<a class="btn btn-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>';
-                      if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
+                       if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
                         echo '<a class="btn btn-info" href="' .RACINE_SITE. 'admin/accueil.php">Espace admin</a>';
                         // echo 'coucou';
-                    }
-                  }   ?>
-          
-                    </div>
+                        }   
+                      ?>
+                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card mb-3">
+              <div class="card mb-3 border border-primary">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
@@ -114,7 +111,7 @@ if (!estConnecte()) {
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-danger" href="edit.php">Modifier vos informations</a>
+                      <a href="edit.php" class="btn btn-danger">Modifier vos informations</a>
                     </div>
                   </div>
                 </div>

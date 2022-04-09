@@ -27,14 +27,12 @@
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols- row-cols-md-3 row-cols-xl-4 justify-content-center">
           <?php
-          
-          
             $annonce = $pdoLOG->query ( "SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre ORDER BY id_annonce DESC LIMIT 8; ");
 
             while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
             echo "<div class=\"col mb-5\">";
-            echo "<div class=\"card shadow-sm border border-info\">";
-            echo "<img src=\"$reserve[photo]\" alt=\"photo d'annonce\">";
+            echo "<div class=\"card shadow-sm border border-info\"> ";
+            echo "<img src=\"$reserve[photo]\" weight=\"200\" height=\"200\" alt=\"photo d'annonce\">";
             echo "<div class=\"card-body\">";
             echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
             echo "<p class=\"card-text\">Type d'annonce : " .$reserve['type_de_cdm']. "</p>";

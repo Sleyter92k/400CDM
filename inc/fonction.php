@@ -2,12 +2,10 @@
 
 function debug($mavar) {// la fonction avec son paramètre, une variable
   
-    var_dump($mavar);// à cette variable on applique le fonction var_dump()
+var_dump($mavar);// à cette variable on applique le fonction var_dump()
 
 }
-
-
-//2- FONCTION POUR EXÉCUTER LES REQUETES PRÉPARÉES
+ //2- FONCTION POUR EXÉCUTER LES REQUETES PRÉPARÉES
 function executeRequete($requete, $parametres = array()) {  // utilse pour toutes les requêtes 1 la requête 2 
     foreach ($parametres as $indice => $valeur) { // boucle foreach
         $parametres[$indice] = htmlspecialchars($valeur); // pour éviter les injections SQL
@@ -36,6 +34,7 @@ function estConnecte() {
 function estAdmin() {
     if (estConnecte() && $_SESSION['membre']['statut']== 1 ) {
         return true;
+        
     } else {
         return false;
     }

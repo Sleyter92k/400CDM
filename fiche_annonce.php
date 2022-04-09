@@ -3,7 +3,7 @@
 // debug($_GET);
 if ( isset($_GET['id_annonce']) ) {
   // debug($_GET);
-  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces WHERE   id_annonce = :id_annonce " );
+  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre " );
   $annonce->execute(array(
     ':id_annonce' => $_GET['id_annonce']
   ));
@@ -45,13 +45,16 @@ if ( isset($_GET['id_annonce']) ) {
     <div class="container">
       <section class="row m-4 justify-content-center">
     
-        <h1 class="text-center"><?php echo $reserve['titre']; ?></h1>
+        
         <div class="col-md-4">
-          <img width="200" height="200" src="<?php echo $reserve['photo']; ?>" class=" border border-info image-responsive " alt="...">
+          <img width="200" height="200" src="<?php echo $reserve['photo']; ?>" class=" border border-info image-responsive " alt="photo de l'annonce">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 border border-info p-2">
+          <h1 class=""><?php echo $reserve['titre']; ?></h1>
+          <p class="card-text">Mise en ligne par : <?php echo $reserve['pseudo']; ?></p>
           <p class="card-text"><?php echo $reserve['type_de_cdm']; ?> de <?php echo $reserve['type_annonce']; ?> </p>
-          <p class="card-text"><?php echo $reserve['description']; ?></p>
+          <p class="card-text">Catégorie : <?php echo $reserve['categorie']; ?></p>
+          <p class="card-text">Description : <?php echo $reserve['description']; ?></p>
           <p class="card-text">Localisation : <?php echo $reserve['code_postal']; ?> <?php echo $reserve['ville']; ?></p>
           <a href="#" class="btn btn-primary">Réservez</a>
         </div>

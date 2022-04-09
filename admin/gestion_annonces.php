@@ -9,7 +9,7 @@ require_once '../inc/fonction.php';
 // b des conditions multiple à partir de $_GET
 
 // c 
-              $requete = $pdoLOG->query( " SELECT * FROM annonces " );
+              $requete = $pdoLOG->query( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre " );
               // debug($resultat);
               $moderation_annonce = $requete->rowCount();
               // debug($nbr_commentaires);
@@ -19,7 +19,7 @@ require_once '../inc/fonction.php';
 // 5 INITIALISATION DE LA VARIABLE $contenu
 $contenu = "";
 
-// 6 SUPPRESSION D'UN MEMBRE
+// 6 SUPPRESSION D'UNE ANNONCE
 // debug($_GET);
 if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_annonce'])) {
   $resultat = $pdoLOG->prepare( " DELETE FROM annonces WHERE id_annonce = :id_annonce " );
@@ -99,7 +99,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
 				   <td><?php echo $ligne['ville']; ?></td>
            <td><?php echo $ligne['adresse']; ?></td>
            <td><?php echo $ligne['categorie']; ?></td>
-				   <td><?php echo $ligne['photo']; ?></td>
+				   <td><img src="<?php echo $ligne['photo']; ?>"></td>
             <td><a href="?action=supprimer&id_annonce=<?php echo $ligne['id_annonce']; ?>" onclick="return(confirm('Voulez-vous supprimer cette annonce ? '))">suppression</a></td>
 			   </tr>
                 

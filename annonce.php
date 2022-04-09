@@ -2,46 +2,44 @@
        require_once 'inc/fonction.php';
 
 debug($_SESSION);   
-// $id_membre = '' ;
-$id_membre = $_SESSION['membre']['id_membre'];
-$prenom = $_SESSION['membre']['prenom'];
+// $id_membre = $_SESSION['membre']['id_membre'];
+// $prenom = $_SESSION['membre']['prenom'];
+// $nom = $_SESSION['membre']['nom'];
+// $pseudo = $_SESSION['membre']['pseudo'];
 
 
 if (!empty($_POST)) {
     // var_dump($_POST);
-    $_POST['type_de_cdm'] = htmlspecialchars($_POST['type_de_cdm']);
     $_POST['type_annonce'] = htmlspecialchars($_POST['type_annonce']);
-    $_POST['categorie'] = htmlspecialchars($_POST['categorie']);
+    $_POST['type_de_cdm'] = htmlspecialchars($_POST['type_de_cdm']);
     $_POST['titre'] = htmlspecialchars($_POST['titre']);
     $_POST['description'] = htmlspecialchars($_POST['description']);
     $_POST['code_postal'] = htmlspecialchars($_POST['code_postal']);
     $_POST['ville'] = htmlspecialchars($_POST['ville']);
     $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
+    $_POST['categorie'] = htmlspecialchars($_POST['categorie']);
 
     debug($_FILES);
     $photo = '';
-
-    if(!empty($_FILES['photo']['name'])) {
+     if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
         copy($_FILES['photo']['tmp_name'], '' .$photo);
         } // fin du traitement photo
-
-
-    $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, categorie, description, code_postal, ville, adresse, photo) VALUES (:id_membre, :type_de_cdm, :type_annonce, :titre, :categorie, :description, :code_postal, :ville, :adresse, :photo) ",
+ 
+    $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse, categorie, photo) VALUES (:id_membre,  :type_annonce, :type_de_cdm , :titre, :description, :code_postal, :ville, :adresse, :categorie, :photo) ",
 
     array(
-        ':type_de_cdm' => $id_membre,
+        ':id_membre'=> $id_membre, // id_membre qui vient de  $_SESSION
         ':type_de_cdm' => $_POST['type_de_cdm'],
         ':type_annonce' => $_POST['type_annonce'],
         ':titre' => $_POST['titre'],
-        ':categorie' => $_POST['categorie'],
         ':description' => $_POST['description'],
         ':code_postal' => $_POST['code_postal'],
         ':ville' => $_POST['ville'],
         ':adresse' => $_POST['adresse'],
+        ':categorie' => $_POST['categorie'],
         ':photo' => $photo,
-        
-    ));
+     ));
 }
 
 

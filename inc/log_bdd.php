@@ -14,6 +14,11 @@ array(
 ));
 // 2- OUVERTURE DE SESSION
 session_start();
+// Informations de la session passées en variables
+// $id_membre = $_SESSION['membre']['id_membre'];
+// $prenom = $_SESSION['membre']['prenom'];
+// $nom = $_SESSION['membre']['nom'];
+// $pseudo = $_SESSION['membre']['pseudo'];
 
 
 //3- CHEMIN DU SITE DANS UNE CONSTANTE
