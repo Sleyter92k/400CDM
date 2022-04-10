@@ -11,6 +11,7 @@ if (!estConnecte()) {
 // if (!estConnecte()) { // accès à la page autorisé quand on est connecté
 //   header('location:connexion.php');
 // }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -116,10 +117,6 @@ if (!estConnecte()) {
                   </div>
                 </div>
               </div>
-
-              
-
-
             </div>
           </div>
         </div>

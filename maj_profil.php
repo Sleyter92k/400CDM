@@ -1,6 +1,24 @@
 <?php
 require_once 'inc/log_bdd.php'; 
 require_once 'inc/fonction.php';
+
+if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
+    // debug($_GET);
+    $resultat = $pdoLOG->prepare( " SELECT * FROM membres WHERE id_membre = :id_membre " );
+    $resultat->execute(array(
+      ':id_membre' => $_GET['id_membre']// on associe le marqueur vide à l'id_employes
+    ));
+    // debug($resultat->rowCount());
+      if ($resultat->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas d'employé
+          header('location:profil.php');// redirection vers la page de départ
+          exit();// arrêtedu script
+      }  
+      $maj = $resultat->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
+      // debug($maj);// ferme if isset accolade suivante
+      } else {
+      header('location:maj_profil.php');// si j'arrive sur la page sans rien dans l'url
+      exit();// arrête du script
+  }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
