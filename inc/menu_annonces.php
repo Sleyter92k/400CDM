@@ -1,5 +1,5 @@
 <div class="row mb-5 justify-content-center">
-    <div class="dropdown col mb-5"> 
+    <div class="dropdown col"> 
         <a href="offres.php" class="btn btn-secondary"> Offres</a>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Par catégorie</button>
         
