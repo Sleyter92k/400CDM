@@ -20,13 +20,12 @@
                 </ul>
            </div>
             <div class="col-6 col-lg-2 mb-3">
-            <h5>Réseaux Sociaux
-                <a target="_blank" href="https://www.instagram.com/400cdm/">Instagram <i class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://twitter.com/400_cdm">Twitter <i class="fa-brands fa-twitter"></i></a>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-facebook"></i>
             </div>
       </div>
     </div>
     
-    <div class="container"><p class="m-0 text-center ">Copyright &copy; 400 Coups de Main 2022</p></div>
+    <div class="container text-white"><p class="m-0 text-center ">Copyright &copy; 400 Coups de Main 2022</p></div>
         
 </footer>
