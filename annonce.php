@@ -66,7 +66,7 @@ if (!empty($_POST)) {
         <?php require_once 'inc/navbar.php'; ?>  
         <section class="row">
             <?php If(estConnecte()){ ?>
-                <div class="col-sm-12 col-md-6 col-lg-4 p-2 bg-light border border-info mx-auto">
+                <div class="col-sm-12 col-md-6 col-lg-4 p-2 m-5 bg-light border border-info mx-auto">
                         
                     <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type">Type de coup de main*</label>
