@@ -1,27 +1,20 @@
-<?php  require_once 'inc/log_bdd.php';
-
-if (!empty($_POST)) {
+<?php  
+    require_once 'inc/log_bdd.php';
+ 
+    if (!empty($_POST)) {
     // var_dump($_POST);
     $_POST['objet'] = htmlspecialchars($_POST['objet']);
     $_POST['mail'] = htmlspecialchars($_POST['mail']);
     $_POST['message'] = htmlspecialchars($_POST['message']);
 
-
     $insertion = $pdoLOG->prepare(" INSERT INTO contact (objet, mail, message) VALUES (:objet, :mail, :message) ");
 
     $insertion->execute(array(
-        ':objet' => $_POST['objet'],
-        ':mail' => $_POST['mail'],
-        ':message' => $_POST['message'],
+    ':objet' => $_POST['objet'],
+    ':mail' => $_POST['mail'],
+    ':message' => $_POST['message'],
     ));
-}
-
-
-
-
-
-
-
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -75,7 +68,7 @@ if (!empty($_POST)) {
 
             
         </div>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
         <!-- Section-->
 
