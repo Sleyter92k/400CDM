@@ -1,8 +1,8 @@
 
 <!-- <header class="py-4"> -->
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid px-4 px-lg-5 bg-body">
-        <div class=""><img src="img/logo400cdm.png" alt="Logo" width="200"></div>
+    <div class="container-fluid px-4 px-lg-5 bg-body p-2">
+        <div class=""><img src="img/Color Logo 2 SVG.svg" alt="Logo" height="100" weight="100"></div>
     
     
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -30,7 +30,7 @@
                     </li>
 
                     <li class="nav-item">
-                    <?php echo '<a class="nav-link btn btn-outline-danger border border-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>'; ?>
+                    <?php echo '<a class="nav-link btn btn-outline-danger border border-danger" href="' .RACINE_SITE. 'connexion.php?action=deconnexion">Déconnexion</a>'; ?>
                     </li>
 
                     <?php } ?> 

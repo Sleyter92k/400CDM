@@ -26,7 +26,7 @@ if (!empty($_POST)) {
         copy($_FILES['photo']['tmp_name'], '' .$photo);
         } // fin du traitement photo
  
-    $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse, categorie, photo) VALUES (:id_membre,  :type_annonce, :type_de_cdm , :titre, :description, :code_postal, :ville, :adresse, :categorie, :photo) ",
+    $insertion = executeRequete(" INSERT INTO annonces (id_membre, type_de_cdm, type_annonce, titre, description, code_postal, ville, adresse, categorie, photo) VALUES (:id_membre, :type_de_cdm ,  :type_annonce, :titre, :description, :code_postal, :ville, :adresse, :categorie, :photo) ",
 
     array(
         ':id_membre'=> $id_membre, // id_membre qui vient de  $_SESSION

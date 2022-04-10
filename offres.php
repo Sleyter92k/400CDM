@@ -22,14 +22,7 @@
         
         <section class="py-5">
             <div class="container ">
-                <div class="row mb-5">
-                    <div class="col" >
-                         <a href="offres.php" class="btn btn-info">Voir les offres</a>
-                    </div>
-                    <div class="col">
-                         <a href="demandes.php" class="btn btn-info">Voir les demandes</a>
-                    </div>
-                </div>
+                 <?php require_once 'inc/menu_annonces.php' ;?>
                 <div class="row gx-4 gx-lg-5 row-cols-12 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     
                     <?php
@@ -68,10 +61,10 @@
                 </div>
             </div>
         </section>
+        <?php require_once 'inc/footer.php'; ?>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
-        <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

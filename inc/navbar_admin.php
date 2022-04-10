@@ -31,7 +31,7 @@
                             </li>
 
                             <li class="nav-item">
-                           <?php echo '<a class="nav-link btn border border-danger" href="./' .RACINE_SITE. 'connexion.php?action=deconnexion">Se déconnecter</a>'; ?>
+                           <?php echo '<a class="nav-link btn border border-danger" href="./' .RACINE_SITE. 'connexion.php?action=deconnexion">Déconnexion</a>'; ?>
                             </li>
          
                         <?php } ?>

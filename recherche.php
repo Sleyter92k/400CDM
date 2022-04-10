@@ -19,50 +19,42 @@
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
-        
         <section class="py-5">
             <div class="container ">
-                <div class="row mb-5 justify-content-center">
-                    <div class="col" >
-                            <a href="offres.php" class="btn border border-info">Voir les offres</a>
-                    </div>
-                    <div class="col">
-                            <a href="demandes.php" class="btn border border-info">Voir les demandes</a>
-                    </div>
-                </div>
+                <?php require_once 'inc/menu_annonces.php' ;?>
                 <div class="row gx-4 gx-lg-5 row-cols-12 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     
                     <?php
+                         // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Bricolage'; ");
+                        // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Informatique/Multimédia'; ");
+                        // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Maison'; ");
+                        // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
+                        // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
+                        // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
+                        $annonce = $pdoLOG->query ( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre; ");
+                        
+                                
+                        while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<div class=\"col mb-3\">";
+                        echo "<div class=\"card shadow-sm border border-primary\">";
+                        echo "<img src=\"$reserve[photo]\" weight=\"200\"  height=\"200\" alt=\"photo d'annonce\">";
 
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Bricolage'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Informatique/Multimédia'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Maison'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
-                    $annonce = $pdoLOG->query ( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre; ");
-                    
-                            
-                    while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class=\"col mb-3\">";
-                    echo "<div class=\"card shadow-sm border border-primary\">";
-                    echo "<img src=\"$reserve[photo]\" weight=\"200\"  height=\"200\" alt=\"photo d'annonce\">";
-
-                    echo "<div class=\"card-body\">";
-                    echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
-                    echo "<p class=\"card-text\">Type d'annonce : " .$reserve['type_de_cdm']. "</p>";
-                    echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
-                    echo "<div class=\"d-flex justify-content-between align-items-center\">";
-                    echo "<div class=\"btn-group\">";
+                        echo "<div class=\"card-body\">";
+                        echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
+                        echo "<p class=\"card-text\">  " .$reserve['type_de_cdm']. "</p>";
+                        echo "<p class=\"card-text\">Publiée par :  " .$reserve['pseudo']. "</p>";
+                        echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
+                        echo "<div class=\"d-flex justify-content-between align-items-center\">";
+                        echo "<div class=\"btn-group\">";
 
 
-                    echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\" class=\"btn btn-info\">Détails</a>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                    }
+                        echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\" class=\"btn btn-info\">Détails</a>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        }
                     ?>
                     
                 </div>

@@ -37,7 +37,7 @@
             echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
              echo "<p class=\"card-text\"> " .$reserve['type_de_cdm']. "</p>";
             echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
-            echo "<p class=\"card-text\">Mise en ligne par : ".$reserve['pseudo']. "</p>";
+            echo "<p class=\"card-text\">Mise en ligne par :  ".$reserve['pseudo']. "</p>";
             echo "<div class=\"d-flex justify-content-between align-items-center\">";
             echo "<div class=\"btn-group\">";
             echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
