@@ -172,6 +172,7 @@ if ( !empty($_POST) ) {
 
                         <div class="col-12">
                             <button type="submit" id="" class="btn btn-info">S'inscrire</button>
+                            <button type="reset" id="" class="btn btn-danger">Effacer</button>
                         </div>
 
                     </form>
