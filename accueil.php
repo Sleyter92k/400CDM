@@ -9,6 +9,7 @@
       <meta name="description" content="" />
       <meta name="author" content="" />
       <title>400 Coups de Main</title>
+      <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
       <!-- Favicon-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
