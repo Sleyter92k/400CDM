@@ -14,6 +14,12 @@
     ':mail' => $_POST['mail'],
     ':message' => $_POST['message'],
     ));
+
+    if ($insertion) {
+        $contenu .='<div class="alert alert-success">Votre Message a bien été envoyé !</div>  ';
+    } else {
+        $contenu .='<div class="alert alert-danger">Erreur lors de l\'envoi du message !</div>';
+    }
     }
 ?>
 <!DOCTYPE html>
@@ -41,7 +47,7 @@
             <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto border border-info p-2 m-5">
                 <form action="" method="POST" class="g-3">
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="objet" name="objet" aria-label="Objet">
+                        <select class="form-select" id="objet" name="objet" aria-label="Objet" required>
                             <option value="AIde">Aide</option>
                             <option value="Partenariat">Partenariat</option>Autre
                             <option value="Autre">Autre</option>
@@ -49,17 +55,15 @@
                         <label for="objet">Objet</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="mail" type="mail" name="mail" placeholder="Votre Adresse Mail" data-sb-validations="required,email" />
+                        <input class="form-control" id="mail" type="email" name="mail" placeholder="Votre Adresse Mail" required/>
                         <label for="mail">Votre Adresse Mail</label>
-                        <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:required">Votre Adresse Mail is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="votreAdresseMail:email">Votre Adresse Mail Email is not valid.</div>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" type="text" name="message" placeholder="Tapez votre Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+                        <textarea class="form-control" id="message" type="text" name="message" placeholder="Tapez votre Message" style="height: 10rem;" required></textarea>
                         <label for="tapezVotreMessage">Tapez votre Message</label>
-                        <div class="invalid-feedback" data-sb-feedback="tapezVotreMessage:required">Tapez votre Message is required.</div>
                     </div>
                     <button class="btn btn-primary" id="submit" type="submit">Envoyez</button>
+                    <?php echo $contenu ?>
                     </div>
 
 
