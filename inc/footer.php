@@ -2,21 +2,21 @@
 <footer class="py-4">
     <div class="container px-4 px-lg-5">
 
-      <div class="row justify-content-center m-50">
-           <div class="col-6 col-lg-2 mb-3">
+      <div class="row justify-content-center m-50 text-white">
+           <div class="col-6 col-lg-2 mb-3  text-white">
                 <h5> A PROPOS </h5>
                 <ul class="list-unstyled ">
                     <li><a href="400cdm.php">Qui somme nous?</a></li>
-                    <li><a href="./footer/cgu.php">CGU</a></li>
+                    <li><a href="cgu.php"></a>CGU</li>
                     <li><a href="politique.php">Politique de confidentialité</a></li>
-                    <li><a href="./footer/mention.php">Mentions légales</a></li>
+                    <li><a href="mention.php">Mentions légales</a></li>
                 </ul>
            </div>
            <div class="col-6 col-lg-2 mb-3 ">
                 <h5> AIDE </h5>
                 <ul class="list-unstyled "> 
                     <li><a class="" href="contact.php">Nous contacter</a></li>
-                    <li><a href="./footer/faq.php">FAQ</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
                 </ul>
            </div>
             <div class="col-6 col-lg-2 mb-3">
