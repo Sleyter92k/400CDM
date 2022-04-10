@@ -139,12 +139,13 @@ if ( !empty($_POST) ) {
                         <div class="col-12">
                             <label for="mdp" class="form-label">Mot de passe *</label>
                             <input type="password" name="mdp" id="mdp" class="form-control" id="mdp"  required>
+                            <button class="btn btn-danger" id="show">Voir Mot de passe</button>
                         </div>
 
-                        <div class="col-12">
+                        <!-- <div class="col-12">
                             <label for="confmdp" class="form-label">Confirmez votre mot de passe *</label>
                             <input type="password" id="confmdp" class="form-control" id="confmdp"  required>
-                        </div>
+                        </div> -->
 
                         <div class="col-12">
                             <label for="adresse" class="form-label">Adresse</label>
@@ -185,7 +186,7 @@ if ( !empty($_POST) ) {
         <?php require_once 'inc/footer.php' ?>
 
         <!-- Optional JavaScript -->
-        <script src="inscription.js"></script>
+        <script src="js/inscription.js"></script>
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
