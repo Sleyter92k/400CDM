@@ -17,7 +17,7 @@
       <!-- Core theme CSS (includes Bootstrap)-->
       <link href="css/bootstrap.css" rel="stylesheet" />
       <link href="css/style.css" rel="stylesheet" />
-</head>
+  </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         
