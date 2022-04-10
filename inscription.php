@@ -139,7 +139,7 @@ if ( !empty($_POST) ) {
                         <div class="col-12">
                             <label for="mdp" class="form-label">Mot de passe *</label>
                             <input type="password" name="mdp" id="mdp" class="form-control" id="mdp"  required>
-                            <button class="btn btn-danger" id="show">Voir Mot de passe</button>
+                            <button class="btn btn-danger" id="voir">Voir Mot de passe</button>
                         </div>
 
                         <!-- <div class="col-12">

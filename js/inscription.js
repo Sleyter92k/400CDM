@@ -1,5 +1,5 @@
 // Déclaration de constante
-const btn = document.getElementById('show');
+const btn = document.getElementById('voir');
 const mdp = document.getElementById('mdp');
 // Bouton afficher/cacher le mot de passe
 btn.addEventListener('click', () => {
@@ -7,3 +7,5 @@ btn.addEventListener('click', () => {
   mdp.type = mdp.type === 'password' ? 'text' : 'password';   
   btn.innerText = mdp.type === 'password' ?  'Voir Mot de passe': 'Cacher Mot de passe' ;
 })
+
+
