@@ -8,7 +8,7 @@
                 <ul class="list-unstyled ">
                     <li><a href="400cdm.php">Qui somme nous?</a></li>
                     <li><a href="./footer/cgu.php">CGU</a></li>
-                    <li><a href="./footer/politique.php">Politique de confidentialité</a></li>
+                    <li><a href="politique.php">Politique de confidentialité</a></li>
                     <li><a href="./footer/mention.php">Mentions légales</a></li>
                 </ul>
            </div>

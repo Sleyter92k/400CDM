@@ -19,16 +19,13 @@
   </head>
   <body>
     <div class="container">
-        <?php require_once 'inc/navbar2.php'; ?> 
+        <?php require_once 'inc/navbar.php'; ?> 
       <section class="row">
         <div class="col-md-6">
-          <h2></h2>
+          
 
         </div>
-        <div class="col-md-6">
-          <h2></h2>
-
-        </div>
+         
       </section>
       <!-- footer en require  -->
        
