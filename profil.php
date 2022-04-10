@@ -124,10 +124,9 @@ if (!estConnecte()) {
           </div>
         </div>
     </div>
-   <?php require_once 'inc/footer.php'; ?>
 
-<script type="text/javascript">
+<script type="text/javascript"></script>
 
-</script>
+<?php require_once 'inc/footer.php'; ?>
 </body>
 </html>
