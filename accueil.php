@@ -23,6 +23,7 @@
   </head>
   <body>
     <?php require_once 'inc/navbar.php'; ?>
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -51,7 +52,7 @@
 </div>
 
     <section class="py-5">
-    <h1 class="text-center">Ensemble, main dans la main, l'entraide devient une richesse qui bâtira un monde nouveau, solide et riche.</h1>
+      <h1 class="text-center">Ensemble, main dans la main, l'entraide devient une richesse qui bâtira un monde nouveau, solide et riche.</h1>
       <div class="container px-4 px-lg-5 mt-5">
       <h2>Les annonces les plus récentes :</h2>
         <div class="row gx-4 gx-lg-5 row-cols- row-cols-md-3 row-cols-xl-4 justify-content-center">
