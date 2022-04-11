@@ -7,7 +7,6 @@
                 <h5> A PROPOS </h5>
                 <ul class="list-unstyled ">
                     <li><a href="400cdm.php" class="text-white">Qui somme nous?</a></li>
-                    <li><a href="cgu.php" class="text-white"></a>CGU</li>
                     <li><a href="politique.php" class="text-white">Politique de confidentialité</a></li>
                     <li><a href="mention.php" class="text-white">Mentions légales</a></li>
                 </ul>
