@@ -6,10 +6,10 @@
            <div class="col-6 col-lg-2 mb-3">
                 <h5> A PROPOS </h5>
                 <ul class="list-unstyled ">
-                    <li><a href="400cdm.php" class="text-white">Qui somme nous?</a></li>
-                    <li><a href="cgu.php" class="text-white"></a>CGU</li>
-                    <li><a href="politique.php" class="text-white">Politique de confidentialité</a></li>
-                    <li><a href="mention.php" class="text-white">Mentions légales</a></li>
+                    <li><a href="footer/400cdm.php" class="text-white">Qui somme nous?</a></li>
+                    <li><a href="footer/cgu.php" class="text-white"></a>CGU</li>
+                    <li><a href="footer/politique.php" class="text-white">Politique de confidentialité</a></li>
+                    <li><a href="footer/mention.php" class="text-white">Mentions légales</a></li>
                 </ul>
            </div>
            <div class="col-6 col-lg-2 mb-3 ">
