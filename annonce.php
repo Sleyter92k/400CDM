@@ -1,13 +1,14 @@
 <?php  require_once 'inc/log_bdd.php';
        require_once 'inc/fonction.php';
 
-debug($_SESSION);   
+// debug($_SESSION);   
 // Les informations du membres connecté passé en variable
+if (estConnecte()) {
 $id_membre = $_SESSION['membre']['id_membre'];
 $prenom = $_SESSION['membre']['prenom'];
 $nom = $_SESSION['membre']['nom'];
 $pseudo = $_SESSION['membre']['pseudo'];
-
+}
 if (!empty($_POST)) {
     // var_dump($_POST);
     $_POST['type_annonce'] = htmlspecialchars($_POST['type_annonce']);
@@ -137,6 +138,7 @@ if (!empty($_POST)) {
                     </form>
                 </div>
             <?php } else { ?>
+
                     <div class=«alert alert-danger»>Connectez-vous pour déposer une annonce ! </div>
                     <a class="btn btn-info" href="connexion.php">Connexion</a>
 
