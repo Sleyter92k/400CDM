@@ -8,7 +8,7 @@
 // debug($_GET);
 if ( isset($_GET['id_annonce']) ) {
   // debug($_GET);
-  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre " );
+  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces WHERE id_annonce = :id_annonce " );
   $annonce->execute(array(
     ':id_annonce' => $_GET['id_annonce']
   ));
