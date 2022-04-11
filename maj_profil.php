@@ -46,8 +46,14 @@ if ( !empty($_POST) ) {//not empty
 		':id_membre' => $_GET['id_membre'],
 
 	));
-	header('location:profil.php');
-	exit();
+
+    if ($resultat) {
+        $contenu .='<div class="alert alert-success">Vous avez mis à jour vos informations avec succès, déconnecter vous pour actualiser ! <br> <a href="connexion.php" class="btn btn-secondary">Retourner dans votre profil</a> ';
+    } else {
+        $contenu .='<div class="alert alert-danger">Erreur lors de la mise à jour !</div>';
+    }
+
+	
 }
 ?>
 <!DOCTYPE html>
@@ -132,9 +138,14 @@ if ( !empty($_POST) ) {//not empty
                   <label for="ville">Ville</label>
                   <input type="text" name="ville" id="ville" value="<?php echo $maj['ville']; ?>" class="form-control"> 
               </div>
+              <div class="col-4 form-group mt-2">
+                  <label for="mobile">Mobile</label>
+                  <input type="tel" name="mobile" id="mobile" value="<?php echo $maj['mobile']; ?>" class="form-control"> 
+              </div>
             </div>
             <div class="form-group mt-2">
-                <input type="submit" class="btn btn-md btn-outline-success"> 
+                <input type="submit" class="btn btn-md btn-outline-success">
+                <?php echo $contenu ?>
             </div>
     </form>
         </div>
