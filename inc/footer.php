@@ -2,27 +2,27 @@
 <footer class="py-4">
     <div class="container px-4 px-lg-5">
 
-      <div class="row justify-content-center m-50 text-white">
-           <div class="col-6 col-lg-2 mb-3  text-white">
+      <div class="row justify-content-center m-50 text-white ">
+           <div class="col-6 col-lg-2 mb-3">
                 <h5> A PROPOS </h5>
                 <ul class="list-unstyled ">
-                    <li><a href="400cdm.php">Qui somme nous?</a></li>
-                    <li><a href="cgu.php"></a>CGU</li>
-                    <li><a href="politique.php">Politique de confidentialité</a></li>
-                    <li><a href="mention.php">Mentions légales</a></li>
+                    <li><a href="400cdm.php" class="text-white">Qui somme nous?</a></li>
+                    <li><a href="cgu.php" class="text-white"></a>CGU</li>
+                    <li><a href="politique.php" class="text-white">Politique de confidentialité</a></li>
+                    <li><a href="mention.php" class="text-white">Mentions légales</a></li>
                 </ul>
            </div>
            <div class="col-6 col-lg-2 mb-3 ">
                 <h5> AIDE </h5>
                 <ul class="list-unstyled "> 
-                    <li><a class="" href="contact.php">Nous contacter</a></li>
-                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a  href="contact.php" class="text-white">Nous contacter</a></li>
+                    <li><a href="faq.php" class="text-white">FAQ</a></li>
                 </ul>
            </div>
             <div class="col-6 col-lg-2 mb-3">
             <h5>Réseaux Sociaux
-                <a target="_blank" href="https://www.instagram.com/400cdm/">Instagram <i class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://twitter.com/400_cdm">Twitter <i class="fa-brands fa-twitter"></i></a>
+                <a target="_blank" href="https://www.instagram.com/400cdm/" class="text-white">Instagram <i class="fa-brands fa-instagram"></i></a>
+                <a target="_blank" href="https://twitter.com/400_cdm" class="text-white">Twitter <i class="fa-brands fa-twitter"></i></a>
             </div>
       </div>
     </div>
