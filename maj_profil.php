@@ -19,6 +19,36 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
       header('location:maj_profil.php');// si j'arrive sur la page sans rien dans l'url
       exit();// arrête du script
   }
+
+//4 TRAITEMENT DE MISE À JOUR D'UN EMPLOYÉ
+if ( !empty($_POST) ) {//not empty
+    // debug($_POST);
+  $_POST['prenom'] = htmlspecialchars($_POST['prenom']);// pour se prémunir des failles et des injections SQL
+	$_POST['nom'] = htmlspecialchars($_POST['nom']);
+	$_POST['civilite'] = htmlspecialchars($_POST['civilite']);
+	$_POST['mail'] = htmlspecialchars($_POST['mail']);
+	$_POST['adresse'] = htmlspecialchars($_POST['adresse']);
+	$_POST['code_postal'] = htmlspecialchars($_POST['code_postal']);
+    $_POST['ville'] = htmlspecialchars($_POST['ville']);
+	$_POST['mobile'] = htmlspecialchars($_POST['mobile']);
+
+	$resultat = $pdoLOG->prepare( " UPDATE membres SET prenom = :prenom, nom = :nom, civilite = :civilite, mail = :mail, adresse = :adresse, code_postal = :code_postal, ville = :ville, mobile = :mobile WHERE id_membre = :id_membre " );// requete préparée avec des marqueurs
+
+	$resultat->execute( array(
+		':prenom' => $_POST['prenom'],
+		':nom' => $_POST['nom'],
+		':civilite' => $_POST['civilite'],
+		':mail' => $_POST['mail'],
+		':adresse' => $_POST['adresse'],
+		':code_postal' => $_POST['code_postal'],
+        ':ville' => $_POST['ville'],
+		':mobile' => $_POST['mobile'],
+		':id_membre' => $_GET['id_membre'],
+
+	));
+	header('location:profil.php');
+	exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -60,7 +90,7 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
             <div class="row">
               <div class="col-4 form-group mt-2">
                   <label for="pseudo">Votre pseudo *</label>
-                  <input type="text" name="pseudo" id="pseudo" value="<?php echo $maj['membre']['pseudo']; ?>" class="form-control"> 
+                  <input type="text" name="pseudo" id="pseudo" value="<?php echo $maj['pseudo']; ?>" class="form-control"> 
               </div>
             </div>
             <!-- <div class="form-group mt-2">
@@ -79,7 +109,7 @@ if ( isset($_GET['id_membre']) ) {// on demande le détail d'un employé
               </div>
             <div class="col-4 form-group mt-2">
                 <label for="email">Email *</label>
-                <input type="email" name="email" id="email" value="<?php echo $maj['mail']; ?>" class="form-control">
+                <input type="email" name="mail" id="mail" value="<?php echo $maj['mail']; ?>" class="form-control">
             </div>
             </div>
             <!-- fin row  -->
