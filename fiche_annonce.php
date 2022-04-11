@@ -1,9 +1,9 @@
 <?php  require_once 'inc/log_bdd.php'; 
 
-$id_membre = $_SESSION['membre']['id_membre'];
-$prenom = $_SESSION['membre']['prenom'];
-$nom = $_SESSION['membre']['nom'];
-$pseudo = $_SESSION['membre']['pseudo'];
+// $id_membre = $_SESSION['membre']['id_membre'];
+// $prenom = $_SESSION['membre']['prenom'];
+// $nom = $_SESSION['membre']['nom'];
+// $pseudo = $_SESSION['membre']['pseudo'];
 // 1 RÉCEPTION DES INFORMATIONS D'UNE ANNONCE AVEC $_GET
 // debug($_GET);
 if ( isset($_GET['id_annonce']) ) {
