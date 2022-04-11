@@ -1,4 +1,5 @@
 <?php  require_once 'inc/log_bdd.php'; 
+       require_once 'inc/fonction.php';
 
 // $id_membre = $_SESSION['membre']['id_membre'];
 // $prenom = $_SESSION['membre']['prenom'];
@@ -7,18 +8,18 @@
 // 1 RÉCEPTION DES INFORMATIONS D'UNE ANNONCE AVEC $_GET
 // debug($_GET);
 if ( isset($_GET['id_annonce']) ) {
-  // debug($_GET);
-  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces WHERE id_annonce = :id_annonce " );
+  debug($_GET);
+  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre AND id_annonce = :id_annonce " );
   $annonce->execute(array(
     ':id_annonce' => $_GET['id_annonce']
   ));
-  // debug($annonce->rowCount());
+  debug($annonce->rowCount());
     if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas de produit
         header('location:accueil.php');// redirection vers la page de départ
         exit();// arrêt du script
     }  
     $reserve = $annonce->fetch(PDO::FETCH_ASSOC);//je passe les infos dans une variable
-    // debug($reserve);// ferme if isset accolade suivante
+    debug($reserve);// ferme if isset accolade suivante
     // var_dump($reserve);
     } else {
     header('location:accueil.php');// si j'arrive sur la page sans rien dans l'url
