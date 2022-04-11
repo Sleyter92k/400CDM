@@ -51,7 +51,9 @@
 </div>
 
     <section class="py-5">
+    <h1 class="text-center">Ensemble, main dans la main, l'entraide devient une richesse qui bâtira un monde nouveau, solide et riche.</h1>
       <div class="container px-4 px-lg-5 mt-5">
+      <h2>Les annonces les plus récentes :</h2>
         <div class="row gx-4 gx-lg-5 row-cols- row-cols-md-3 row-cols-xl-4 justify-content-center">
           <?php
             $annonce = $pdoLOG->query ( "SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre ORDER BY id_annonce DESC LIMIT 8 ");
