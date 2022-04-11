@@ -67,9 +67,9 @@ if (!empty($_POST)) {
     <body>
         <?php require_once 'inc/navbar.php'; ?>  
         <section class="row">
-            <?php If(estConnecte()){ ?>
+
                 <div class="col-sm-12 col-md-6 col-lg-4 p-2 m-5 bg-light border border-info mx-auto">
-                        
+                <?php If(estConnecte()){ ?> 
                     <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type">Type de coup de main*</label>
                         <?php echo $prenom; ?>
@@ -145,13 +145,12 @@ if (!empty($_POST)) {
                  <!-- fin col -->
         </section>
         <!-- fin row -->
+        <?php require_once 'inc/footer.php'; ?>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
-
-        <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/script.js"></script>
+
     </body>
 </html>

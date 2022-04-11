@@ -2,7 +2,8 @@
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php'; 
 if (estconnecte()){
-  
+  $id_membre = $_SESSION['membre']['id_membre'];
+  // debug($_SESSION);
 }
 
 if (!estConnecte()) {
@@ -11,6 +12,22 @@ if (!estConnecte()) {
 // if (!estConnecte()) { // accès à la page autorisé quand on est connecté
 //   header('location:connexion.php');
 // }
+
+// 6 SUPPRESSION D'UN MEMBRE
+// debug($_GET);
+if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_membre'])) {
+  $resultat = $pdoLOG->prepare( " DELETE FROM membres WHERE id_membre = :id_membre " );
+
+  $resultat->execute(array(
+    ':id_membre' => $_GET['id_membre']
+  ));
+
+  if ($resultat->rowCount() == 0) {
+    $contenu .= '<div class="alert alert-danger"> Erreur de suppression</div>';
+  } else {
+    $contenu .= '<div class="alert alert-success"> Votre compte a été supprimer</div>';
+  }
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,6 +69,7 @@ if (!estConnecte()) {
                         // echo 'coucou';
                         }   
                       ?>
+                      <a  class="btn btn-danger" href="?action=supprimer&id_membre=<?php echo $id_membre; ?>" onclick="return(confirm('Nous sommes désolés de vous voir partir, confirmez la suppression de votre compte.'))">Supprimez votre compte</a>
                      </div>
                   </div>
                 </div>
@@ -112,7 +130,7 @@ if (!estConnecte()) {
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a href="maj_profil.php?id_membre=<?php echo $_SESSION['membre']['id_membre'] ?>" class="btn btn-danger">Modifier vos informations</a>
+                      <a href="maj_profil.php?id_membre=<?php echo $_SESSION['membre']['id_membre'] ?>" class="btn btn-warning">Modifier vos informations</a>
                     </div>
                   </div>
                 </div>
