@@ -11,6 +11,7 @@ if (!estConnecte()) {
 // if (!estConnecte()) { // accès à la page autorisé quand on est connecté
 //   header('location:connexion.php');
 // }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -116,18 +117,13 @@ if (!estConnecte()) {
                   </div>
                 </div>
               </div>
-
-              
-
-
             </div>
           </div>
         </div>
     </div>
-   <?php require_once 'inc/footer.php'; ?>
 
-<script type="text/javascript">
+<script type="text/javascript"></script>
 
-</script>
+<?php require_once 'inc/footer.php'; ?>
 </body>
 </html>
