@@ -29,27 +29,17 @@
                     <?php
 
                     $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' ; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Informatique/Multimédia'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Maison'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces ORDER BY id_annonce DESC LIMIT 8; ");
-                    
-                         
+
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3 \">";
                     echo "<div class=\"card shadow-sm border border-info\">";
                     echo "<img src=\"$reserve[photo]\" weight=\"200\"  height=\"200\" alt=\"photo d'annonce\">";
-
-                    echo "<div class=\"card-body\">";
+                   echo "<div class=\"card-body\">";
                     echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
                     echo "<p class=\"card-text\">Type d'annonce : " .$reserve['type_de_cdm']. "</p>";
                     echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
                     echo "<div class=\"d-flex justify-content-between align-items-center\">";
                     echo "<div class=\"btn-group\">";
-
-
                     echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
                     echo "</div>";
                     echo "</div>";
@@ -58,13 +48,11 @@
                     echo "</div>";
                     }
                     ?>
-                   
                 </div>
             </div>
         </section>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

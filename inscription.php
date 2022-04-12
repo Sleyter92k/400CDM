@@ -1,10 +1,7 @@
 <?php 
- 
 require_once 'inc/log_bdd.php';
 require_once 'inc/fonction.php';
-
 // debug($_SESSION);
-
 if ( !empty($_POST) ) {
 //   debug($_POST);
 
@@ -64,7 +61,6 @@ if ( !empty($_POST) ) {
               ':mobile' => $_POST['mobile'],
               ':mdp' => $mdp,
           ));
-    
 
           if ($succes) {
               $contenu .='<div class="alert alert-success">Vous êtes bien inscrit à La Boutique ! <br>   <a href="connexion.php">Cliquez ici pour vous connecter</a></div>  ';
@@ -96,15 +92,9 @@ if ( !empty($_POST) ) {
       <link href="css/style.css" rel="stylesheet" />
   </head>
     <body>
-        <!-- =================================== -->
         <!-- navbar -->
-        <!-- =================================== -->
         <?php require_once 'inc/navbar.php'; ?>
-    
-        <!-- =================================== -->
-        <!-- en-tête -->
-        <!-- =================================== -->
-        <!-- fin container header -->
+        <!-- Container -->
         <div class="container mb-4">
 
             <section class="row ">
@@ -142,17 +132,11 @@ if ( !empty($_POST) ) {
                             <button class="btn btn-danger" id="voir">Voir Mot de passe</button>
                         </div>
 
-                        <!-- <div class="col-12">
-                            <label for="confmdp" class="form-label">Confirmez votre mot de passe *</label>
-                            <input type="password" id="confmdp" class="form-control" id="confmdp"  required>
-                        </div> -->
-
                         <div class="col-12">
                             <label for="adresse" class="form-label">Adresse</label>
                             <input type="text" name="adresse" id="adresse" class="form-control" id="adresse" placeholder="votre adresse" required>
                         </div>
 
-                    
                         <div class="col-md-6">
                             <label for="code_postal" class="form-label">Code postal</label>
                             <input type="text" name="code_postal" id="code_postal" class="form-control" id="code_postal" placeholder="code postal"
@@ -169,23 +153,17 @@ if ( !empty($_POST) ) {
                             <input type="tel" name="mobile" id="mobile" class="form-control" id="mobile" placeholder="00.00.00.00.00" required>
                         </div>
 
-
                         <div class="col-12">
                             <button type="submit" id="" class="btn btn-info">S'inscrire</button>
                             <button type="reset" id="" class="btn btn-danger">Effacer</button>
                         </div>
-
                     </form>
                 </div>
-    
             </section>
         </div>
-        
-
         <!-- fin div container -->
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php' ?>
-
         <!-- Optional JavaScript -->
         <script src="js/inscription.js"></script>
         <!-- Bootstrap Bundle with Popper -->

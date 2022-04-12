@@ -1,7 +1,7 @@
 <?php  require_once 'inc/log_bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+    <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="" />
@@ -25,7 +25,6 @@
             <div class="container ">
                  <?php require_once 'inc/menu_annonces.php' ;?>
                 <div class="row gx-4 gx-lg-5 row-cols-12 row-cols-md-3 row-cols-xl-4 justify-content-center ">
-                    
                     <?php
 
                     $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Sport'; ");
@@ -53,13 +52,11 @@
                     echo "</div>";
                     }
                     ?>
-                   
                 </div>
             </div>
         </section>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

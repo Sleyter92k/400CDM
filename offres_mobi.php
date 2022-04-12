@@ -1,7 +1,7 @@
 <?php  require_once 'inc/log_bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+    <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="" />
@@ -28,9 +28,7 @@
                     
                     <?php
 
-                     $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
-                    // $annonce = $pdoLOG->query ( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre; ");
-                    
+                    $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
                             
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3\">";

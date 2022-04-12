@@ -47,28 +47,27 @@ if (!empty($_POST)) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <title>400 Coups de Main</title>
-      <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
-      <!-- Favicon-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
-      <!-- Bootstrap icons-->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-      <!-- Core theme CSS (includes Bootstrap)-->
-      <link href="css/bootstrap.css" rel="stylesheet" />
-      <link href="css/style.css" rel="stylesheet" />
-  </head>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>400 Coups de Main</title>
+    <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
+    <!-- Favicon-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>  
         <section class="container justify-content-center">
-
-                <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto bg-light border border-info ">
+            <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto bg-light border border-info ">
                 <?php If(estConnecte()){ ?>
                     <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type_de_cdm">Type de coup de main*</label>
@@ -87,7 +86,6 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                            
                         <div class="row">
                             <div class="col-12 form-group mt-2">
                                 <label for="titre">Titre *</label>
@@ -134,15 +132,14 @@ if (!empty($_POST)) {
                             <input type="submit" value="Validez" class="btn btn-sm btn-success"> 
                         </div>
                     </form>
-                </div>
-            <?php } else { ?>
+            </div>
+                    <?php } else { ?>
 
-                    <div class=«alert alert-danger»>Connectez-vous pour déposer une annonce ! </div>
-                    <a class="btn btn-info" href="connexion.php">Connexion</a>
+                        <div class=«alert alert-danger»>Connectez-vous pour déposer une annonce ! </div>
+                        <a class="btn btn-info" href="connexion.php">Connexion</a>
 
-            <?php } ?>
-                 <!-- fin col -->
-        </section>
+                    <?php } ?>
+         </section>
         <!-- fin row -->
         <?php require_once 'inc/footer.php'; ?>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

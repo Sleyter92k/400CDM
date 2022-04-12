@@ -1,7 +1,7 @@
 <?php  require_once 'inc/log_bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+    <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="" />
@@ -29,14 +29,7 @@
                     <?php
 
                     $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Bricolage'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Informatique/Multimédia'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Maison'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Sport'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mécanique'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Offre' AND categorie= 'Mobilité/Véhicule'; ");
-                    // $annonce = $pdoLOG->query ( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre; ");
                     
-                            
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3\">";
                     echo "<div class=\"card shadow-sm border border-primary\">";
@@ -56,13 +49,11 @@
                     echo "</div>";
                     }
                     ?>
-                    
                 </div>
             </div>
         </section>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
+        <!--Footer  -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

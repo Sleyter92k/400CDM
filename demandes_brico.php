@@ -19,8 +19,8 @@
       <link href="css/style.css" rel="stylesheet" />
   </head>
     <body>
+        <!-- Navbar -->
         <?php require_once 'inc/navbar.php'; ?>
-        
         <section class="py-5">
             <div class="container ">
                  <?php require_once 'inc/menu_annonces.php' ;?>
@@ -29,11 +29,6 @@
                     <?php
 
                     $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Bricolage'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Informatique/Multimédia'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Maison'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Sport'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Mécanique'; ");
-                    // $annonce = $pdoLOG->query ( "SELECT * FROM annonces WHERE type_de_cdm = 'Demande' AND categorie= 'Mobilité/Véhicule'; ");
                           
                     while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class=\"col mb-3 \">";
@@ -56,13 +51,11 @@
                     echo "</div>";
                     }
                     ?>
-                   
                 </div>
             </div>
         </section>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

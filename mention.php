@@ -1,7 +1,7 @@
-<?php require_once 'inc/fonction.php';  // appel du fichier de fonction 
-      require_once 'inc/log_bdd.php';
+<?php 
+require_once 'inc/fonction.php';  // appel du fichier de fonction 
+require_once 'inc/log_bdd.php';
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>

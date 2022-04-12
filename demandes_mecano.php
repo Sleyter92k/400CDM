@@ -1,23 +1,23 @@
 <?php  require_once 'inc/log_bdd.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <title>400 Coups de Main</title>
-      <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
-      <!-- Favicon-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
-      <!-- Bootstrap icons-->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-      <!-- Core theme CSS (includes Bootstrap)-->
-      <link href="css/bootstrap.css" rel="stylesheet" />
-      <link href="css/style.css" rel="stylesheet" />
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>400 Coups de Main</title>
+        <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
+        <!-- Favicon-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>
         
@@ -42,8 +42,6 @@
                     echo "<p class=\"card-text\">Categorie : ".$reserve['categorie']. "</p>";
                     echo "<div class=\"d-flex justify-content-between align-items-center\">";
                     echo "<div class=\"btn-group\">";
-
-
                     echo "<a href=\"fiche_annonce.php?id_annonce=$reserve[id_annonce]\"  class=\"btn btn-info\">Détails</a>";
                     echo "</div>";
                     echo "</div>";
@@ -57,8 +55,7 @@
             </div>
         </section>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

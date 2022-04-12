@@ -2,20 +2,17 @@
 require_once 'inc/log_bdd.php'; 
 require_once 'inc/fonction.php';
 // debug($_GET);
-
 $message = '';
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si il existe action qui contient 'deconnexion' dans l'url
     unset($_SESSION['membre']); // on supprime le membre de la session (le contenu du tableau indice membre)
     $message = '<div class="alert alert-success">Vous êtes Déconnecté</div>';// message de déconnexion cf echo plus bas
     // debug($_SESSION);
 }
-
 // redirection vers la page profil
  if (estConnecte()) {
   header('location:profil.php');
   exit();
 }
-
 // traitement du formulaire de connexion
   // debug($_POST);
 
@@ -48,53 +45,33 @@ if(!empty($_POST)) {
             }else {
               $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';
             }
-          
-
         }else {
           $contenu .='<div class="alert alert-danger">Erreur sur les identifiants !</div>';
         }
     }
 }
-
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <title>400 Coups de Main</title>
-      <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
-      <!-- Favicon-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
-      <!-- Bootstrap icons-->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-      <!-- Core theme CSS (includes Bootstrap)-->
-      <link href="css/bootstrap.css" rel="stylesheet" />
-      <link href="css/style.css" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>400 Coups de Main</title>
+    <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
+    <!-- Favicon-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">  
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-
-    <!-- =================================== -->
-    <!-- navbar -->
-    <!-- =================================== -->
     <?php require_once 'inc/navbar.php'; ?>
-
-
-    <!-- =================================== -->
-    <!-- en-tête -->
-    <!-- =================================== -->
-
-   
-
-    
     <div class="container mb-4 bg-white">
       <section class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">

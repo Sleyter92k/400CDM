@@ -1,6 +1,6 @@
 <?php  
     require_once 'inc/log_bdd.php';
- 
+
     if (!empty($_POST)) {
     // var_dump($_POST);
     $_POST['objet'] = htmlspecialchars($_POST['objet']);
@@ -29,7 +29,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="" />
       <meta name="author" content="" />
-      <title>400 Coups de Main</title>
+      <title>400CDM-Contact</title>
       <script src="https://kit.fontawesome.com/5ba36090d7.js" crossorigin="anonymous"></script>
       <!-- Favicon-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,25 +42,24 @@
       <link href="css/style.css" rel="stylesheet" />
   </head>
     <body>
+        <!-- Navbar -->
         <?php require_once 'inc/navbar.php'; ?>
-        
+        <!-- Container -->
         <div class="container">
-  <h2 class="text-center">Vous avez une question relative au fonctionnement de notre site ?</h2>
-  <br>
-
-  <h5>Voici une liste de questions-réponses susceptible de répondre à vos besoins</h5>
-  <hr>
-
-<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
-  <h4>Comment déposer une annonce ?</h4>
-  <p>Rendez-vous sur la page <a href="annonce.php">Déposer une annonce</a> pour demander un service, un prêt de matériel ou un don. Vous devez obligatoirement être inscrit sur notre site pour déposer une annonce.</p>
-  <h4>Comment contacter un déposeur d'annonce ?</h4>
-  <p>Le déposeur d'annonce met à disposition ses coordonnées de contact.</p>
-  <h4>Comment supprimer mon compte ?</h4>
-  <p>Depuis votre page <a href="Profil.php">profil</a>, vous pouvez directement supprimer votre compte.</</p>
-  <h4>J'ai fait une erreur lors de mon dêpot d'annonce, j'aimerais modifier les informations.</h4>
-  <p>Depuis votre page <a href="Profil.php">profil</a>, vous pouvez séléctionner l'annonce que vous avez déposer pour le mettre à jour.</p>
-</div>
+            <h2 class="text-center">Vous avez une question relative au fonctionnement de notre site ?</h2>
+            <br>
+            <h5>Voici une liste de questions-réponses susceptible de répondre à vos besoins</h5>
+            <hr>
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+                <h4>Comment déposer une annonce ?</h4>
+                <p>Rendez-vous sur la page <a href="annonce.php">Déposer une annonce</a> pour demander un service, un prêt de matériel ou un don. Vous devez obligatoirement être inscrit sur notre site pour déposer une annonce.</p>
+                <h4>Comment contacter un déposeur d'annonce ?</h4>
+                <p>Le déposeur d'annonce met à disposition ses coordonnées de contact.</p>
+                <h4>Comment supprimer mon compte ?</h4>
+                <p>Depuis votre page <a href="Profil.php">profil</a>, vous pouvez directement supprimer votre compte.</</p>
+                <h4>J'ai fait une erreur lors de mon dêpot d'annonce, j'aimerais modifier les informations.</h4>
+                <p>Depuis votre page <a href="Profil.php">profil</a>, vous pouvez séléctionner l'annonce que vous avez déposer pour le mettre à jour.</p>
+            </div>
             <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto border border-info p-2 m-5">
                 <h2 class="text-center">Contacter le Support</h2>
                 <form action="" method="POST" class="g-3">
@@ -83,17 +82,11 @@
                     <button class="btn btn-primary" id="submit" type="submit">Envoyez</button>
                     <?php echo $contenu ?>
                     </div>
-
-
                 </form>
             </div>
-
-            
         </div>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-        <!-- Section-->
-
+        <!-- Footer -->
         <?php require_once 'inc/footer.php'; ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
