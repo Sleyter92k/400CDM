@@ -4,17 +4,19 @@
 // $id_membre = $_SESSION['membre']['id_membre'];
 // $prenom = $_SESSION['membre']['prenom'];
 // $nom = $_SESSION['membre']['nom'];
-// $pseudo = $_SESSION['membre']['pseudo'];
+$pseudo = $_SESSION['membre']['pseudo'];
+
 // 1 RÉCEPTION DES INFORMATIONS D'UNE ANNONCE AVEC $_GET
 // debug($_GET);
+
 if ( isset($_GET['id_annonce']) ) {
   // debug($_GET);
-  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces, membres WHERE annonces.id_membre = membres.id_membre AND id_annonce = :id_annonce " );
+  $annonce = $pdoLOG->prepare( " SELECT * FROM annonces  WHERE id_annonce = :id_annonce " );
   $annonce->execute(array(
     ':id_annonce' => $_GET['id_annonce']
   ));
   // debug($annonce->rowCount());
-    if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas de produit
+    if ($annonce->rowCount() == 0) { // si le rowCount est égal à 0 c'est qu'il n'y a pas d'annonce
         header('location:accueil.php');// redirection vers la page de départ
         exit();// arrêt du script
     }  
