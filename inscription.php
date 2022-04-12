@@ -24,10 +24,19 @@ if ( !empty($_POST) ) {
   if ( !isset($_POST['pseudo']) || strlen($_POST['pseudo']) < 4 || strlen($_POST['pseudo']) > 20) {
       $contenu .='<div class="alert alert-danger">Votre pseudo doit faire entre 4 et 20 caractères</div>';
   }
+  if(isset($_POST['mdp']) && isset($_POST['confmdp'])) {
+    if(empty($_POST['mdp'])) {
+        $contenu='<div class="alert alert-danger">Le premier champ de mot de passe il est vide</div>';
+    }
 
-  if ( !isset($_POST['mdp']) || strlen($_POST['mdp']) < 4 || strlen($_POST['mdp']) > 20) {
-      $contenu .='<div class="alert alert-danger">Votre mot de passe doit faire entre 4 et 20 caractères</div>';
-  }
+    if(sha1($_POST['mdp']) !== sha1($_POST['confmdp'])) {
+       $contenu= '<div class="alert alert-danger">Les mots de passes ne sont pas identique !</div>';
+    }
+}
+
+//   if ( !isset($_POST['mdp']) || strlen($_POST['mdp']) < 4 || strlen($_POST['mdp']) > 20) {
+//       $contenu .='<div class="alert alert-danger">Votre mot de passe doit faire entre 4 et 20 caractères</div>';
+//   }
   if ( !isset($_POST['adresse']) || strlen($_POST['adresse']) < 4 || strlen($_POST['adresse']) > 50) {
       $contenu .='<div class="alert alert-danger">Votre adresse doit faire entre 4 et 50 caractères</div>';
   }
@@ -46,23 +55,13 @@ if ( !empty($_POST) ) {
       if ($membre->rowCount() > 0) {
           $contenu .='<div class="alert alert-danger">Le pseudo est indisponible veuillez en choisir un autre !</div>';
       } else {
-        $mdp = $_POST['mdp'];
-        $confmdp = $_POST['confmdp'];
-
-        if(isset($mdp) && isset($confmdp)) {
-            if(empty($mdp)) {
-                echo '<div class="alert alert-danger">Le premier champ de mot de passe il est vide</div>';
-            }
-
-            if(sha1($mdp) !== sha1($confmdp)) {
-                echo '<div class="alert alert-danger">Les mots de passes ne sont pas identique !</div>';
-            }
-        } else {
+        
+ 
             
          
 
           $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
-          debug($mdp);
+
           $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mobile, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mobile, :mdp) ",
           array(
               ':prenom' => $_POST['prenom'],
@@ -82,7 +81,7 @@ if ( !empty($_POST) ) {
             $contenu .='<div class="alert alert-danger">Erreur lors de l\'inscription !</div>';
           }
         }
-      }
+      
   }
 }
 
