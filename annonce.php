@@ -81,10 +81,9 @@ if (!empty($_POST)) {
                             <div class="col form-group mt-2">
                                 <select id="type_annonce" name="type_annonce" >
                                     <option value="">---</option>
-                                    <option value="Services">Services</option>
-                                    <option value="Biens">Biens</option>
-                                    <option value="Prêts">Prêts</option>
-                                    <option value="Dons">Dons</option>
+                                    <option value="Services">service</option>
+                                     <option value="Prêts">prêt</option>
+                                    <option value="Dons">don</option>
                                 </select>
                             </div>
                         </div>

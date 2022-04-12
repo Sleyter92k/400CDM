@@ -10,8 +10,8 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="accueil.php">Accueil</a></li>
-                <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="recherche.php">Recherche</a></li>
-                <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="annonce.php">Déposer une annonce</a></li>
+                <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="recherche.php">Trouver</a></li>
+                <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="annonce.php">Proposer</a></li>
                 <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="contact.php">Contact</a></li>
             </ul>
 
