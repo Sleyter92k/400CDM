@@ -63,7 +63,7 @@ if ( isset($_GET['id_annonce']) ) {
           <p class="card-text">Description : <?php echo $reserve['description']; ?></p>
           <p class="card-text">Localisation : <?php echo $reserve['code_postal']; ?> <?php echo $reserve['ville']; ?></p>
           <p class="card-text">Coordonnées : <?php echo $reserve['mobile']; ?>, <?php echo $reserve['mail']; ?></p>
-          <a href="#" class="btn btn-primary">Réservez</a>
+          <!-- <a href="#" class="btn btn-primary">Réservez</a> -->
         </div>
       </section>
     </div>
