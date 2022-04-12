@@ -20,8 +20,8 @@
            </div>
             <div class="col-6 col-lg-2 mb-3">
             <h5>Réseaux Sociaux</h5>
-                <a target="_blank" href="https://www.instagram.com/400cdm/" class="text-white">Instagram <i class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://twitter.com/400_cdm" class="text-white">Twitter <i class="fa-brands fa-twitter"></i></a>
+                <a target="_blank" href="https://www.instagram.com/400cdm/" class="text-white">Instagram<i class="fa-brands fa-instagram"></i></a>
+                <a target="_blank" href="https://twitter.com/400_cdm" class="text-white">Twitter<i class="fa-brands fa-twitter"></i></a>
             </div>
       </div>
     </div>
