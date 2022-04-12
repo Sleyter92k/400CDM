@@ -49,11 +49,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
       <link href="css/bootstrap.css" rel="stylesheet" />
       <link href="css/style.css" rel="stylesheet" />
   </head>
-<body>
-<?php require_once 'inc/navbar.php'; ?>
-<div class="container">
+  <body>
+    <?php require_once 'inc/navbar.php'; ?>
+    <div class="container">
     <div class="main-body">
-    
+
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card border border-primary">
@@ -64,7 +64,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
                       <h4><?php echo $_SESSION['membre']['pseudo']; ?></h4>
                       <p class="text-secondary mb-1">Bienvenue sur votre compte</p>
                       <?php
-                       if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
+                        if(estAdmin()) { // si le membre est 'admin' il n'a pas les mêmes accès qu'un membre 'client'
                         echo '<a class="btn btn-info" href="' .RACINE_SITE. 'admin/accueil.php">Espace admin</a>';
                         // echo 'coucou';
                         }   
@@ -85,7 +85,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
                     <div class="col-sm-9 text-secondary">
                     <?php echo $_SESSION['membre']['prenom'];  ?>
                     <?php echo $_SESSION['membre']['nom'];  ?>
-                     
+                      
                     </div>
                   </div>
                   <hr>
@@ -138,10 +138,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'supprimer' && isset($_GET['id_
             </div>
           </div>
         </div>
-    </div>
+      </div>
 
-<script type="text/javascript"></script>
+    <script type="text/javascript"></script>
 
-<?php require_once 'inc/footer.php'; ?>
-</body>
+    <?php require_once 'inc/footer.php'; ?>
+  </body>
 </html>
