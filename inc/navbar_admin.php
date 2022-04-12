@@ -9,10 +9,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item m-1"><a class="nav-link border border-primary btn btn-outline-primary" href="accueil.php">Accueil Administration</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-info btn btn-outline-light" href="../accueil.php">Retour au site</a></li>
-                        <!-- <li class="nav-item m-1"><a class="nav-link border border-secondary btn btn-outline-light" href="../annonce.php">Gestion des Membres</a></li>
-                        <li class="nav-item m-1"><a class="nav-link border border-success btn btn-outline-light " href="../contact.php">Formulaire de Contact</a></li> -->
+                    <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="accueil.php">Accueil Administration</a></li>
+                    <li class="nav-item m-1"><a class="nav-link border btn btn-outline-info" href="../accueil.php">Retour au site</a></li>
+
                     </ul>
 
                     

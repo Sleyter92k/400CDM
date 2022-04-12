@@ -69,9 +69,9 @@ if (!empty($_POST)) {
         <section class="container justify-content-center">
 
                 <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto bg-light border border-info ">
-                <?php If(estConnecte()){ ?> 
+                <?php If(estConnecte()){ ?>
                     <form action="" method="POST" enctype="multipart/form-data">
-                        <label for="type">Type de coup de main*</label>
+                        <label for="type_de_cdm">Type de coup de main*</label>
                         <?php echo $prenom; ?>
                         <div class="row">
                             <div class=" col form-group mt-2">
@@ -90,7 +90,7 @@ if (!empty($_POST)) {
                             
                         <div class="row">
                             <div class="col-12 form-group mt-2">
-                                <label for="nom">Titre *</label>
+                                <label for="titre">Titre *</label>
                                 <input type="text" name="titre" id="titre" value="" class="form-control" required>
                             </div>
                         </div>

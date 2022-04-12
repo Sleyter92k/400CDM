@@ -48,7 +48,7 @@ require_once '../inc/fonction.php';
       </div>
       <div>
         <h2>Gestion des Annonces</h2>
-        <a href="gestion_annonces.php" class="btn btn-primary">
+        <a href="gestion_annonces.php" class="btn btn-info">
           Annonces
         </a>
       </div>
@@ -60,7 +60,7 @@ require_once '../inc/fonction.php';
       <div>
         <h2>Gestion des Membres</h2>
         
-        <a href="gestion_membres.php" class="btn btn-primary">
+        <a href="gestion_membres.php" class="btn btn-info">
           Membres
         </a>
       </div>
@@ -71,7 +71,7 @@ require_once '../inc/fonction.php';
       </div>
       <div>
         <h2>Demande de Contact</h2>
-        <a href="reponse.php" class="btn btn-primary">
+        <a href="reponse.php" class="btn btn-info">
           Répondre
         </a>
       </div>

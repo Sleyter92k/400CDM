@@ -61,7 +61,7 @@
             while($reserve = $annonce->fetch(PDO::FETCH_ASSOC)) {
             echo "<div class=\"col mb-5\">";
             echo "<div class=\"card shadow-sm border border-info\"> ";
-            echo "<img src=\"$reserve[photo]\" weight=\"200\" height=\"200\" alt=\"photo d'annonce\">";
+            echo "<img src=\"$reserve[photo]\" height=\"200\" alt=\"photo d'annonce\">";
             echo "<div class=\"card-body\">";
             echo "<p class=\"card-title\"> ".$reserve['titre']. "</p>";
              echo "<p class=\"card-text\"> " .$reserve['type_de_cdm']. "</p>";
