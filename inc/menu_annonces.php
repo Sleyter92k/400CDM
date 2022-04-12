@@ -21,7 +21,7 @@
                         
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="demandes.php">Toutes les demandes</a></li>   
-                            <li><a class="dropdown-item" href="demandes_bricolage.php">Bricolage</a></li>
+                            <li><a class="dropdown-item" href="demandes_brico.php">Bricolage</a></li>
                             <li><a class="dropdown-item" href="demandes_info.php">Informatique/Multimédia</a></li>
                             <li><a class="dropdown-item" href="demandes_maison.php">Maison</a></li>
                             <li><a class="dropdown-item" href="demandes_sport.php">Sport</a></li>

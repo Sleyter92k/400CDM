@@ -66,20 +66,20 @@ if (!empty($_POST)) {
   </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>  
-        <section class="row">
+        <section class="container justify-content-center">
 
-                <div class="col-sm-12 col-md-6 col-lg-4 p-2 m-5 bg-light border border-info mx-auto">
+                <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto bg-light border border-info ">
                 <?php If(estConnecte()){ ?> 
                     <form action="" method="POST" enctype="multipart/form-data">
                         <label for="type">Type de coup de main*</label>
                         <?php echo $prenom; ?>
                         <div class="row">
                             <div class=" col form-group mt-2">
-                                <input type="radio" id="offre"  name="type_de_cdm" value="Offre"  > Offre
-                                <input type="radio" id="demande" name="type_de_cdm" value="Demande"> Demande            
+                                <input type="radio" id="offre"  name="type_de_cdm" value="Offre"  required> Offre
+                                <input type="radio" id="demande" name="type_de_cdm" value="Demande"  required> Demande            
                             </div>
                             <div class="col form-group mt-2">
-                                <select id="type_annonce" name="type_annonce" >
+                                <select id="type_annonce" name="type_annonce"  required >
                                     <option value="">---</option>
                                     <option value="Services">service</option>
                                      <option value="Prêts">prêt</option>
@@ -95,7 +95,7 @@ if (!empty($_POST)) {
                             </div>
                         </div>
                         <div class="col- form-group mt-2">
-                            <select id="categorie" name="categorie" >
+                            <select id="categorie" name="categorie"  required >
                                 <option value="">Choisir une catégorie</option>
                                 <option value="Coup de main">Coup de main</option>
                                 <option value="Informatique">Informatique/Multimédia</option>
@@ -110,7 +110,7 @@ if (!empty($_POST)) {
                             
                         <div class="form-group mt-2">
                             <label for="description">Description *</label>
-                            <textarea name="description" id="description" class="form-control"></textarea>
+                            <textarea name="description" id="description" class="form-control"  required></textarea>
                         </div>
                         <div class="col-6 form-group mt-2">
                                 <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
@@ -118,11 +118,11 @@ if (!empty($_POST)) {
                         <div class="row">
                             <div class="col form-group mt-2">
                                 <label for="code_postal">Code postal*</label>
-                                <input type="text" name="code_postal" id="code_postal" value="" class="form-control"> 
+                                <input type="text" name="code_postal" id="code_postal" value="" class="form-control"  required> 
                             </div>
                             <div class="col form-group mt-2">        
                                 <label for="ville">Ville*</label>
-                                <input type="text" name="ville" id="ville" value="" class="form-control"> 
+                                <input type="text" name="ville" id="ville" value="" class="form-control"  required> 
                             </div>
                             
                         </div>
