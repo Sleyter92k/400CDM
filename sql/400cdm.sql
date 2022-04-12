@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 09 avr. 2022 à 21:00
+-- Généré le : mar. 12 avr. 2022 à 18:31
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.28
 
@@ -50,7 +50,11 @@ CREATE TABLE `annonces` (
 INSERT INTO `annonces` (`id_annonce`, `id_membre`, `type_annonce`, `type_de_cdm`, `titre`, `description`, `code_postal`, `ville`, `adresse`, `photo`, `categorie`) VALUES
 (35, 8, 'Services', 'Demande', 'Patrick', 'Test', 92600, 'Asnieres', '10 Rue Picquart', 'photos/patrick2.png', 'Bricolage'),
 (39, 8, 'Prêts', 'Offre', 'Visseuse électrique', 'Mets à disposition une visseuse deviseuse électrique et rechargeable', 75012, 'Paris', 'Place des Antilles', 'photos/cadrage_01.jpg', 'Bricolage'),
-(43, 11, 'Offre', 'Services', 'Aide informatique', 'Soutenance samedi', 75012, 'Paris', 'Place des Antilles', 'photos/camionnette.jpg', '');
+(43, 11, 'Offre', 'Services', 'Aide informatique', 'Soutenance samedi', 75012, 'Paris', 'Place des Antilles', 'photos/camionnette.jpg', ''),
+(58, 21, 'Biens', 'Demande', 'je donne des sous', 'je fais dons', 92150, 'asnieres', 'picquart', 'photos/charte1.png', 'Coup de main'),
+(59, 0, '', 'Offre', 'Test sans var prenom', 'azazazza', 0, 'azazaz', 'azzaz', 'photos/charte6.png', 'Informatique'),
+(60, 8, 'Services', 'Offre', 'Test', 'entrainement', 0, 'azaza', 'azazaz', 'photos/charte6.png', 'Sport'),
+(62, 23, 'Prêts', 'Offre', 'Test requete', 'test requete', 92600, 'asnieres', 'picquart', '', 'Bricolage');
 
 -- --------------------------------------------------------
 
@@ -77,9 +81,8 @@ INSERT INTO `contact` (`id_contact`, `objet`, `nom`, `prenom`, `mail`, `message`
 (3, '4', '', '', 'sleytermonteiro92@protonmail.com', 'Coucou test'),
 (4, '4', '', '', 'sleytermonteiro92@protonmail.com', 'TEST'),
 (5, '5', '', '', 'sleyter@gmail.com', 'TEST MSG'),
-(6, 'AIde', '', '', '', ''),
-(7, 'AIde', '', '', '', ''),
-(8, 'AIde', '', '', '', '');
+(11, 'AIde', '', '', '', ''),
+(12, 'AIde', '', '', 'sleytermonteiro92@protonmail.com', 'J\'aimerai déposer une annonce');
 
 -- --------------------------------------------------------
 
@@ -142,19 +145,19 @@ ALTER TABLE `membres`
 -- AUTO_INCREMENT pour la table `annonces`
 --
 ALTER TABLE `annonces`
-  MODIFY `id_annonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_annonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
