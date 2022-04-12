@@ -7,16 +7,16 @@ $message = '';
 if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si il existe action qui contient 'deconnexion' dans l'url
     unset($_SESSION['membre']); // on supprime le membre de la session (le contenu du tableau indice membre)
     $message = '<div class="alert alert-success">Vous êtes Déconnecté</div>';// message de déconnexion cf echo plus bas
-    debug($_SESSION);
+    // debug($_SESSION);
 }
 
-//3 redirection vers la page profil
+// redirection vers la page profil
  if (estConnecte()) {
   header('location:profil.php');
   exit();
 }
 
-//1 traitement du formulaire de connexion
+// traitement du formulaire de connexion
   // debug($_POST);
 
 if(!empty($_POST)) {
@@ -80,63 +80,46 @@ if(!empty($_POST)) {
       <link href="css/bootstrap.css" rel="stylesheet" />
       <link href="css/style.css" rel="stylesheet" />
   </head>
-    <body>
+  <body>
 
-<!-- =================================== -->
-<!-- navbar -->
-<!-- =================================== -->
-<?php require_once 'inc/navbar.php'; ?>
+    <!-- =================================== -->
+    <!-- navbar -->
+    <!-- =================================== -->
+    <?php require_once 'inc/navbar.php'; ?>
 
 
     <!-- =================================== -->
     <!-- en-tête -->
     <!-- =================================== -->
 
-    <!-- <header class="container-fluid p-4 alert alert-primary">
-        <div class="col-12 text-center">
-            <h1 class="display-4">Connecte-toi à ton profil </h1>
-         
-        </div>
+   
 
-    </header> -->
-
-    <!-- fin container header -->
+    
     <div class="container mb-4 bg-white">
+      <section class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
+          <form action="" method="POST"> 
+            <?php
+            echo $message;
+            echo $contenu;
+            ?>
+            <div class="mb-3">
+              <label for="pseudo"  class="form-label" >Pseudo</label>
+              <input type="text" class="form-control" name="pseudo" id="pseudo">
+              </div>
+            <div class="mb-3">
+              <label for="mdp" class="form-label">Mot de passe</label>
+              <input type="password" name="mdp" class="form-control" id="mdp">
+            </div>
+            <button type="submit" class="btn btn-secondary">Se connecter</button>
 
-<section class="row">
-
-
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 mx-auto">
-     
-    <form action="" method="POST"> 
-    <?php
-    echo $message;
-    echo $contenu;
-    ?>
-  <div class="mb-3">
-    <label for="pseudo"  class="form-label" >Pseudo</label>
-    <input type="text" class="form-control" name="pseudo" id="pseudo">
-  </div>
-  <div class="mb-3">
-    <label for="mdp" class="form-label">Mot de passe</label>
-    <input type="password" name="mdp" class="form-control" id="mdp">
-  </div>
-
-
-  <button type="submit" class="btn btn-secondary">Se connecter</button>
-
-
-
-</form>
-<div class="alert alert-success">Pas encore membre ? 
-   <br>   <a href="inscription.php">Cliquez ici pour vous inscrire!</a></div> 
-    </div>
-
-</section>
-      
+          </form>
+          <div class="alert alert-success">Pas encore membre ? 
+            <br>   <a href="inscription.php">Cliquez ici pour vous inscrire!</a></div> 
+          </div>
+      </section>
     </div>
     <!-- fin div container -->
-
     <?php require_once 'inc/footer.php'; ?>
 
     <!-- Optional JavaScript -->
