@@ -28,13 +28,14 @@ header {
     border-radius: 1px;
 }
 
-a {
-    text-decoration: none;
-}
 
 
 footer {
     background-color: var(--bleu-marine);
+
+        
+        
+        
 }
 
 

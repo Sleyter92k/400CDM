@@ -20,7 +20,6 @@ if (!empty($_POST)) {
     $_POST['adresse'] = htmlspecialchars($_POST['adresse']);
     $_POST['categorie'] = htmlspecialchars($_POST['categorie']);
 
-    debug($_FILES);
     $photo = '';
      if(!empty($_FILES['photo']['name'])) {
         $photo = 'photos/' .$_FILES['photo']['name'];
