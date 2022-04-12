@@ -46,6 +46,21 @@ if ( !empty($_POST) ) {
       if ($membre->rowCount() > 0) {
           $contenu .='<div class="alert alert-danger">Le pseudo est indisponible veuillez en choisir un autre !</div>';
       } else {
+        $mdp = $_POST['mdp'];
+        $confmdp = $_POST['confmdp'];
+
+        if(isset($mdp) && isset($confmdp)) {
+            if(empty($mdp)) {
+                echo '<div class="alert alert-danger">Le premier champ de mot de passe il est vide</div>';
+            }
+
+            if(sha1($mdp) !== sha1($confmdp)) {
+                echo '<div class="alert alert-danger">Les mots de passes ne sont pas identique !</div>';
+            }
+        } else {
+            
+         
+
           $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);//bcrypt
           debug($mdp);
           $succes = executeRequete( " INSERT INTO membres (prenom, nom, civilite, pseudo, mail, adresse, code_postal, ville, mobile, mdp) VALUES (:prenom, :nom, :civilite, :pseudo, :mail, :adresse, :code_postal, :ville, :mobile, :mdp) ",
@@ -61,12 +76,12 @@ if ( !empty($_POST) ) {
               ':mobile' => $_POST['mobile'],
               ':mdp' => $mdp,
           ));
-
           if ($succes) {
-              $contenu .='<div class="alert alert-success">Vous êtes bien inscrit à La Boutique ! <br>   <a href="connexion.php">Cliquez ici pour vous connecter</a></div>  ';
-          } else {
-              $contenu .='<div class="alert alert-danger">Erreur lors de l\'inscription !</div>';
-          }
+            $contenu .='<div class="alert alert-success">Vous êtes bien inscrit à La Boutique ! <br>   <a href="connexion.php">Cliquez ici pour vous connecter</a></div>  ';
+        } else {
+            $contenu .='<div class="alert alert-danger">Erreur lors de l\'inscription !</div>';
+        }
+        }
       }
   }
 }
@@ -130,6 +145,11 @@ if ( !empty($_POST) ) {
                             <label for="mdp" class="form-label">Mot de passe *</label>
                             <input type="password" name="mdp" id="mdp" class="form-control" id="mdp"  required>
                             <button class="btn btn-danger" id="voir">Voir Mot de passe</button>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="confmdp" class="form-label">Confirmez votre mot de passe *</label>
+                            <input type="password" id="confmdp" name="confmdp" class="form-control"  required>
                         </div>
 
                         <div class="col-12">
