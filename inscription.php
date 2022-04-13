@@ -76,7 +76,7 @@ if ( !empty($_POST) ) {
               ':mdp' => $mdp,
           ));
           if ($succes) {
-            $contenu .='<div class="alert alert-success">Vous êtes bien inscrit à La Boutique ! <br>   <a href="connexion.php">Cliquez ici pour vous connecter</a></div>  ';
+            $contenu .='<div class="alert alert-success">Vous êtes bien inscrit à 400cdm ! <br>   <a href="connexion.php">Cliquez ici pour vous connecter</a></div>  ';
         } else {
             $contenu .='<div class="alert alert-danger">Erreur lors de l\'inscription !</div>';
           }
