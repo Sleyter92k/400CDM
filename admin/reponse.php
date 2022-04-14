@@ -50,20 +50,20 @@ $contenu = "";
         <section class="row">
   
           <div class="col-md-12">
+          
             <h2>Les demandes de contact</h2>
             <h5>Il y a <?php echo $contact; ?> demande de contact </h5>
-
+            
             <?php while ( $ligne = $requete->fetch( PDO::FETCH_ASSOC )) { ?>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card mb-2" >
             <div class="card-body">
                 <h5 class="card-title">Objet : <?php echo $ligne['objet']; ?></h5>
-                <p class="card-text">Nom : <?php echo $ligne['nom']; ?></p>
-                <p class="card-text">Prénom : <?php echo $ligne['prenom']; ?></p>
                 <p class="card-text">Message : <?php echo $ligne['message']; ?></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Mail : <?php echo $ligne['mail']; ?></li>
+            </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Répondre</a>
          

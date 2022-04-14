@@ -132,7 +132,7 @@ if ( !empty($_POST) ) {
 
                         <div class="col-12">
                             <label for="mail" class="form-label">Email*</label>
-                            <input type="email" name="mail" id="mail" class="form-control" id="mail" placeholder="nom@email.com" required>
+                            <input type="email" name="mail" id="mail" class="form-control" placeholder="nom@email.com" required>
                         </div>
 
                         <div class="col-12">

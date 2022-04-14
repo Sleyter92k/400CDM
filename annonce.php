@@ -65,7 +65,7 @@ if (!empty($_POST)) {
     </head>
     <body>
         <?php require_once 'inc/navbar.php'; ?>  
-        <section class="container justify-content-center">
+        <section class="container justify-content-center" style="padding: 30px 0px;">
             <div class="row col-12 col-sm-12 col-md-6 col-lg-4 mx-auto bg-light border border-info ">
                 <?php If(estConnecte()){ ?>
                     <form action="" method="POST" enctype="multipart/form-data">
